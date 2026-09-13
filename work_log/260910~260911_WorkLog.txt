@@ -1,0 +1,5 @@
+0. https://cardfolio.idolmaster-official.jp/ 에서 카드폴리오 이미지 다운 요청 및 이미지 디렉토리 생성.
+1. 직접 Project_Plan.txt 작성
+2. CODEX에게 해당 내용을 읽고 Implementation_Plan.txt 작성 지시.
+3. 구현 계획 단계 1~5단계 중 1단계 실행 지시.
+4. Project_Plan과 Implementation_Plan을 바탕으로 README.md와 AGENTS.md 작성 지시.

@@ -1,0 +1,33 @@
+# ===== 빌드 결과물 =====
+dist/
+
+# ===== 의존성 =====
+node_modules/
+
+# ===== Vite 캐시 =====
+.vite/
+
+# ===== 생성 데이터 (npm run build:card-data 로 재생성) =====
+src/data/cards.json
+
+# ===== 카드 이미지 (manifest.json + download-card-images.ps1 로 재다운로드 가능) =====
+images/
+
+# ===== 환경 변수 =====
+.env
+.env.local
+.env.*.local
+
+# ===== OS 잡파일 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== IDE / 에디터 =====
+.vscode/
+.idea/
+*.suo
+*.user
+
+# ===== Antigravity CLI =====
+.gemini/

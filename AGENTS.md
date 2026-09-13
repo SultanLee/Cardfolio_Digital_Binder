@@ -1,0 +1,63 @@
+# Cardfolio 작업 가이드
+
+## 프로젝트 개요
+
+Cardfolio는 아이돌마스터 카드폴리오를 개인적으로 수집·관리하기 위한 React 웹 앱이다. 부스터팩별 카드 목록, 보유 수량과 수집 진척도, 위시 리스트 및 PNG 내보내기를 제공하는 것이 목표다.
+
+현재 기반 단계가 완료되어 있다.
+
+- React + TypeScript + Vite 프로젝트 구성
+- `images/` 아래 20개 팩, 2,370장 WebP 카드 이미지 보관
+- 이미지 폴더에서 `src/data/cards.json`을 생성하는 스크립트 구성
+- Vite 개발 서버와 프로덕션 빌드에서 `/images/...` 경로로 카드 이미지 제공
+
+## 주요 명령어
+
+프로젝트 루트(`Cardfolio/`)에서 실행한다.
+
+```bash
+npm install
+npm run dev
+npm run build:card-data
+npm run typecheck
+npm run build
+npm run preview
+```
+
+카드 이미지 또는 `manifest.json`을 변경했다면 `npm run build:card-data`를 실행해 `src/data/cards.json`을 갱신한다. 기능 변경 후에는 최소 `npm run typecheck`를, 가능하면 `npm run build`까지 실행한다.
+
+## 파일 및 자산 규칙
+
+- `images/<부스터팩 이름>/*.webp`는 공식 카드 이미지 원본이다. 파일명·폴더명 변경, 삭제, 변환은 명시적으로 요청받은 경우에만 수행한다.
+- `manifest.json`은 이미지의 원본 URL·파일명·팩 정보를 담은 수집 목록이다.
+- `src/data/cards.json`은 생성 파일이다. 직접 편집하지 말고 `scripts/build-card-data.ts`를 수정하거나 생성 명령을 실행한다.
+- `vite.config.ts`의 `cardfolio-images` 플러그인은 개발 서버 제공과 `dist/images` 복사를 담당한다. 이미지 경로 정책을 바꿀 때 함께 수정한다.
+- `dist/`, `node_modules/`는 생성물이며 소스 변경 대상으로 다루지 않는다.
+
+## 코드 구조와 확장 방향
+
+```text
+src/
+  app/                 # 라우터·전역 Provider
+  components/          # 재사용 UI: CardGrid, CardTile, QuantityControl 등
+  data/                # 생성 카드 데이터와 팩 메타데이터
+  features/
+    collection/        # 보유 수량·수집 진척도
+    wishlist/          # 위시 리스트·PNG 내보내기
+  hooks/
+  pages/               # CardListPage, WishlistPage
+  stores/              # Zustand 영속 상태
+  styles/
+  types/
+scripts/
+  build-card-data.ts
+```
+
+다음 기능 구현 시 React Router, Zustand의 `persist(localStorage)`, Tailwind CSS, html-to-image를 추가한다. 로그인이나 서버는 첫 버전의 범위 밖이며, 개인 브라우저 저장소를 기본 저장 위치로 사용한다.
+
+## UI·도메인 동작 원칙
+
+- 보유 수량이 1 이상인 카드는 보유 상태다. 0인 카드는 회색조·낮은 불투명도로 표시한다.
+- 진척도는 카드 **종류** 기준이다: 수량이 1 이상인 카드 수 ÷ 해당 팩의 전체 카드 수.
+- 수량 수정은 +/- 버튼과 직접 입력을 모두 지원하고 즉시 영속 저장한다.
+- 위시 리스트는 카드 ID와 목표 수량을 저장한다. PNG 출력에는 카드 이미지와 목표 수량을 명확하게 표시한다.
