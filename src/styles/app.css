@@ -8,6 +8,8 @@
   --text-muted: #6b7280;
   --accent-color: #6366f1;
   --accent-hover: #4f46e5;
+  --accent-glow: rgba(99, 102, 241, 0.35);
+  --success-color: #10b981;
   --border-color: #2e3340;
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -43,7 +45,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(26, 28, 34, 0.85);
+  background: rgba(26, 28, 34, 0.88);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
   padding: 16px 24px;
@@ -109,7 +111,7 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   outline: none;
-  min-width: 240px;
+  min-width: 250px;
 }
 
 .pack-select:hover {
@@ -133,6 +135,19 @@ body {
   color: var(--text-secondary);
 }
 
+optgroup {
+  font-weight: 700;
+  color: #a5b4fc;
+  background-color: var(--bg-secondary);
+}
+
+optgroup option {
+  font-weight: 500;
+  color: var(--text-primary);
+  background-color: var(--bg-card);
+  padding: 6px 10px;
+}
+
 /* 본문 영역 */
 .page-body {
   max-width: 1440px;
@@ -142,37 +157,51 @@ body {
   flex: 1;
 }
 
+/* 팩 대시보드 (헤더, 진척도, 필터 통합 섹션) */
+.pack-dashboard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
 .pack-header-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .pack-info {
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.current-pack-name {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  flex-wrap: wrap;
 }
 
 .pack-category-badge {
   display: inline-flex;
   align-items: center;
-  padding: 3px 10px;
+  padding: 4px 10px;
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
   font-weight: 700;
   background-color: var(--bg-hover);
   color: #e0e7ff;
   border: 1px solid var(--border-color);
+}
+
+.current-pack-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .pack-card-count-badge {
@@ -187,36 +216,159 @@ body {
   border: 1px solid rgba(99, 102, 241, 0.3);
 }
 
-optgroup {
-  font-weight: 700;
-  color: #a5b4fc;
-  background-color: var(--bg-secondary);
+/* 수집 진척도 (CollectionProgress) */
+.collection-progress-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(18, 19, 22, 0.5);
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-optgroup option {
-  font-weight: 500;
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.progress-labels {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-title {
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.progress-counts {
   color: var(--text-primary);
-  background-color: var(--bg-card);
-  padding: 6px 10px;
+}
+
+.progress-counts strong {
+  color: #818cf8;
+  font-size: 1.05rem;
+}
+
+.progress-percent {
+  font-weight: 700;
+  color: #a5b4fc;
+  margin-left: 2px;
+}
+
+.progress-total-owned {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 9px;
+  background-color: #12141a;
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+  border-radius: 9999px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 필터 탭 (CollectionFilter) */
+.collection-filter-wrapper {
+  display: flex;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.collection-filter-group {
+  display: inline-flex;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  gap: 4px;
+}
+
+.filter-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.filter-tab-btn:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+.filter-tab-btn.active {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+.filter-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.25);
+  min-width: 18px;
+  font-weight: 700;
+}
+
+.filter-tab-btn.active .filter-count-badge {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
 }
 
 /* 카드 그리드 */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 16px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .card-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
     gap: 20px;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .card-grid {
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
     gap: 22px;
   }
 }
@@ -229,7 +381,6 @@ optgroup option {
   overflow: hidden;
   box-shadow: var(--shadow-card);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
 }
@@ -237,18 +388,51 @@ optgroup option {
 .card-tile:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(99, 102, 241, 0.5);
 }
 
+/* 보유 / 미보유 상태 스타일 (AGENTS.md 규칙) */
+/* 보유 카드는 풀컬러 및 은은한 테두리 */
+.card-tile.is-owned {
+  border-color: rgba(99, 102, 241, 0.45);
+}
+
+.card-tile.is-owned:hover {
+  border-color: var(--accent-color);
+}
+
+.card-tile.is-owned .card-image {
+  filter: none;
+  opacity: 1;
+}
+
+/* 미보유 카드는 회색조 및 낮은 불투명도 */
+.card-tile.is-unowned {
+  border-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(26, 28, 34, 0.7);
+}
+
+.card-tile.is-unowned .card-image {
+  filter: grayscale(100%);
+  opacity: 0.38;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.card-tile.is-unowned:hover .card-image {
+  opacity: 0.65;
+  filter: grayscale(60%);
+}
+
+/* 카드 이미지 래퍼 (클릭 영역) */
 .card-image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 0.714; /* 대략적인 TCG 카드 종횡비 5:7 */
-  background-color: #16181f;
+  aspect-ratio: 0.714; /* TCG 카드 종횡비 5:7 */
+  background-color: #12141a;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .card-image {
@@ -261,6 +445,35 @@ optgroup option {
 
 .card-image.loaded {
   opacity: 1;
+}
+
+/* 보유 수량 뱃지 (카드 우상단) */
+.card-qty-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 5;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+  animation: badgePop 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* 스켈레톤 로딩 */
@@ -299,30 +512,76 @@ optgroup option {
   gap: 4px;
 }
 
-/* 카드 하단 정보 */
-.card-info {
-  padding: 8px 10px;
-  background-color: var(--bg-card);
+/* 카드 하단 수량 액션 바 (QuantityControl) */
+.card-action-bar {
+  padding: 7px 8px;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.quantity-control {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  justify-content: center;
+  gap: 4px;
 }
 
-.card-number {
-  font-size: 0.75rem;
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 1rem;
   font-weight: 700;
-  color: #a5b4fc;
-  font-family: monospace;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  user-select: none;
 }
 
-.card-name {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.qty-btn:hover:not(:disabled) {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #ffffff;
+}
+
+.qty-btn:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.qty-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.qty-input {
+  width: 44px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -moz-appearance: textfield;
+}
+
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.qty-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
 }
 
 /* 빈 상태 */
@@ -336,8 +595,8 @@ optgroup option {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
   z-index: 100;
   display: flex;
   align-items: center;
@@ -365,7 +624,7 @@ optgroup option {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   width: 32px;
@@ -381,7 +640,7 @@ optgroup option {
 }
 
 .modal-close-button:hover {
-  background: rgba(239, 68, 68, 0.8);
+  background: rgba(239, 68, 68, 0.85);
   border-color: transparent;
 }
 
@@ -421,3 +680,419 @@ optgroup option {
     opacity: 1;
   }
 }
+
+/* ─────────────────────────────────────────
+   글로벌 네비게이션 바 (App.tsx > AppLayout)
+───────────────────────────────────────── */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.global-nav {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: rgba(18, 19, 22, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.global-nav-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.nav-logo-text {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-logo-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .nav-logo-sub {
+    display: inline;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+.nav-link.active {
+  color: #ffffff;
+  background-color: var(--accent-color);
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+.nav-wish-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9999px;
+}
+
+/* ─────────────────────────────────────────
+   카드 타일 위시 버튼 (♡ / ♥)
+───────────────────────────────────────── */
+.card-wish-btn {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  z-index: 5;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.55);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+}
+
+.card-image-wrapper:hover .card-wish-btn {
+  opacity: 1;
+}
+
+.card-wish-btn.is-wished {
+  opacity: 1;
+  color: #f43f5e;
+  border-color: rgba(244, 63, 94, 0.5);
+  background: rgba(244, 63, 94, 0.2);
+}
+
+.card-wish-btn:hover {
+  color: #f43f5e;
+  border-color: rgba(244, 63, 94, 0.5);
+  background: rgba(244, 63, 94, 0.25);
+  transform: scale(1.12);
+}
+
+/* ─────────────────────────────────────────
+   카드 모달 푸터 (위시리스트 버튼)
+───────────────────────────────────────── */
+.modal-footer {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+}
+
+.modal-wishlist-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  justify-content: center;
+}
+
+.modal-wishlist-btn:hover {
+  border-color: #f43f5e;
+  color: #f43f5e;
+  background-color: rgba(244, 63, 94, 0.08);
+}
+
+.modal-wishlist-btn.is-wished {
+  border-color: rgba(244, 63, 94, 0.5);
+  color: #f43f5e;
+  background-color: rgba(244, 63, 94, 0.12);
+}
+
+.modal-wishlist-btn.is-wished:hover {
+  background-color: rgba(244, 63, 94, 0.2);
+}
+
+.modal-wishlist-icon {
+  font-size: 1.1rem;
+}
+
+/* ─────────────────────────────────────────
+   위시리스트 페이지 (WishlistPage)
+───────────────────────────────────────── */
+.wishlist-page {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.wishlist-dashboard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.wishlist-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.wishlist-title-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wishlist-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.wishlist-count-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: rgba(244, 63, 94, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.wishlist-clear-btn {
+  padding: 7px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: transparent;
+  color: #f87171;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.wishlist-clear-btn:hover {
+  background-color: rgba(239, 68, 68, 0.12);
+  border-color: #ef4444;
+}
+
+/* 빈 상태 */
+.wishlist-empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.wishlist-empty-icon {
+  font-size: 3.5rem;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.wishlist-empty-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.wishlist-empty-hint {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  max-width: 360px;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────
+   위시리스트 그리드 (WishlistGrid / WishlistTile)
+───────────────────────────────────────── */
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .wishlist-grid {
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wishlist-grid {
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .wishlist-grid {
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+    gap: 22px;
+  }
+}
+
+.wishlist-tile {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.wishlist-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: #f43f5e;
+}
+
+.wishlist-tile-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 0.714;
+  background-color: #12141a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* 위시리스트 타일 하단 바 */
+.wishlist-tile-footer {
+  padding: 8px 8px 8px;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wishlist-pack-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wishlist-footer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.wishlist-qty-control {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.wishlist-qty-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-right: 2px;
+}
+
+.wishlist-remove-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: transparent;
+  color: #f87171;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.wishlist-remove-btn:hover {
+  background-color: rgba(239, 68, 68, 0.18);
+  border-color: #ef4444;
+}
+

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from '../types/card'
 import { CardTile } from './CardTile'
+import { useCollectionStore } from '../stores/useCollectionStore'
 
 interface CardGridProps {
   cards: Card[]
@@ -8,23 +9,35 @@ interface CardGridProps {
 }
 
 export const CardGrid: React.FC<CardGridProps> = ({ cards, onSelectCard }) => {
+  const quantities = useCollectionStore((state) => state.quantities)
+  const increment = useCollectionStore((state) => state.increment)
+  const decrement = useCollectionStore((state) => state.decrement)
+  const setQuantity = useCollectionStore((state) => state.setQuantity)
+
   if (cards.length === 0) {
     return (
       <div className="empty-state">
-        <p>표시할 카드가 없습니다.</p>
+        <p>조건에 맞는 카드가 없습니다.</p>
       </div>
     )
   }
 
   return (
     <div className="card-grid">
-      {cards.map((card) => (
-        <CardTile
-          key={card.id}
-          card={card}
-          onSelect={onSelectCard}
-        />
-      ))}
+      {cards.map((card) => {
+        const qty = quantities[card.id] ?? 0
+        return (
+          <CardTile
+            key={card.id}
+            card={card}
+            quantity={qty}
+            onSelect={onSelectCard}
+            onIncrement={() => increment(card.id)}
+            onDecrement={() => decrement(card.id)}
+            onSetQuantity={(q) => setQuantity(card.id, q)}
+          />
+        )
+      })}
     </div>
   )
 }

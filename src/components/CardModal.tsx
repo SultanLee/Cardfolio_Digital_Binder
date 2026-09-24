@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Card } from '../types/card'
+import { useWishlistStore } from '../stores/useWishlistStore'
 
 interface CardModalProps {
   card: Card | null
@@ -7,6 +8,9 @@ interface CardModalProps {
 }
 
 export const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
+  const isWished = useWishlistStore((state) => (card ? state.isWished(card.id) : false))
+  const toggleWishlist = useWishlistStore((state) => state.toggleWishlist)
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -40,12 +44,25 @@ export const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
         >
           ✕
         </button>
+
         <div className="modal-image-wrapper">
           <img
             src={card.imagePath}
             alt="카드 상세 이미지"
             className="modal-image"
           />
+        </div>
+
+        {/* 위시리스트 버튼 */}
+        <div className="modal-footer">
+          <button
+            className={`modal-wishlist-btn ${isWished ? 'is-wished' : ''}`}
+            onClick={() => toggleWishlist(card.id)}
+            aria-label={isWished ? '위시 리스트에서 제거' : '위시 리스트에 추가'}
+          >
+            <span className="modal-wishlist-icon">{isWished ? '♥' : '♡'}</span>
+            <span>{isWished ? '위시 리스트에서 제거' : '위시 리스트에 추가'}</span>
+          </button>
         </div>
       </div>
     </div>
