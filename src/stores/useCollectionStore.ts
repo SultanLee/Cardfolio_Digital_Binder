@@ -1,12 +1,17 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
+export type SortMode = 'default' | 'rarity-desc' | 'rarity-asc'
+
 export interface CollectionState {
   // cardId -> 보유 수량 (0 이상 정수)
   quantities: Record<string, number>
   // 마지막으로 선택된 부스터팩 ID
   selectedPackId: string | null
   setSelectedPackId: (packId: string) => void
+  // 카드 정렬 옵션: 'default' | 'rarity-desc' | 'rarity-asc'
+  sortMode: SortMode
+  setSortMode: (mode: SortMode) => void
   getQuantity: (cardId: string) => number
   setQuantity: (cardId: string, quantity: number) => void
   increment: (cardId: string) => void
@@ -19,9 +24,14 @@ export const useCollectionStore = create<CollectionState>()(
     (set, get) => ({
       quantities: {},
       selectedPackId: null,
+      sortMode: 'default',
 
       setSelectedPackId: (packId: string) => {
         set({ selectedPackId: packId })
+      },
+
+      setSortMode: (mode: SortMode) => {
+        set({ sortMode: mode })
       },
 
       getQuantity: (cardId: string) => {

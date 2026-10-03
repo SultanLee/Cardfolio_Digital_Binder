@@ -13,7 +13,9 @@ function cardfolioImages() {
         if (req.url?.startsWith('/images/')) {
           const filePath = resolve(__dirname, req.url.slice(1))
           if (fs.existsSync(filePath)) {
-            res.setHeader('Content-Type', 'image/webp')
+            const ext = filePath.split('.').pop()?.toLowerCase()
+            const contentType = ext === 'png' ? 'image/png' : ext === 'svg' ? 'image/svg+xml' : 'image/webp'
+            res.setHeader('Content-Type', contentType)
             fs.createReadStream(filePath).pipe(res)
             return
           }

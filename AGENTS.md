@@ -8,7 +8,7 @@ Cardfolio는 아이돌마스터 카드폴리오를 개인적으로 수집·관�
 
 - React + TypeScript + Vite 프로젝트 구성
 - React Router 기반 상단 내비게이션 바 및 화면 라우팅 (`/`, `/wishlist`)
-- `images/` 아래 20개 팩, 2,370장 WebP 카드 이미지 보관
+- `images/` 아래 20개 팩, 2,373장 WebP 카드 이미지 보관 및 가공 등급 포함 총 2,814장 카드 데이터 관리
 - 이미지 폴더에서 `src/data/cards.json`을 생성/유지하는 스크립트 구성
 - Vite 개발 서버와 프로덕션 빌드에서 `/images/...` 경로로 카드 이미지 제공 (`cardfolio-images` 플러그인)
 - 20개 팩을 7대 시리즈 순서로 그룹화 및 정렬하여 드롭다운(`<optgroup>`)으로 제공

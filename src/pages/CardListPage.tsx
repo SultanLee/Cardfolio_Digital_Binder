@@ -7,6 +7,8 @@ import { getSortedPacks, groupPacksByCategory } from '../utils/packCategories'
 import { useCollectionStore } from '../stores/useCollectionStore'
 import { CollectionProgress } from '../features/collection/CollectionProgress'
 import { CollectionFilter, FilterMode } from '../features/collection/CollectionFilter'
+import { RaritySummary } from '../features/collection/RaritySummary'
+import { SortMode } from '../stores/useCollectionStore'
 
 interface CardListPageProps {
   data: CardsData
@@ -16,10 +18,13 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
   const sortedPacks = useMemo(() => getSortedPacks(data.packs), [data.packs])
   const [selectedCard, setSelectedCard] = useState<Card | null>(null)
   const [filterMode, setFilterMode] = useState<FilterMode>('all')
+  const [selectedRarity, setSelectedRarity] = useState<string | null>(null)
 
   const quantities = useCollectionStore((state) => state.quantities)
   const storedPackId = useCollectionStore((state) => state.selectedPackId)
   const setStoredPackId = useCollectionStore((state) => state.setSelectedPackId)
+  const sortMode = useCollectionStore((state) => state.sortMode)
+  const setSortMode = useCollectionStore((state) => state.setSortMode)
 
   // 저장된 packId가 유효한 팩인지 확인하고, 유효하지 않다면 첫 번째 팩 사용
   const currentPack = useMemo(() => {
@@ -30,6 +35,11 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
     }
     return sortedPacks[0]
   }, [sortedPacks, storedPackId])
+
+  // 팩이 변경되면 레어도 퀵 필터 초기화
+  React.useEffect(() => {
+    setSelectedRarity(null)
+  }, [currentPack?.id])
 
   // 현재 팩의 카테고리명 찾기
   const currentCategoryName = useMemo(() => {
@@ -64,17 +74,45 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
     }
   }, [currentPack, quantities])
 
-  // 필터 적용된 카드 목록
+  // 필터 및 정렬 적용된 카드 목록
   const displayedCards = useMemo(() => {
     if (!currentPack) return []
+    let list = [...currentPack.cards]
+
+    // 1. 보유 / 미보유 필터링
     if (filterMode === 'owned') {
-      return currentPack.cards.filter((card) => (quantities[card.id] ?? 0) > 0)
+      list = list.filter((card) => (quantities[card.id] ?? 0) > 0)
+    } else if (filterMode === 'unowned') {
+      list = list.filter((card) => (quantities[card.id] ?? 0) === 0)
     }
-    if (filterMode === 'unowned') {
-      return currentPack.cards.filter((card) => (quantities[card.id] ?? 0) === 0)
+
+    // 2. 레어도 퀵 필터링
+    if (selectedRarity) {
+      list = list.filter((card) => card.rarity === selectedRarity)
     }
-    return currentPack.cards
-  }, [currentPack, filterMode, quantities])
+
+    // 3. 카드 등급 정렬
+    if (sortMode === 'rarity-desc') {
+      // 등급 높은 순 (MR/SSR -> N/R)
+      list.sort((a, b) => {
+        const rankDiff = (b.rarityRank ?? 0) - (a.rarityRank ?? 0)
+        if (rankDiff !== 0) return rankDiff
+        return a.sortOrder - b.sortOrder
+      })
+    } else if (sortMode === 'rarity-asc') {
+      // 등급 낮은 순 (N/R -> MR/SSR)
+      list.sort((a, b) => {
+        const rankDiff = (a.rarityRank ?? 0) - (b.rarityRank ?? 0)
+        if (rankDiff !== 0) return rankDiff
+        return a.sortOrder - b.sortOrder
+      })
+    } else {
+      // 기본 순서 (번호순)
+      list.sort((a, b) => a.sortOrder - b.sortOrder)
+    }
+
+    return list
+  }, [currentPack, filterMode, selectedRarity, sortMode, quantities])
 
   return (
     <div className="card-list-page">
@@ -117,8 +155,15 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
                 totalOwnedCount={totalOwnedCount}
               />
 
-              {/* 보유 / 미보유 필터 탭 */}
-              <div className="collection-filter-wrapper">
+              {/* 공식 사이트 스타일: 레어도별 종류수 바 */}
+              <RaritySummary
+                cards={currentPack.cards}
+                selectedRarity={selectedRarity}
+                onSelectRarity={setSelectedRarity}
+              />
+
+              {/* 보유/미보유 필터 탭 & 등급 정렬 컨트롤 */}
+              <div className="collection-controls-bar">
                 <CollectionFilter
                   currentFilter={filterMode}
                   onFilterChange={setFilterMode}
@@ -126,6 +171,24 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
                   ownedCount={ownedUniqueCount}
                   unownedCount={unownedCount}
                 />
+
+                <div className="sort-control-group">
+                  <label htmlFor="card-sort-select" className="sort-label">
+                    정렬
+                  </label>
+                  <div className="sort-select-wrapper">
+                    <select
+                      id="card-sort-select"
+                      className="sort-select"
+                      value={sortMode}
+                      onChange={(e) => setSortMode(e.target.value as SortMode)}
+                    >
+                      <option value="default">기본 순서 (번호순)</option>
+                      <option value="rarity-desc">등급 높은 순</option>
+                      <option value="rarity-asc">등급 낮은 순</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </section>
 

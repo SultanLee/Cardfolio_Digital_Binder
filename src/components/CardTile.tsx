@@ -64,6 +64,17 @@ export const CardTile: React.FC<CardTileProps> = ({
           />
         )}
 
+        {card.rarity && (
+          <div
+            className={`card-rarity-badge rarity-${card.rarity
+              .toLowerCase()
+              .replace('+', '-plus')}`}
+            title={card.rarityName ? `${card.rarity} (${card.rarityName})` : card.rarity}
+          >
+            {card.rarity}
+          </div>
+        )}
+
         {isOwned && (
           <div className="card-qty-badge" title={`보유 수량: ${quantity}`}>
             ×{quantity}
