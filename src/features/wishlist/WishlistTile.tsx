@@ -77,6 +77,17 @@ export const WishlistTile: React.FC<WishlistTileProps> = ({
             onError={() => setHasError(true)}
           />
         )}
+
+        {card.rarity && (
+          <div
+            className={`card-rarity-badge rarity-${card.rarity
+              .toLowerCase()
+              .replace('+', '-plus')}`}
+            title={card.rarityName ? `${card.rarity} (${card.rarityName})` : card.rarity}
+          >
+            {card.rarity}
+          </div>
+        )}
       </div>
 
       {/* 하단 정보 바 */}
