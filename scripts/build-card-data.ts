@@ -425,9 +425,16 @@ const packs = packDirs.map((packName) => {
     })
   }
 
+  // 팩 표시 이름 매핑 (디스크 폴더명과 UI 표시명이 다를 경우)
+  const DISPLAY_NAME_MAP: Record<string, string> = {
+    'プレミアムパック DAY1': 'プレミアムパック MOIW DAY1',
+    'プレミアムパック DAY2': 'プレミアムパック MOIW DAY2',
+  }
+  const displayName = DISPLAY_NAME_MAP[packName] ?? packName
+
   return {
     id: packId,
-    name: packName,
+    name: displayName,
     cards,
   }
 })

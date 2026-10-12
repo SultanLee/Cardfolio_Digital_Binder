@@ -130,4 +130,8 @@
     - 스마트폰 뷰포트에서 카드 및 위시리스트 그리드 2열(`repeat(2, minmax(0, 1fr))`) 최적화
     - 모달 팝업 패딩 및 높이 조정
   - 위시리스트 타일(`WishlistTile.tsx`)에도 카드 타일과 일관되게 좌상단 레어도 뱃지 표시 추가
+  - **프리미엄 팩 명칭 표기 개선**:
+    - `プレミアムパック DAY1` → `プレミアムパック MOIW DAY1`
+    - `プレミアムパック DAY2` → `プレミアムパック MOIW DAY2` 로 UI 표시명 변경 (`scripts/build-card-data.ts`)
+    - 기존 이미지 경로 및 폴더 원본 구조는 보존하면서 메타데이터 표시명 매핑 적용
   - `npm run typecheck` 및 `npm run build` 검증 통과
