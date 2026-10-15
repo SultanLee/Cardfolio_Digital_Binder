@@ -55,7 +55,7 @@ npm run preview
 - `src/data/cards.json`은 생성/유지 파일이다. 직접 편집하지 말고 `scripts/build-card-data.ts`를 수정하거나 생성 명령을 실행한다.
 - `vite.config.ts`의 `cardfolio-images` 플러그인은 개발 서버 제공과 `dist/images` 복사를 담당한다. 이미지 경로 정책을 바꿀 때 함께 수정한다.
 - `dist/`, `node_modules/`는 생성물이며 소스 변경 대상으로 다루지 않는다.
-- 각 로드맵 단계 및 주요 기능 구현 완료 시 진행/완료 내역을 `implementation_log.md`에 반드시 기록하고 최신 상태를 유지한다.
+- 각 로드맵 단계 및 주요 기능 구현 완료 시 진행/완료 내역을 `implementation_log.md`에 반드시 기록하고 최신 상태를 유지한다. (로드맵 5단계 완료 이후의 작업 내용은 '로드맵 이후 추가 구현 및 편의 기능' 등 별도 부제목으로 구분하여 기록한다.)
 
 ## 코드 구조와 확장 방향
 

@@ -5,7 +5,6 @@ import { CardGrid } from '../components/CardGrid'
 import { CardModal } from '../components/CardModal'
 import { getSortedPacks, groupPacksByCategory } from '../utils/packCategories'
 import { useCollectionStore } from '../stores/useCollectionStore'
-import { CollectionProgress } from '../features/collection/CollectionProgress'
 import { CollectionFilter, FilterMode } from '../features/collection/CollectionFilter'
 import { RaritySummary } from '../features/collection/RaritySummary'
 import { SortMode } from '../stores/useCollectionStore'
@@ -116,16 +115,66 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
 
   return (
     <div className="card-list-page">
-      <header className="page-header">
+      <header className="page-header sticky-pack-header">
         <div className="header-content">
-          {sortedPacks.length > 0 && (
-            <PackSelector
-              packs={sortedPacks}
-              selectedPackId={currentPack?.id || ''}
-              onSelectPack={(packId) => {
-                setStoredPackId(packId)
-              }}
-            />
+          <div className="header-pack-row">
+            {/* 좌측: 부스터팩 선택 & 팩 뱃지 */}
+            <div className="header-pack-selector-group">
+              {sortedPacks.length > 0 && (
+                <PackSelector
+                  packs={sortedPacks}
+                  selectedPackId={currentPack?.id || ''}
+                  onSelectPack={(packId) => {
+                    setStoredPackId(packId)
+                  }}
+                />
+              )}
+              {currentPack && currentCategoryName && (
+                <span className="pack-category-badge header-category-badge">
+                  {currentCategoryName}
+                </span>
+              )}
+            </div>
+
+            {/* 우측: 수집 통계 (N / Total종 (Percent%) + 소장 장수) */}
+            {currentPack && (
+              <div className="header-progress-stats">
+                <span className="header-progress-counts">
+                  <strong>{ownedUniqueCount}</strong> / {currentPack.cards.length}종
+                  <span className="header-progress-percent">
+                    {' '}({currentPack.cards.length > 0 ? Math.round((ownedUniqueCount / currentPack.cards.length) * 1000) / 10 : 0}%)
+                  </span>
+                </span>
+                {totalOwnedCount > 0 && (
+                  <span className="header-progress-total-owned" title="중복 포함 총 보유 카드 수">
+                    총 {totalOwnedCount}장 소장
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* 슬림형 진행률 바 트랙 */}
+          {currentPack && (
+            <div
+              className="header-progress-bar-track"
+              role="progressbar"
+              aria-valuenow={currentPack.cards.length > 0 ? Math.round((ownedUniqueCount / currentPack.cards.length) * 1000) / 10 : 0}
+              aria-valuemin={0}
+              aria-valuemax={100}
+            >
+              <div
+                className="header-progress-bar-fill"
+                style={{
+                  width: `${Math.min(
+                    100,
+                    currentPack.cards.length > 0
+                      ? (ownedUniqueCount / currentPack.cards.length) * 100
+                      : 0
+                  )}%`,
+                }}
+              />
+            </div>
           )}
         </div>
       </header>
@@ -134,27 +183,6 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
         {currentPack ? (
           <>
             <section className="pack-dashboard">
-              <div className="pack-header-bar">
-                <div className="pack-info">
-                  {currentCategoryName && (
-                    <span className="pack-category-badge">
-                      {currentCategoryName}
-                    </span>
-                  )}
-                  <h2 className="current-pack-name">{currentPack.name}</h2>
-                  <span className="pack-card-count-badge">
-                    전체 {currentPack.cards.length}장
-                  </span>
-                </div>
-              </div>
-
-              {/* 수집 진척도 프로그레스 바 */}
-              <CollectionProgress
-                totalCount={currentPack.cards.length}
-                ownedUniqueCount={ownedUniqueCount}
-                totalOwnedCount={totalOwnedCount}
-              />
-
               {/* 공식 사이트 스타일: 레어도별 종류수 바 */}
               <RaritySummary
                 cards={currentPack.cards}

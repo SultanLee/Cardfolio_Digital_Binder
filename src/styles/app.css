@@ -16,6 +16,27 @@
   --radius-lg: 14px;
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.3);
   --shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.45);
+  --header-bg: rgba(22, 24, 30, 0.94);
+  --nav-bg: rgba(18, 19, 22, 0.92);
+}
+
+[data-theme='light'] {
+  --bg-primary: #f4f5f8;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-hover: #ebeef5;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --accent-color: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-glow: rgba(79, 70, 229, 0.25);
+  --success-color: #059669;
+  --border-color: #e2e8f0;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.12);
+  --header-bg: rgba(255, 255, 255, 0.94);
+  --nav-bg: rgba(255, 255, 255, 0.92);
 }
 
 * {
@@ -40,25 +61,92 @@ body {
   flex-direction: column;
 }
 
-/* 상단 헤더 */
+/* 상단 헤더 (글로벌 nav 아래 sticky 고정: top 56px) */
 .page-header {
   position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(26, 28, 34, 0.88);
-  backdrop-filter: blur(12px);
+  top: 56px;
+  z-index: 70;
+  background: var(--header-bg);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-color);
-  padding: 16px 24px;
+  padding: 12px 24px 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .header-content {
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header-pack-row {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.header-pack-selector-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.header-category-badge {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  background-color: var(--bg-hover);
+}
+
+.header-progress-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+}
+
+.header-progress-counts {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.header-progress-counts strong {
+  color: #818cf8;
+  font-size: 1.05rem;
+}
+
+.header-progress-percent {
+  color: #a5b4fc;
+  font-weight: 700;
+}
+
+.header-progress-total-owned {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.header-progress-bar-track {
+  width: 100%;
+  height: 6px;
+  background-color: #12141a;
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+  border-radius: 9999px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .title-area {
@@ -700,7 +788,7 @@ optgroup option {
   position: sticky;
   top: 0;
   z-index: 80;
-  background: rgba(18, 19, 22, 0.92);
+  background: var(--nav-bg);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-color);
 }
@@ -743,10 +831,43 @@ optgroup option {
   }
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+/* 테마 토글 버튼 */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
 }
 
 .nav-link {
@@ -1407,7 +1528,23 @@ optgroup option {
   }
 
   .page-header {
-    padding: 12px 16px;
+    padding: 10px 14px 8px;
+  }
+
+  .header-pack-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .header-pack-selector-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header-progress-stats {
+    justify-content: space-between;
+    font-size: 0.82rem;
   }
 
   .page-body,
@@ -1481,6 +1618,106 @@ optgroup option {
   .modal-content {
     max-height: 94vh;
   }
+}
+
+/* ─────────────────────────────────────────
+   라이트 모드 전용 세부 컴포넌트 보정
+───────────────────────────────────────── */
+[data-theme='light'] {
+  color-scheme: light;
+}
+
+[data-theme='light'] .card-tile.is-unowned {
+  background-color: rgba(226, 232, 240, 0.6);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='light'] .card-tile.is-unowned .card-image {
+  opacity: 0.45;
+}
+
+[data-theme='light'] .card-image-wrapper {
+  background-color: #e2e8f0;
+}
+
+[data-theme='light'] .wishlist-tile-image-wrapper {
+  background-color: #e2e8f0;
+}
+
+[data-theme='light'] .card-skeleton {
+  background: linear-gradient(90deg, #e2e8f0 25%, #cbd5e1 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+}
+
+[data-theme='light'] .card-wish-btn {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #64748b;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='light'] .card-wish-btn:hover {
+  background: #ffffff;
+  color: #f43f5e;
+}
+
+[data-theme='light'] .card-rarity-badge {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='light'] .card-rarity-badge.rarity-n {
+  color: #475569;
+}
+
+[data-theme='light'] .rarity-tag.rarity-n {
+  color: #64748b;
+}
+
+[data-theme='light'] .header-category-badge {
+  background-color: #e2e8f0;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+[data-theme='light'] .header-progress-bar-track {
+  background-color: #e2e8f0;
+  border-color: #cbd5e1;
+}
+
+[data-theme='light'] .header-progress-total-owned {
+  background: rgba(0, 0, 0, 0.05);
+  color: #64748b;
+}
+
+[data-theme='light'] .rarity-summary-container {
+  background: rgba(241, 245, 249, 0.8);
+  border-color: #e2e8f0;
+}
+
+[data-theme='light'] optgroup {
+  background-color: #f8fafc;
+  color: #4f46e5;
+}
+
+[data-theme='light'] optgroup option {
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+[data-theme='light'] .modal-content {
+  background-color: #ffffff;
+}
+
+[data-theme='light'] .modal-image-wrapper {
+  background-color: #f1f5f9;
+}
+
+[data-theme='light'] .modal-close-button {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: #cbd5e1;
+  color: #334155;
 }
 
 
