@@ -26,7 +26,7 @@ export const CollectionFilter: React.FC<CollectionFilterProps> = ({
         className={`filter-tab-btn ${currentFilter === 'all' ? 'active' : ''}`}
         onClick={() => onFilterChange('all')}
       >
-        전체 보기
+        전체
         <span className="filter-count-badge">{totalCount}</span>
       </button>
 
@@ -37,7 +37,7 @@ export const CollectionFilter: React.FC<CollectionFilterProps> = ({
         className={`filter-tab-btn ${currentFilter === 'owned' ? 'active' : ''}`}
         onClick={() => onFilterChange('owned')}
       >
-        보유 카드만
+        보유
         <span className="filter-count-badge">{ownedCount}</span>
       </button>
 
@@ -48,7 +48,7 @@ export const CollectionFilter: React.FC<CollectionFilterProps> = ({
         className={`filter-tab-btn ${currentFilter === 'unowned' ? 'active' : ''}`}
         onClick={() => onFilterChange('unowned')}
       >
-        미보유 카드만
+        미보유
         <span className="filter-count-badge">{unownedCount}</span>
       </button>
     </div>

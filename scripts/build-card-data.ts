@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { getCardIdolIds, type CardIdolOrders } from './card-idol-rules'
+import type { Idol, IdolGroup } from '../src/types/idol'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -9,6 +11,91 @@ const projectRoot = path.resolve(__dirname, '..')
 const imagesDir = path.resolve(projectRoot, 'images')
 const outputDir = path.resolve(projectRoot, 'src/data')
 const outputFile = path.resolve(outputDir, 'cards.json')
+const idolData: { idols: Idol[] } = JSON.parse(
+  fs.readFileSync(path.resolve(outputDir, 'idol.json'), 'utf8'),
+)
+const knownIdolIds = new Set(idolData.idols.map((idol) => idol.id))
+// 명부의 직원·교사도 검색하되, 개인 카드의 아이돌 순서에는 포함하지 않는다.
+const performingIdols = idolData.idols.filter((idol) => !idol.isStaff)
+const moiwOrders: Record<string, string[]> = JSON.parse(
+  fs.readFileSync(path.resolve(outputDir, 'moiw-pack-orders.json'), 'utf8'),
+)
+const cinderellaOrders: Record<string, string[]> = JSON.parse(
+  fs.readFileSync(path.resolve(outputDir, 'cinderella-pack-orders.json'), 'utf8'),
+)
+const cinderellaIdolIds = new Set(performingIdols
+  .filter((idol) => idol.series === '아이돌마스터 신데렐라 걸즈').map((idol) => idol.id))
+for (const [packName, order] of Object.entries(cinderellaOrders)) {
+  if (order.some((id) => !cinderellaIdolIds.has(id))) {
+    throw new Error(`신데렐라 걸즈 명부에 없는 아이돌이 포함된 순서입니다: ${packName}`)
+  }
+}
+const sideMVol1UnitNames = [
+  'DRAMATIC STARS', 'Jupiter', 'Altessimo', 'Beit', 'W', 'FRAME', '彩', 'High×Joker',
+]
+const sideMVol1Idols = performingIdols.filter((idol) =>
+  idol.series === '아이돌마스터 SIDE M' && sideMVol1UnitNames.includes(idol.unit ?? ''),
+)
+const sideMVol1Order = sideMVol1Idols.map((idol) => idol.id)
+const sideMVol1Units = sideMVol1UnitNames.map((unit) =>
+  sideMVol1Idols.filter((idol) => idol.unit === unit).map((idol) => idol.id),
+)
+const sideMVol2UnitNames = [
+  '神速一魂', 'Café Parade', 'もふもふえん', 'S.E.M', 'THE 虎牙道', 'F-LAGS', 'Legenders', 'C.FIRST',
+]
+const sideMVol2Idols = performingIdols.filter((idol) =>
+  idol.series === '아이돌마스터 SIDE M' && sideMVol2UnitNames.includes(idol.unit ?? ''),
+)
+const sideMVol2Order = sideMVol2Idols.map((idol) => idol.id)
+const sideMVol2Units = sideMVol2UnitNames.map((unit) =>
+  sideMVol2Idols.filter((idol) => idol.unit === unit).map((idol) => idol.id),
+)
+const gakuenOrder = performingIdols
+  .filter((idol) => idol.series === '학원 아이돌마스터')
+  .map((idol) => idol.id)
+// 현재 명부 순서대로 올스타즈 13인 + 밀리언스타즈 39인을 연결한다.
+// 직원은 위치와 관계없이 제외하고, 다른 시리즈가 추가되어도 섞이지 않게 한다.
+const millionLiveOrder = performingIdols
+  .filter((idol) => (
+    idol.series === '아이돌마스터' || idol.series === '아이돌마스터 밀리언라이브'
+  ))
+  .map((idol) => idol.id)
+const shinyColorsIdols = performingIdols
+  .filter((idol) => idol.series === '아이돌마스터 샤이니 컬러즈')
+const shinyColorsOrder = shinyColorsIdols.map((idol) => idol.id)
+const shinyColorsUnitNames = [
+  '일루미네이션 스타즈', '안티카', '방과 후 클라이맥스 걸즈', '알스트로메리아',
+  '스트레이라이트', '녹칠', '쉬즈', '코메틱',
+]
+const shinyColorsUnits = shinyColorsUnitNames.map((unit) =>
+  shinyColorsIdols.filter((idol) => idol.unit === unit).map((idol) => idol.id),
+)
+const refractionsData: { groups: IdolGroup[] } = JSON.parse(
+  fs.readFileSync(path.resolve(outputDir, 'shiny-refractions.json'), 'utf8'),
+)
+const shinyColorsRefractions = refractionsData.groups.map((group) => group.idolIds)
+
+function validateShinyGroups(groups: readonly (readonly string[])[], count: number, label: string) {
+  const members = groups.flat()
+  if (
+    groups.length !== count || groups.some((group) => group.length === 0) ||
+    members.length !== 28 || new Set(members).size !== 28 ||
+    members.some((id) => !shinyColorsOrder.includes(id))
+  ) {
+    throw new Error(`${label}: ${count}개 그룹에 샤니마스 28인이 중복·누락 없이 포함되어야 합니다.`)
+  }
+}
+
+validateShinyGroups(shinyColorsUnits, 8, '샤이니 컬러즈 기존 유닛')
+validateShinyGroups(shinyColorsRefractions, 7, 'PJ: REFRAC7IONS')
+
+const cardIdolOrders: CardIdolOrders = {
+  moiwOrders,
+  cinderellaOrders,
+  sideMVol1Order, sideMVol1Units,
+  sideMVol2Order, sideMVol2Units,
+  gakuenOrder, millionLiveOrder, shinyColorsOrder, shinyColorsUnits, shinyColorsRefractions,
+}
 
 if (!fs.existsSync(imagesDir)) {
   console.error('images 디렉터리를 찾을 수 없습니다.')
@@ -310,6 +397,12 @@ const packs = packDirs.map((packName) => {
     const imagePath = `/images/${encodeURIComponent(packName)}/${filename}`
     const sourceUrl = `https://cardfolio.idolmaster-official.jp/images/cardlist/${filename}`
     const rarityInfo = getCardRarity(packName, filename)
+    const idolIds = getCardIdolIds(packName, filename, cardIdolOrders)
+    for (const idolId of idolIds ?? []) {
+      if (!knownIdolIds.has(idolId)) {
+        throw new Error(`idol.json에 없는 아이돌 ID입니다: ${idolId} (${packName}/${filename})`)
+      }
+    }
 
     cards.push({
       id: cardId,
@@ -320,6 +413,7 @@ const packs = packDirs.map((packName) => {
       rarity: rarityInfo.rarity,
       rarityName: rarityInfo.rarityName,
       rarityRank: rarityInfo.rarityRank,
+      ...(idolIds ? { idolIds } : {}),
     })
   })
 
@@ -351,6 +445,7 @@ const packs = packDirs.map((packName) => {
           rarity: 'CGR',
           rarityName: 'シンデレラガールズレア',
           rarityRank: 50,
+          ...(rCard.idolIds ? { idolIds: [...rCard.idolIds] } : {}),
         })
       })
     } else {
@@ -365,6 +460,7 @@ const packs = packDirs.map((packName) => {
           rarity: 'BCGR',
           rarityName: 'バーニングシンデレラガールズレア',
           rarityRank: 50,
+          ...(rCard.idolIds ? { idolIds: [...rCard.idolIds] } : {}),
         })
       })
     }
@@ -383,6 +479,7 @@ const packs = packDirs.map((packName) => {
           rarity: 'MR+',
           rarityName: 'マスターレアプラス',
           rarityRank: 70,
+          ...(mrCard.idolIds ? { idolIds: [...mrCard.idolIds] } : {}),
         })
       })
     }
@@ -415,6 +512,7 @@ const packs = packDirs.map((packName) => {
         rarity: 'MLR',
         rarityName: 'ミリオンライブレア',
         rarityRank: 50,
+        ...(srCard.idolIds ? { idolIds: [...srCard.idolIds] } : {}),
       }
     })
 

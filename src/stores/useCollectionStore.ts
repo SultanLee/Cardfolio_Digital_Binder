@@ -9,6 +9,9 @@ export interface CollectionState {
   // 마지막으로 선택된 부스터팩 ID
   selectedPackId: string | null
   setSelectedPackId: (packId: string) => void
+  // 전체 카드, category:<시리즈 ID>, 개별 팩 ID
+  selectedCardScope: string
+  setSelectedCardScope: (value: string) => void
   // 카드 정렬 옵션: 'default' | 'rarity-desc' | 'rarity-asc'
   sortMode: SortMode
   setSortMode: (mode: SortMode) => void
@@ -24,10 +27,18 @@ export const useCollectionStore = create<CollectionState>()(
     (set, get) => ({
       quantities: {},
       selectedPackId: null,
+      selectedCardScope: 'all',
       sortMode: 'default',
 
       setSelectedPackId: (packId: string) => {
-        set({ selectedPackId: packId })
+        set({ selectedPackId: packId, selectedCardScope: packId })
+      },
+
+      setSelectedCardScope: (value: string) => {
+        set({
+          selectedCardScope: value,
+          ...(value.startsWith('pack-') ? { selectedPackId: value } : {}),
+        })
       },
 
       setSortMode: (mode: SortMode) => {

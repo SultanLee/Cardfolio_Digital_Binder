@@ -4,12 +4,14 @@ interface CollectionProgressProps {
   totalCount: number
   ownedUniqueCount: number
   totalOwnedCount: number
+  label?: string
 }
 
 export const CollectionProgress: React.FC<CollectionProgressProps> = ({
   totalCount,
   ownedUniqueCount,
   totalOwnedCount,
+  label = '수집 진척도',
 }) => {
   const percentage =
     totalCount > 0 ? Math.round((ownedUniqueCount / totalCount) * 1000) / 10 : 0
@@ -18,7 +20,7 @@ export const CollectionProgress: React.FC<CollectionProgressProps> = ({
     <div className="collection-progress-container">
       <div className="progress-stats">
         <div className="progress-labels">
-          <span className="progress-title">수집 진척도</span>
+          <span className="progress-title">{label}</span>
           <span className="progress-counts">
             <strong>{ownedUniqueCount}</strong> / {totalCount}종
             <span className="progress-percent"> ({percentage}%)</span>

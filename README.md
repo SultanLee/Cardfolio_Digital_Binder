@@ -15,6 +15,8 @@
 - 팩별 수집 진척도 표시
 - 원하는 카드를 추가하고 목표 수량을 설정하는 위시 리스트
 - 위시 리스트를 카드 이미지와 수량이 담긴 PNG로 내보내기
+- **아이돌 검색**: 전체·시리즈·팩별로 한국어·일본어·영문 이름과 별칭 검색 지원
+- **검색 편의 기능**: 자동완성 목록, 단체 카드 포함·제외 옵션, 로고 클릭 시 전체 카드 화면으로 복귀
 
 ## 기술 구성
 
@@ -43,6 +45,8 @@
 - 카드 이미지는 `images/<부스터팩 이름>/*.webp`에 보관합니다.
 - `npm run build:card-data`는 이미지 폴더를 읽어 `src/data/cards.json`을 생성/유지합니다.
 - 현재 수록된 데이터는 **20개 팩, 2,373장** WebP 카드 이미지 및 가공 등급 포함 총 **2,814장**의 카드로 구성됩니다.
+- `src/data/idol.json`에 아이돌·직원·교사 등 검색용 인물 **347명**의 이름과 별칭을 등록했습니다.
+- **IWSF의 SR·SEC를 제외한 모든 카드의 아이돌 연결을 완료**했습니다.
 
 ## 시작하기
 
@@ -73,22 +77,33 @@ Cardfolio/
 │   └── <부스터팩>/
 ├── public/                    # 파비콘 등 공개 정적 자산
 ├── scripts/
-│   └── build-card-data.ts     # cards.json 생성 스크립트
+│   ├── build-card-data.ts     # cards.json 생성 스크립트
+│   └── card-idol-rules.ts    # 카드별 아이돌 연결 규칙
 ├── src/
 │   ├── app/                   # App 진입점
 │   ├── components/            # 공용 UI (CardGrid, CardTile, CardModal, PackSelector, QuantityControl)
+│   │   └── IdolSearch.tsx     # 아이돌 검색 및 추천 목록
 │   ├── data/
-│   │   └── cards.json         # 생성된 카드 메타데이터 (2,370장)
+│   │   ├── cards.json         # 생성된 카드 메타데이터 (2,814장)
+│   │   ├── idol.json          # 인물 명부 및 검색 별칭
+│   │   ├── idol-search-groups.json      # 신호등 등 검색 그룹
+│   │   ├── cinderella-pack-orders.json # 신데렐라 걸즈 팩별 순서
+│   │   ├── moiw-pack-orders.json        # MOIW 팩별 순서
+│   │   ├── iwsf-pack-order.json         # IWSF 카드 순서
+│   │   └── shiny-refractions.json      # REFRAC7IONS 그룹 구성
 │   ├── features/
 │   │   ├── collection/        # 수집 진척도 및 필터 컴포넌트
-│   │   └── wishlist/          # 위시 리스트·PNG 내보내기 도메인 (예정)
-│   ├── hooks/
-│   ├── pages/                 # 화면 컴포넌트 (CardListPage)
-│   ├── stores/                # Zustand 컬렉션 저장소 (useCollectionStore.ts)
+│   │   └── wishlist/          # 위시 리스트·PNG 내보내기 도메인
+│   ├── pages/                 # 카드 목록·위시 리스트 화면
+│   ├── stores/                # 보유 수량·위시 리스트·테마 저장소
 │   ├── styles/                # UI 스타일시트 (app.css)
-│   ├── types/                 # 타입 정의 (card.ts)
-│   └── utils/                 # 카테고리 분류 등 헬퍼 (packCategories.ts)
+│   ├── types/                 # 카드 및 인물 타입 정의 (card.ts, idol.ts)
+│   └── utils/
+│       ├── packCategories.ts  # 팩 카테고리 분류
+│       ├── cardBrowse.ts      # 검색 범위·필터·정렬·페이지 처리
+│       └── idolSearch.ts      # 이름·별칭·그룹 검색 및 추천
 ├── package.json
+├── implementation_log.md      # 구현 기록
 └── README.md
 ```
 

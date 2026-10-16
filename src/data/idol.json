@@ -1,0 +1,2523 @@
+{
+  "idols": [
+    {
+      "id": "amami-haruka",
+      "nameKo": "아마미 하루카",
+      "nameJa": "天海春香",
+      "aliases": ["하루카", "あまみはるか", "Amami Haruka", "Haruka Amami"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "kisaragi-chihaya",
+      "nameKo": "키사라기 치하야",
+      "nameJa": "如月千早",
+      "aliases": ["치하야", "きさらぎちはや", "Kisaragi Chihaya", "Chihaya Kisaragi"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "hoshii-miki",
+      "nameKo": "호시이 미키",
+      "nameJa": "星井美希",
+      "aliases": ["미키", "ほしいみき", "Hoshii Miki", "Miki Hoshii"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "hagiwara-yukiho",
+      "nameKo": "하기와라 유키호",
+      "nameJa": "萩原雪歩",
+      "aliases": ["유키호", "はぎわらゆきほ", "Hagiwara Yukiho", "Yukiho Hagiwara"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "takatsuki-yayoi",
+      "nameKo": "타카츠키 야요이",
+      "nameJa": "高槻やよい",
+      "aliases": ["야요이", "たかつきやよい", "Takatsuki Yayoi", "Yayoi Takatsuki"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "kikuchi-makoto",
+      "nameKo": "키쿠치 마코토",
+      "nameJa": "菊地真",
+      "aliases": ["마코토", "기쿠치 마코토", "きくちまこと", "Kikuchi Makoto", "Makoto Kikuchi"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "minase-iori",
+      "nameKo": "미나세 이오리",
+      "nameJa": "水瀬伊織",
+      "aliases": ["이오리", "みなせいおり", "Minase Iori", "Iori Minase"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "shijou-takane",
+      "nameKo": "시죠 타카네",
+      "nameJa": "四条貴音",
+      "aliases": ["타카네", "시조 타카네", "しじょうたかね", "Shijou Takane", "Takane Shijou", "Takane Shijo"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "akizuki-ritsuko",
+      "nameKo": "아키즈키 리츠코",
+      "nameJa": "秋月律子",
+      "aliases": ["리츠코", "あきづきりつこ", "Akizuki Ritsuko", "Ritsuko Akizuki"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "miura-azusa",
+      "nameKo": "미우라 아즈사",
+      "nameJa": "三浦あずさ",
+      "aliases": ["아즈사", "みうらあずさ", "Miura Azusa", "Azusa Miura"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "futami-ami",
+      "nameKo": "후타미 아미",
+      "nameJa": "双海亜美",
+      "aliases": ["아미", "ふたみあみ", "Futami Ami", "Ami Futami"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "futami-mami",
+      "nameKo": "후타미 마미",
+      "nameJa": "双海真美",
+      "aliases": ["마미", "ふたみまみ", "Futami Mami", "Mami Futami"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "ganaha-hibiki",
+      "nameKo": "가나하 히비키",
+      "nameJa": "我那覇響",
+      "aliases": ["히비키", "がなはひびき", "Ganaha Hibiki", "Hibiki Ganaha"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "aikawa-chinatsu",
+      "nameKo": "아이카와 치나츠",
+      "nameJa": "相川千夏",
+      "aliases": ["치나츠", "あいかわちなつ", "Aikawa Chinatsu", "Chinatsu Aikawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "aino-nagisa",
+      "nameKo": "아이노 나기사",
+      "nameJa": "愛野渚",
+      "aliases": ["나기사", "あいのなぎさ", "Aino Nagisa", "Nagisa Aino"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "aiba-yumi",
+      "nameKo": "아이바 유미",
+      "nameJa": "相葉夕美",
+      "aliases": ["유미", "あいばゆみ", "Aiba Yumi", "Yumi Aiba"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "aihara-yukino",
+      "nameKo": "아이하라 유키노",
+      "nameJa": "相原雪乃",
+      "aliases": ["유키노", "あいはらゆきの", "Aihara Yukino", "Yukino Aihara"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "akagi-miria",
+      "nameKo": "아카기 미리아",
+      "nameJa": "赤城みりあ",
+      "aliases": ["미리아", "あかぎみりあ", "Akagi Miria", "Miria Akagi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "akanishi-erika",
+      "nameKo": "아카니시 에리카",
+      "nameJa": "赤西瑛梨華",
+      "aliases": ["에리카", "あかにしえりか", "Akanishi Erika", "Erika Akanishi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "asano-fuka",
+      "nameKo": "아사노 후카",
+      "nameJa": "浅野風香",
+      "aliases": ["후카", "あさのふうか", "Asano Fuka", "Fuka Asano", "Asano Fuuka", "Fuuka Asano"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "asari-nanami",
+      "nameKo": "아사리 나나미",
+      "nameJa": "浅利七海",
+      "aliases": ["나나미", "あさりななみ", "Asari Nanami", "Nanami Asari"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "anastasia",
+      "nameKo": "아나스타샤",
+      "nameJa": "アナスタシア",
+      "aliases": ["あなすたしあ", "Anastasia"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "abe-nana",
+      "nameKo": "아베 나나",
+      "nameJa": "安部菜々",
+      "aliases": ["나나", "あべなな", "Abe Nana", "Nana Abe"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ayase-honoka",
+      "nameKo": "아야세 호노카",
+      "nameJa": "綾瀬穂乃香",
+      "aliases": ["호노카", "あやせほのか", "Ayase Honoka", "Honoka Ayase"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "araki-hina",
+      "nameKo": "아라키 히나",
+      "nameJa": "荒木比奈",
+      "aliases": ["히나", "あらきひな", "Araki Hina", "Hina Araki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ariura-kanna",
+      "nameKo": "아리우라 칸나",
+      "nameJa": "有浦柑奈",
+      "aliases": ["칸나", "ありうらかんな", "Ariura Kanna", "Kanna Ariura"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "anzai-miyako",
+      "nameKo": "안자이 미야코",
+      "nameJa": "安斎都",
+      "aliases": ["미야코", "あんざいみやこ", "Anzai Miyako", "Miyako Anzai"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "eve-santaclaus",
+      "nameKo": "이브 산타클로스",
+      "nameJa": "イヴ・サンタクロース",
+      "aliases": ["산타클로스", "いうﾞさんたくろーす", "Eve Santaclaus", "Eve Santa Claus"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "igarashi-kyoko",
+      "nameKo": "이가라시 쿄코",
+      "nameJa": "五十嵐響子",
+      "aliases": ["쿄코", "いがらしきょうこ", "Igarashi Kyoko", "Kyoko Igarashi", "Igarashi Kyouko", "Kyouko Igarashi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ikebukuro-akiha",
+      "nameKo": "이케부쿠로 아키하",
+      "nameJa": "池袋晶葉",
+      "aliases": ["아키하", "いけぶくろあきは", "Ikebukuro Akiha", "Akiha Ikebukuro"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ijuin-megumi",
+      "nameKo": "이쥬인 메구미",
+      "nameJa": "伊集院惠",
+      "aliases": ["메구미", "いじゅういんめぐみ", "Ijuin Megumi", "Megumi Ijuin", "Ijuuin Megumi", "Megumi Ijuuin"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ichinose-shiki",
+      "nameKo": "이치노세 시키",
+      "nameJa": "一ノ瀬志希",
+      "aliases": ["시키", "いちのせしき", "Ichinose Shiki", "Shiki Ichinose"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ichihara-nina",
+      "nameKo": "이치하라 니나",
+      "nameJa": "市原仁奈",
+      "aliases": ["니나", "いちはらにな", "Ichihara Nina", "Nina Ichihara"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "imai-kana",
+      "nameKo": "이마이 카나",
+      "nameJa": "今井加奈",
+      "aliases": ["카나", "いまいかな", "Imai Kana", "Kana Imai"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "imura-setsuna",
+      "nameKo": "이무라 세츠나",
+      "nameJa": "井村雪菜",
+      "aliases": ["세츠나", "いむらせつな", "Imura Setsuna", "Setsuna Imura"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ueda-suzuho",
+      "nameKo": "우에다 스즈호",
+      "nameJa": "上田鈴帆",
+      "aliases": ["스즈호", "うえだすずほ", "Ueda Suzuho", "Suzuho Ueda"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ujiie-mutsumi",
+      "nameKo": "우지이에 무츠미",
+      "nameJa": "氏家むつみ",
+      "aliases": ["무츠미", "うじいえむつみ", "Ujiie Mutsumi", "Mutsumi Ujiie"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "umeki-otoha",
+      "nameKo": "우메키 오토하",
+      "nameJa": "梅木音葉",
+      "aliases": ["오토하", "うめきおとは", "Umeki Otoha", "Otoha Umeki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "egami-tsubaki",
+      "nameKo": "에가미 츠바키",
+      "nameJa": "江上椿",
+      "aliases": ["츠바키", "えがみつばき", "Egami Tsubaki", "Tsubaki Egami"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "eto-misaki",
+      "nameKo": "에토 미사키",
+      "nameJa": "衛藤美紗希",
+      "aliases": ["미사키", "えとうみさき", "Eto Misaki", "Misaki Eto", "Etou Misaki", "Misaki Etou"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ebihara-naho",
+      "nameKo": "에비하라 나호",
+      "nameJa": "海老原菜帆",
+      "aliases": ["나호", "えびはらなほ", "Ebihara Naho", "Naho Ebihara"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "oikawa-shizuku",
+      "nameKo": "오이카와 시즈쿠",
+      "nameJa": "及川雫",
+      "aliases": ["시즈쿠", "おいかわしずく", "Oikawa Shizuku", "Shizuku Oikawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ohishi-izumi",
+      "nameKo": "오오이시 이즈미",
+      "nameJa": "大石泉",
+      "aliases": ["이즈미", "おおいしいずみ", "Ohishi Izumi", "Izumi Ohishi", "Oishi Izumi", "Izumi Oishi", "Ooishi Izumi", "Izumi Ooishi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ohta-yuu",
+      "nameKo": "오오타 유우",
+      "nameJa": "太田優",
+      "aliases": ["유우", "おおたゆう", "Ohta Yuu", "Yuu Ohta", "Ota Yuu", "Yuu Ota", "Oota Yuu", "Yuu Oota", "Ohta Yu", "Yu Ohta"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ohtsuki-yui",
+      "nameKo": "오오츠키 유이",
+      "nameJa": "大槻唯",
+      "aliases": ["유이", "おおつきゆい", "Ohtsuki Yui", "Yui Ohtsuki", "Otsuki Yui", "Yui Otsuki", "Ootsuki Yui", "Yui Ootsuki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ohnishi-yuriko",
+      "nameKo": "오오니시 유리코",
+      "nameJa": "大西由里子",
+      "aliases": ["유리코", "おおにしゆりこ", "Ohnishi Yuriko", "Yuriko Ohnishi", "Onishi Yuriko", "Yuriko Onishi", "Oonishi Yuriko", "Yuriko Oonishi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ohnuma-kurumi",
+      "nameKo": "오오누마 쿠루미",
+      "nameJa": "大沼くるみ",
+      "aliases": ["쿠루미", "おおぬまくるみ", "Ohnuma Kurumi", "Kurumi Ohnuma", "Onuma Kurumi", "Kurumi Onuma", "Oonuma Kurumi", "Kurumi Oonuma"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ohara-michiru",
+      "nameKo": "오오하라 미치루",
+      "nameJa": "大原みちる",
+      "aliases": ["미치루", "おおはらみちる", "Ohara Michiru", "Michiru Ohara", "Oohara Michiru", "Michiru Oohara"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "okazaki-yasuha",
+      "nameKo": "오카자키 야스하",
+      "nameJa": "岡崎泰葉",
+      "aliases": ["야스하", "おかざきやすは", "Okazaki Yasuha", "Yasuha Okazaki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ogata-chieri",
+      "nameKo": "오가타 치에리",
+      "nameJa": "緒方智絵里",
+      "aliases": ["치에리", "おがたちえり", "Ogata Chieri", "Chieri Ogata"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "okuyama-saori",
+      "nameKo": "오쿠야마 사오리",
+      "nameJa": "奥山沙織",
+      "aliases": ["사오리", "おくやまさおり", "Okuyama Saori", "Saori Okuyama"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "otokura-yuuki",
+      "nameKo": "오토쿠라 유우키",
+      "nameJa": "乙倉悠貴",
+      "aliases": ["유우키", "おとくらゆうき", "Otokura Yuuki", "Yuuki Otokura", "Otokura Yuki", "Yuki Otokura"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "katagiri-sanae",
+      "nameKo": "카타기리 사나에",
+      "nameJa": "片桐早苗",
+      "aliases": ["사나에", "かたぎりさなえ", "Katagiri Sanae", "Sanae Katagiri"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kamijo-haruna",
+      "nameKo": "카미죠 하루나",
+      "nameJa": "上条春菜",
+      "aliases": ["하루나", "かみじょうはるな", "Kamijo Haruna", "Haruna Kamijo", "Kamijou Haruna", "Haruna Kamijou"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kamiya-nao",
+      "nameKo": "카미야 나오",
+      "nameJa": "神谷奈緒",
+      "aliases": ["나오", "かみやなお", "Kamiya Nao", "Nao Kamiya"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kawashima-mizuki",
+      "nameKo": "카와시마 미즈키",
+      "nameJa": "川島瑞樹",
+      "aliases": ["미즈키", "かわしまみずき", "Kawashima Mizuki", "Mizuki Kawashima"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kanzaki-ranko",
+      "nameKo": "칸자키 란코",
+      "nameJa": "神崎蘭子",
+      "aliases": ["란코", "かんざきらんこ", "Kanzaki Ranko", "Ranko Kanzaki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kishibe-ayaka",
+      "nameKo": "키시베 아야카",
+      "nameJa": "岸部彩華",
+      "aliases": ["아야카", "きしべあやか", "Kishibe Ayaka", "Ayaka Kishibe"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kita-hinako",
+      "nameKo": "키타 히나코",
+      "nameJa": "喜多日菜子",
+      "aliases": ["히나코", "きたひなこ", "Kita Hinako", "Hinako Kita"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kitagawa-mahiro",
+      "nameKo": "키타가와 마히로",
+      "nameJa": "北川真尋",
+      "aliases": ["마히로", "きたがわまひろ", "Kitagawa Mahiro", "Mahiro Kitagawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kitami-yuzu",
+      "nameKo": "키타미 유즈",
+      "nameJa": "喜多見柚",
+      "aliases": ["유즈", "きたみゆず", "Kitami Yuzu", "Yuzu Kitami"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kiba-manami",
+      "nameKo": "키바 마나미",
+      "nameJa": "木場真奈美",
+      "aliases": ["마나미", "きばまなみ", "Kiba Manami", "Manami Kiba"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kimura-natsuki",
+      "nameKo": "키무라 나츠키",
+      "nameJa": "木村夏樹",
+      "aliases": ["나츠키", "きむらなつき", "Kimura Natsuki", "Natsuki Kimura"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "cathy-graham",
+      "nameKo": "캐시 그라함",
+      "nameJa": "キャシー・グラハム",
+      "aliases": ["그라함", "きゃしーぐらはむ", "Cathy Graham"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kirino-aya",
+      "nameKo": "키리노 아야",
+      "nameJa": "桐野アヤ",
+      "aliases": ["아야", "きりのあや", "Kirino Aya", "Aya Kirino"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kiryu-tsukasa",
+      "nameKo": "키류 츠카사",
+      "nameJa": "桐生つかさ",
+      "aliases": ["츠카사", "きりゅうつかさ", "Kiryu Tsukasa", "Tsukasa Kiryu", "Kiryuu Tsukasa", "Tsukasa Kiryuu"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kusakabe-wakaba",
+      "nameKo": "쿠사카베 와카바",
+      "nameJa": "日下部若葉",
+      "aliases": ["와카바", "くさかべわかば", "Kusakabe Wakaba", "Wakaba Kusakabe"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kudo-shinobu",
+      "nameKo": "쿠도 시노부",
+      "nameJa": "工藤忍",
+      "aliases": ["시노부", "くどうしのぶ", "Kudo Shinobu", "Shinobu Kudo", "Kudou Shinobu", "Shinobu Kudou"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "clarice",
+      "nameKo": "클라리스",
+      "nameJa": "クラリス",
+      "aliases": ["くらりす", "Clarice"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kurihara-nene",
+      "nameKo": "쿠리하라 네네",
+      "nameJa": "栗原ネネ",
+      "aliases": ["네네", "くりはらねね", "Kurihara Nene", "Nene Kurihara"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kurokawa-chiaki",
+      "nameKo": "쿠로카와 치아키",
+      "nameJa": "黒川千秋",
+      "aliases": ["치아키", "くろかわちあき", "Kurokawa Chiaki", "Chiaki Kurokawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kurosaki-chitose",
+      "nameKo": "쿠로사키 치토세",
+      "nameJa": "黒埼ちとせ",
+      "aliases": ["치토세", "くろさきちとせ", "Kurosaki Chitose", "Chitose Kurosaki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kate",
+      "nameKo": "케이트",
+      "nameJa": "ケイト",
+      "aliases": ["けいと", "Kate"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "koga-koharu",
+      "nameKo": "코가 코하루",
+      "nameJa": "古賀小春",
+      "aliases": ["코하루", "こがこはる", "Koga Koharu", "Koharu Koga"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "koshimizu-sachiko",
+      "nameKo": "코시미즈 사치코",
+      "nameJa": "輿水幸子",
+      "aliases": ["사치코", "こしみずさちこ", "Koshimizu Sachiko", "Sachiko Koshimizu"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "koseki-reina",
+      "nameKo": "코세키 레이나",
+      "nameJa": "小関麗奈",
+      "aliases": ["레이나", "こせきれいな", "Koseki Reina", "Reina Koseki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kobayakawa-sae",
+      "nameKo": "코바야카와 사에",
+      "nameJa": "小早川紗枝",
+      "aliases": ["사에", "こばやかわさえ", "Kobayakawa Sae", "Sae Kobayakawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kohinata-miho",
+      "nameKo": "코히나타 미호",
+      "nameJa": "小日向美穂",
+      "aliases": ["미호", "こひなたみほ", "Kohinata Miho", "Miho Kohinata"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "komatsu-ibuki",
+      "nameKo": "코마츠 이부키",
+      "nameJa": "小松伊吹",
+      "aliases": ["이부키", "こまついぶき", "Komatsu Ibuki", "Ibuki Komatsu"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "komuro-chinami",
+      "nameKo": "코무로 치나미",
+      "nameJa": "小室千奈美",
+      "aliases": ["치나미", "こむろちなみ", "Komuro Chinami", "Chinami Komuro"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "saionji-kotoka",
+      "nameKo": "사이온지 코토카",
+      "nameJa": "西園寺琴歌",
+      "aliases": ["코토카", "さいおんじことか", "Saionji Kotoka", "Kotoka Saionji"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "zaizen-tokiko",
+      "nameKo": "자이젠 토키코",
+      "nameJa": "財前時子",
+      "aliases": ["토키코", "ざいぜんときこ", "Zaizen Tokiko", "Tokiko Zaizen"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "saito-yoko",
+      "nameKo": "사이토 요코",
+      "nameJa": "斉藤洋子",
+      "aliases": ["요코", "さいとうようこ", "Saito Yoko", "Yoko Saito", "Saitou Youko", "Youko Saitou"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "saejima-kiyomi",
+      "nameKo": "사에지마 키요미",
+      "nameJa": "冴島清美",
+      "aliases": ["키요미", "さえじまきよみ", "Saejima Kiyomi", "Kiyomi Saejima"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "sakakibara-satomi",
+      "nameKo": "사카키바라 사토미",
+      "nameJa": "榊原里美",
+      "aliases": ["사토미", "さかきばらさとみ", "Sakakibara Satomi", "Satomi Sakakibara"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "sagisawa-fumika",
+      "nameKo": "사기사와 후미카",
+      "nameJa": "鷺沢文香",
+      "aliases": ["후미카", "さぎさわふみか", "Sagisawa Fumika", "Fumika Sagisawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "sakuma-mayu",
+      "nameKo": "사쿠마 마유",
+      "nameJa": "佐久間まゆ",
+      "aliases": ["마유", "さくままゆ", "Sakuma Mayu", "Mayu Sakuma"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "sakurai-momoka",
+      "nameKo": "사쿠라이 모모카",
+      "nameJa": "櫻井桃華",
+      "aliases": ["모모카", "さくらいももか", "Sakurai Momoka", "Momoka Sakurai"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "sasaki-chie",
+      "nameKo": "사사키 치에",
+      "nameJa": "佐々木千枝",
+      "aliases": ["치에", "ささきちえ", "Sasaki Chie", "Chie Sasaki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "sajo-yukimi",
+      "nameKo": "사죠 유키미",
+      "nameJa": "佐城雪美",
+      "aliases": ["유키미", "さじょうゆきみ", "Sajo Yukimi", "Yukimi Sajo", "Sajou Yukimi", "Yukimi Sajou"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "sato-shin",
+      "nameKo": "사토 신",
+      "nameJa": "佐藤心",
+      "aliases": ["신", "さとうしん", "Sato Shin", "Shin Sato", "Satou Shin", "Shin Satou"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "sawada-marina",
+      "nameKo": "사와다 마리나",
+      "nameJa": "沢田麻理菜",
+      "aliases": ["마리나", "さわだまりな", "Sawada Marina", "Marina Sawada"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "shiina-noriko",
+      "nameKo": "시이나 노리코",
+      "nameJa": "椎名法子",
+      "aliases": ["노리코", "しいなのりこ", "Shiina Noriko", "Noriko Shiina"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "shiomi-shuko",
+      "nameKo": "시오미 슈코",
+      "nameJa": "塩見周子",
+      "aliases": ["슈코", "しおみしゅうこ", "Shiomi Shuko", "Shuko Shiomi", "Shiomi Shuuko", "Shuuko Shiomi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "shinohara-rei",
+      "nameKo": "시노하라 레이",
+      "nameJa": "篠原礼",
+      "aliases": ["레이", "しのはられい", "Shinohara Rei", "Rei Shinohara"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "shibuya-rin",
+      "nameKo": "시부야 린",
+      "nameJa": "渋谷凛",
+      "aliases": ["린", "しぶやりん", "Shibuya Rin", "Rin Shibuya"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "shimamura-uzuki",
+      "nameKo": "시마무라 우즈키",
+      "nameJa": "島村卯月",
+      "aliases": ["우즈키", "しまむらうづき", "Shimamura Uzuki", "Uzuki Shimamura"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "shuto-aoi",
+      "nameKo": "슈토 아오이",
+      "nameJa": "首藤葵",
+      "aliases": ["아오이", "しゅとうあおい", "Shuto Aoi", "Aoi Shuto", "Shutou Aoi", "Aoi Shutou"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "jougasaki-mika",
+      "nameKo": "죠가사키 미카",
+      "nameJa": "城ヶ崎美嘉",
+      "aliases": ["미카", "じょうがさきみか", "Jougasaki Mika", "Mika Jougasaki", "Jogasaki Mika", "Mika Jogasaki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "jougasaki-rika",
+      "nameKo": "죠가사키 리카",
+      "nameJa": "城ヶ崎莉嘉",
+      "aliases": ["리카", "じょうがさきりか", "Jougasaki Rika", "Rika Jougasaki", "Jogasaki Rika", "Rika Jogasaki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "shiragiku-hotaru",
+      "nameKo": "시라기쿠 호타루",
+      "nameJa": "白菊ほたる",
+      "aliases": ["호타루", "しらぎくほたる", "Shiragiku Hotaru", "Hotaru Shiragiku"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "shirasaka-koume",
+      "nameKo": "시라사카 코우메",
+      "nameJa": "白坂小梅",
+      "aliases": ["코우메", "しらさかこうめ", "Shirasaka Koume", "Koume Shirasaka", "Shirasaka Kome", "Kome Shirasaka"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "shirayuki-chiyo",
+      "nameKo": "시라유키 치요",
+      "nameJa": "白雪千夜",
+      "aliases": ["치요", "しらゆきちよ", "Shirayuki Chiyo", "Chiyo Shirayuki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "sugisaka-umi",
+      "nameKo": "스기사카 우미",
+      "nameJa": "杉坂海",
+      "aliases": ["우미", "すぎさかうみ", "Sugisaka Umi", "Umi Sugisaka"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "suzumiya-seika",
+      "nameKo": "스즈미야 세이카",
+      "nameJa": "涼宮星花",
+      "aliases": ["세이카", "すずみやせいか", "Suzumiya Seika", "Seika Suzumiya"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "sunazuka-akira",
+      "nameKo": "스나즈카 아키라",
+      "nameJa": "砂塚あきら",
+      "aliases": ["아키라", "すなづかあきら", "Sunazuka Akira", "Akira Sunazuka"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "seki-hiromi",
+      "nameKo": "세키 히로미",
+      "nameJa": "関裕美",
+      "aliases": ["히로미", "せきひろみ", "Seki Hiromi", "Hiromi Seki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "sena-shiori",
+      "nameKo": "세나 시오리",
+      "nameJa": "瀬名詩織",
+      "aliases": ["시오리", "せなしおり", "Sena Shiori", "Shiori Sena"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "senzaki-ema",
+      "nameKo": "센자키 에마",
+      "nameJa": "仙崎恵磨",
+      "aliases": ["에마", "せんざきえま", "Senzaki Ema", "Ema Senzaki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "soma-natsumi",
+      "nameKo": "소마 나츠미",
+      "nameJa": "相馬夏美",
+      "aliases": ["나츠미", "そうまなつみ", "Soma Natsumi", "Natsumi Soma", "Souma Natsumi", "Natsumi Souma"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "takagaki-kaede",
+      "nameKo": "타카가키 카에데",
+      "nameJa": "高垣楓",
+      "aliases": ["카에데", "たかがきかえで", "Takagaki Kaede", "Kaede Takagaki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "takahashi-reiko",
+      "nameKo": "타카하시 레이코",
+      "nameJa": "高橋礼子",
+      "aliases": ["레이코", "たかはしれいこ", "Takahashi Reiko", "Reiko Takahashi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "takafuji-kako",
+      "nameKo": "타카후지 카코",
+      "nameJa": "鷹富士茄子",
+      "aliases": ["카코", "たかふじかこ", "Takafuji Kako", "Kako Takafuji"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "takamine-noa",
+      "nameKo": "타카미네 노아",
+      "nameJa": "高峯のあ",
+      "aliases": ["노아", "たかみねのあ", "Takamine Noa", "Noa Takamine"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "takamori-aiko",
+      "nameKo": "타카모리 아이코",
+      "nameJa": "高森藍子",
+      "aliases": ["아이코", "たかもりあいこ", "Takamori Aiko", "Aiko Takamori"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "tada-riina",
+      "nameKo": "타다 리이나",
+      "nameJa": "多田李衣菜",
+      "aliases": ["리이나", "ただりいな", "Tada Riina", "Riina Tada", "Tada Rina", "Rina Tada"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "tachibana-arisu",
+      "nameKo": "타치바나 아리스",
+      "nameJa": "橘ありす",
+      "aliases": ["아리스", "たちばなありす", "Tachibana Arisu", "Arisu Tachibana"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "tsukimiya-miyabi",
+      "nameKo": "츠키미야 미야비",
+      "nameJa": "月宮雅",
+      "aliases": ["미야비", "つきみやみやび", "Tsukimiya Miyabi", "Miyabi Tsukimiya"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "tsujino-akari",
+      "nameKo": "츠지노 아카리",
+      "nameJa": "辻野あかり",
+      "aliases": ["아카리", "つじのあかり", "Tsujino Akari", "Akari Tsujino"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "tsuchiya-ako",
+      "nameKo": "츠치야 아코",
+      "nameJa": "土屋亜子",
+      "aliases": ["아코", "つちやあこ", "Tsuchiya Ako", "Ako Tsuchiya"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "togo-ai",
+      "nameKo": "토고 아이",
+      "nameJa": "東郷あい",
+      "aliases": ["아이", "とうごうあい", "Togo Ai", "Ai Togo", "Tougou Ai", "Ai Tougou"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "domyoji-karin",
+      "nameKo": "도묘지 카린",
+      "nameJa": "道明寺歌鈴",
+      "aliases": ["카린", "どうみょうじかりん", "Domyoji Karin", "Karin Domyoji", "Doumyouji Karin", "Karin Doumyouji"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "totoki-airi",
+      "nameKo": "토토키 아이리",
+      "nameJa": "十時愛梨",
+      "aliases": ["아이리", "とときあいり", "Totoki Airi", "Airi Totoki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "nagatomi-hasumi",
+      "nameKo": "나가토미 하스미",
+      "nameJa": "長富蓮実",
+      "aliases": ["하스미", "ながとみはすみ", "Nagatomi Hasumi", "Hasumi Nagatomi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "nakano-yuka",
+      "nameKo": "나카노 유카",
+      "nameJa": "中野有香",
+      "aliases": ["유카", "なかのゆか", "Nakano Yuka", "Yuka Nakano"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "natalia",
+      "nameKo": "나탈리아",
+      "nameJa": "ナターリア",
+      "aliases": ["なたーりあ", "Natalia"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "namiki-meiko",
+      "nameKo": "나미키 메이코",
+      "nameJa": "並木芽衣子",
+      "aliases": ["메이코", "なみきめいこ", "Namiki Meiko", "Meiko Namiki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "narumiya-yume",
+      "nameKo": "나루미야 유메",
+      "nameJa": "成宮由愛",
+      "aliases": ["유메", "なるみやゆめ", "Narumiya Yume", "Yume Narumiya"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "nanjo-hikaru",
+      "nameKo": "난죠 히카루",
+      "nameJa": "南条光",
+      "aliases": ["히카루", "なんじょうひかる", "Nanjo Hikaru", "Hikaru Nanjo", "Nanjou Hikaru", "Hikaru Nanjou"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "namba-emi",
+      "nameKo": "난바 에미",
+      "nameJa": "難波笑美",
+      "aliases": ["에미", "なんばえみ", "Namba Emi", "Emi Namba"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "nishikawa-honami",
+      "nameKo": "니시카와 호나미",
+      "nameJa": "西川保奈美",
+      "aliases": ["호나미", "にしかわほなみ", "Nishikawa Honami", "Honami Nishikawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "nishijima-kai",
+      "nameKo": "니시지마 카이",
+      "nameJa": "西島櫂",
+      "aliases": ["카이", "にしじまかい", "Nishijima Kai", "Kai Nishijima"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "nitta-minami",
+      "nameKo": "닛타 미나미",
+      "nameJa": "新田美波",
+      "aliases": ["미나미", "にったみなみ", "Nitta Minami", "Minami Nitta"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ninomiya-asuka",
+      "nameKo": "니노미야 아스카",
+      "nameJa": "二宮飛鳥",
+      "aliases": ["아스카", "にのみやあすか", "Ninomiya Asuka", "Asuka Ninomiya"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "niwa-hitomi",
+      "nameKo": "니와 히토미",
+      "nameJa": "丹羽仁美",
+      "aliases": ["히토미", "にわひとみ", "Niwa Hitomi", "Hitomi Niwa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "nonomura-sora",
+      "nameKo": "노노무라 소라",
+      "nameJa": "野々村そら",
+      "aliases": ["소라", "ののむらそら", "Nonomura Sora", "Sora Nonomura"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hattori-toko",
+      "nameKo": "핫토리 토코",
+      "nameJa": "服部瞳子",
+      "aliases": ["토코", "はっとりとうこ", "Hattori Toko", "Toko Hattori", "Hattori Touko", "Touko Hattori"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hamakawa-ayuna",
+      "nameKo": "하마카와 아유나",
+      "nameJa": "浜川愛結奈",
+      "aliases": ["아유나", "はまかわあゆな", "Hamakawa Ayuna", "Ayuna Hamakawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hamaguchi-ayame",
+      "nameKo": "하마구치 아야메",
+      "nameJa": "浜口あやめ",
+      "aliases": ["아야메", "はまぐちあやめ", "Hamaguchi Ayame", "Ayame Hamaguchi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hayasaka-mirei",
+      "nameKo": "하야사카 미레이",
+      "nameJa": "早坂美玲",
+      "aliases": ["미레이", "はやさかみれい", "Hayasaka Mirei", "Mirei Hayasaka"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hayami-kanade",
+      "nameKo": "하야미 카나데",
+      "nameJa": "速水奏",
+      "aliases": ["카나데", "はやみかなで", "Hayami Kanade", "Kanade Hayami"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "harada-miyo",
+      "nameKo": "하라다 미요",
+      "nameJa": "原田美世",
+      "aliases": ["미요", "はらだみよ", "Harada Miyo", "Miyo Harada"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hiiragi-shino",
+      "nameKo": "히이라기 시노",
+      "nameJa": "柊志乃",
+      "aliases": ["시노", "ひいらぎしの", "Hiiragi Shino", "Shino Hiiragi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hisakawa-nagi",
+      "nameKo": "히사카와 나기",
+      "nameJa": "久川凪",
+      "aliases": ["나기", "ひさかわなぎ", "Hisakawa Nagi", "Nagi Hisakawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hisakawa-hayate",
+      "nameKo": "히사카와 하야테",
+      "nameJa": "久川颯",
+      "aliases": ["하야테", "ひさかわはやて", "Hisakawa Hayate", "Hayate Hisakawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hino-akane",
+      "nameKo": "히노 아카네",
+      "nameJa": "日野茜",
+      "aliases": ["아카네", "ひのあかね", "Hino Akane", "Akane Hino"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "himekawa-yuki",
+      "nameKo": "히메카와 유키",
+      "nameJa": "姫川友紀",
+      "aliases": ["유키", "ひめかわゆき", "Himekawa Yuki", "Yuki Himekawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hyodo-rena",
+      "nameKo": "효도 레나",
+      "nameJa": "兵藤レナ",
+      "aliases": ["레나", "ひょうどうれな", "Hyodo Rena", "Rena Hyodo", "Hyoudou Rena", "Rena Hyoudou"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "fukuyama-mai",
+      "nameKo": "후쿠야마 마이",
+      "nameJa": "福山舞",
+      "aliases": ["마이", "ふくやままい", "Fukuyama Mai", "Mai Fukuyama"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "fujii-tomo",
+      "nameKo": "후지이 토모",
+      "nameJa": "藤居朋",
+      "aliases": ["토모", "ふじいとも", "Fujii Tomo", "Tomo Fujii"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "fujimoto-rina",
+      "nameKo": "후지모토 리나",
+      "nameJa": "藤本里奈",
+      "aliases": ["리나", "ふじもとりな", "Fujimoto Rina", "Rina Fujimoto"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "fujiwara-hajime",
+      "nameKo": "후지와라 하지메",
+      "nameJa": "藤原肇",
+      "aliases": ["하지메", "ふじわらはじめ", "Fujiwara Hajime", "Hajime Fujiwara"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "futaba-anzu",
+      "nameKo": "후타바 안즈",
+      "nameJa": "双葉杏",
+      "aliases": ["안즈", "ふたばあんず", "Futaba Anzu", "Anzu Futaba"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "furusawa-yoriko",
+      "nameKo": "후루사와 요리코",
+      "nameJa": "古澤頼子",
+      "aliases": ["요리코", "ふるさわよりこ", "Furusawa Yoriko", "Yoriko Furusawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "helen",
+      "nameKo": "헬렌",
+      "nameJa": "ヘレン",
+      "aliases": ["へれん", "Helen"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hojo-karen",
+      "nameKo": "호죠 카렌",
+      "nameJa": "北条加蓮",
+      "aliases": ["카렌", "ほうじょうかれん", "Hojo Karen", "Karen Hojo", "Houjou Karen", "Karen Houjou"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hoshi-shoko",
+      "nameKo": "호시 쇼코",
+      "nameJa": "星輝子",
+      "aliases": ["쇼코", "ほししょうこ", "Hoshi Shoko", "Shoko Hoshi", "Hoshi Shouko", "Shouko Hoshi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "hori-yuko",
+      "nameKo": "호리 유코",
+      "nameJa": "堀裕子",
+      "aliases": ["유코", "ほりゆうこ", "Hori Yuko", "Yuko Hori", "Hori Yuuko", "Yuuko Hori"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "honda-mio",
+      "nameKo": "혼다 미오",
+      "nameJa": "本田未央",
+      "aliases": ["미오", "ほんだみお", "Honda Mio", "Mio Honda"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "maekawa-miku",
+      "nameKo": "마에카와 미쿠",
+      "nameJa": "前川みく",
+      "aliases": ["미쿠", "まえかわみく", "Maekawa Miku", "Miku Maekawa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "makihara-shiho",
+      "nameKo": "마키하라 시호",
+      "nameJa": "槙原志保",
+      "aliases": ["시호", "まきはらしほ", "Makihara Shiho", "Shiho Makihara"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "matsuo-chizuru",
+      "nameKo": "마츠오 치즈루",
+      "nameJa": "松尾千鶴",
+      "aliases": ["치즈루", "まつおちづる", "Matsuo Chizuru", "Chizuru Matsuo"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "matsunaga-ryo",
+      "nameKo": "마츠나가 료",
+      "nameJa": "松永涼",
+      "aliases": ["료", "まつながりょう", "Matsunaga Ryo", "Ryo Matsunaga", "Matsunaga Ryou", "Ryou Matsunaga"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "matsubara-saya",
+      "nameKo": "마츠바라 사야",
+      "nameJa": "松原早耶",
+      "aliases": ["사야", "まつばらさや", "Matsubara Saya", "Saya Matsubara"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "matsumoto-sarina",
+      "nameKo": "마츠모토 사리나",
+      "nameJa": "松本沙理奈",
+      "aliases": ["사리나", "まつもとさりな", "Matsumoto Sarina", "Sarina Matsumoto"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "matsuyama-kumiko",
+      "nameKo": "마츠야마 쿠미코",
+      "nameJa": "松山久美子",
+      "aliases": ["쿠미코", "まつやまくみこ", "Matsuyama Kumiko", "Kumiko Matsuyama"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "matoba-risa",
+      "nameKo": "마토바 리사",
+      "nameJa": "的場梨沙",
+      "aliases": ["리사", "まとばりさ", "Matoba Risa", "Risa Matoba"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "manaka-misato",
+      "nameKo": "마나카 미사토",
+      "nameJa": "間中美里",
+      "aliases": ["미사토", "まなかみさと", "Manaka Misato", "Misato Manaka"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "manabe-itsuki",
+      "nameKo": "마나베 이츠키",
+      "nameJa": "真鍋いつき",
+      "aliases": ["이츠키", "まなべいつき", "Manabe Itsuki", "Itsuki Manabe"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "mizuki-seira",
+      "nameKo": "미즈키 세이라",
+      "nameJa": "水木聖來",
+      "aliases": ["세이라", "みずきせいら", "Mizuki Seira", "Seira Mizuki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "mizuno-midori",
+      "nameKo": "미즈노 미도리",
+      "nameJa": "水野翠",
+      "aliases": ["미도리", "みずのみどり", "Mizuno Midori", "Midori Mizuno"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "mizumoto-yukari",
+      "nameKo": "미즈모토 유카리",
+      "nameJa": "水本ゆかり",
+      "aliases": ["유카리", "みずもとゆかり", "Mizumoto Yukari", "Yukari Mizumoto"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "mifune-miyu",
+      "nameKo": "미후네 미유",
+      "nameJa": "三船美優",
+      "aliases": ["미유", "みふねみゆ", "Mifune Miyu", "Miyu Mifune"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "mimura-kanako",
+      "nameKo": "미무라 카나코",
+      "nameJa": "三村かな子",
+      "aliases": ["카나코", "みむらかなこ", "Mimura Kanako", "Kanako Mimura"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "miyamoto-frederica",
+      "nameKo": "미야모토 프레데리카",
+      "nameJa": "宮本フレデリカ",
+      "aliases": ["프레데리카", "みやもとふれでりか", "Miyamoto Frederica", "Frederica Miyamoto", "Miyamoto Frederika", "Frederika Miyamoto"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "miyoshi-sana",
+      "nameKo": "미요시 사나",
+      "nameJa": "三好紗南",
+      "aliases": ["사나", "みよしさな", "Miyoshi Sana", "Sana Miyoshi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "mukai-takumi",
+      "nameKo": "무카이 타쿠미",
+      "nameJa": "向井拓海",
+      "aliases": ["타쿠미", "むかいたくみ", "Mukai Takumi", "Takumi Mukai"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "munakata-atsumi",
+      "nameKo": "무나카타 아츠미",
+      "nameJa": "棟方愛海",
+      "aliases": ["아츠미", "むなかたあつみ", "Munakata Atsumi", "Atsumi Munakata"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "murakami-tomoe",
+      "nameKo": "무라카미 토모에",
+      "nameJa": "村上巴",
+      "aliases": ["토모에", "むらかみともえ", "Murakami Tomoe", "Tomoe Murakami"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "muramatsu-sakura",
+      "nameKo": "무라마츠 사쿠라",
+      "nameJa": "村松さくら",
+      "aliases": ["사쿠라", "むらまつさくら", "Muramatsu Sakura", "Sakura Muramatsu"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "mary-cochran",
+      "nameKo": "메어리 코크란",
+      "nameJa": "メアリー・コクラン",
+      "aliases": ["코크란", "めありーこくらん", "Mary Cochran"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "mochida-arisa",
+      "nameKo": "모치다 아리사",
+      "nameJa": "持田亜里沙",
+      "aliases": ["아리사", "もちだありさ", "Mochida Arisa", "Arisa Mochida"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "mochizuki-hijiri",
+      "nameKo": "모치즈키 히지리",
+      "nameJa": "望月聖",
+      "aliases": ["히지리", "もちづきひじり", "Mochizuki Hijiri", "Hijiri Mochizuki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "momoi-azuki",
+      "nameKo": "모모이 아즈키",
+      "nameJa": "桃井あずき",
+      "aliases": ["아즈키", "ももいあずき", "Momoi Azuki", "Azuki Momoi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "morikubo-nono",
+      "nameKo": "모리쿠보 노노",
+      "nameJa": "森久保乃々",
+      "aliases": ["노노", "もりくぼのの", "Morikubo Nono", "Nono Morikubo"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "moroboshi-kirari",
+      "nameKo": "모로보시 키라리",
+      "nameJa": "諸星きらり",
+      "aliases": ["키라리", "もろぼしきらり", "Moroboshi Kirari", "Kirari Moroboshi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yao-fueifuei",
+      "nameKo": "야오 페이페이",
+      "nameJa": "楊菲菲",
+      "aliases": ["페이페이", "やおふぇいふぇい", "Yao Fueifuei", "Fueifuei Yao", "Yao Feifei", "Feifei Yao"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yagami-makino",
+      "nameKo": "야가미 마키노",
+      "nameJa": "八神マキノ",
+      "aliases": ["마키노", "やがみまきの", "Yagami Makino", "Makino Yagami"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yaguchi-miu",
+      "nameKo": "야구치 미우",
+      "nameJa": "矢口美羽",
+      "aliases": ["미우", "やぐちみう", "Yaguchi Miu", "Miu Yaguchi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yanagi-kiyora",
+      "nameKo": "야나기 키요라",
+      "nameJa": "柳清良",
+      "aliases": ["키요라", "やなぎきよら", "Yanagi Kiyora", "Kiyora Yanagi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yanase-miyuki",
+      "nameKo": "야나세 미유키",
+      "nameJa": "柳瀬美由紀",
+      "aliases": ["미유키", "やなせみゆき", "Yanase Miyuki", "Miyuki Yanase"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yamato-aki",
+      "nameKo": "야마토 아키",
+      "nameJa": "大和亜季",
+      "aliases": ["아키", "やまとあき", "Yamato Aki", "Aki Yamato"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yuuki-haru",
+      "nameKo": "유우키 하루",
+      "nameJa": "結城晴",
+      "aliases": ["하루", "ゆうきはる", "Yuuki Haru", "Haru Yuuki", "Yuki Haru", "Haru Yuki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yusa-kozue",
+      "nameKo": "유사 코즈에",
+      "nameJa": "遊佐こずえ",
+      "aliases": ["코즈에", "ゆさこずえ", "Yusa Kozue", "Kozue Yusa"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yumemi-riamu",
+      "nameKo": "유메미 리아무",
+      "nameJa": "夢見りあむ",
+      "aliases": ["리아무", "ゆめみりあむ", "Yumemi Riamu", "Riamu Yumemi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yokoyama-chika",
+      "nameKo": "요코야마 치카",
+      "nameJa": "横山千佳",
+      "aliases": ["치카", "よこやまちか", "Yokoyama Chika", "Chika Yokoyama"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yoshioka-saki",
+      "nameKo": "요시오카 사키",
+      "nameJa": "吉岡沙紀",
+      "aliases": ["사키", "よしおかさき", "Yoshioka Saki", "Saki Yoshioka"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "yorita-yoshino",
+      "nameKo": "요리타 요시노",
+      "nameJa": "依田芳乃",
+      "aliases": ["요시노", "よりたよしの", "Yorita Yoshino", "Yoshino Yorita"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "layla",
+      "nameKo": "라이라",
+      "nameJa": "ライラ",
+      "aliases": ["らいら", "Layla"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "ryuzaki-kaoru",
+      "nameKo": "류자키 카오루",
+      "nameJa": "龍崎薫",
+      "aliases": ["카오루", "りゅうざきかおる", "Ryuzaki Kaoru", "Kaoru Ryuzaki", "Ryuuzaki Kaoru", "Kaoru Ryuuzaki"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "wakabayashi-tomoka",
+      "nameKo": "와카바야시 토모카",
+      "nameJa": "若林智香",
+      "aliases": ["토모카", "わかばやしともか", "Wakabayashi Tomoka", "Tomoka Wakabayashi"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "wakiyama-tamami",
+      "nameKo": "와키야마 타마미",
+      "nameJa": "脇山珠美",
+      "aliases": ["타마미", "わきやまたまみ", "Wakiyama Tamami", "Tamami Wakiyama"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "wakui-rumi",
+      "nameKo": "와쿠이 루미",
+      "nameJa": "和久井留美",
+      "aliases": ["루미", "わくいるみ", "Wakui Rumi", "Rumi Wakui"],
+      "series": "아이돌마스터 신데렐라 걸즈"
+    },
+    {
+      "id": "kasuga-mirai",
+      "nameKo": "카스가 미라이",
+      "nameJa": "春日未来",
+      "aliases": ["미라이", "かすがみらい", "Kasuga Mirai", "Mirai Kasuga"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "mogami-shizuka",
+      "nameKo": "모가미 시즈카",
+      "nameJa": "最上静香",
+      "aliases": ["시즈카", "もがみしずか", "Mogami Shizuka", "Shizuka Mogami"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "ibuki-tsubasa",
+      "nameKo": "이부키 츠바사",
+      "nameJa": "伊吹翼",
+      "aliases": ["츠바사", "いぶきつばさ", "Ibuki Tsubasa", "Tsubasa Ibuki"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "tanaka-kotoha",
+      "nameKo": "타나카 코토하",
+      "nameJa": "田中琴葉",
+      "aliases": ["코토하", "たなかことは", "Tanaka Kotoha", "Kotoha Tanaka"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "shimabara-elena",
+      "nameKo": "시마바라 엘레나",
+      "nameJa": "島原エレナ",
+      "aliases": ["엘레나", "しまばらえれな", "Shimabara Elena", "Elena Shimabara"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "satake-minako",
+      "nameKo": "사타케 미나코",
+      "nameJa": "佐竹美奈子",
+      "aliases": ["미나코", "さたけみなこ", "Satake Minako", "Minako Satake"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "tokoro-megumi",
+      "nameKo": "토코로 메구미",
+      "nameJa": "所恵美",
+      "aliases": ["메구미", "ところめぐみ", "Tokoro Megumi", "Megumi Tokoro"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "tokugawa-matsuri",
+      "nameKo": "토쿠가와 마츠리",
+      "nameJa": "徳川まつり",
+      "aliases": ["마츠리", "とくがわまつり", "Tokugawa Matsuri", "Matsuri Tokugawa"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "hakozaki-serika",
+      "nameKo": "하코자키 세리카",
+      "nameJa": "箱崎星梨花",
+      "aliases": ["세리카", "はこざきせりか", "Hakozaki Serika", "Serika Hakozaki"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "nonohara-akane",
+      "nameKo": "노노하라 아카네",
+      "nameJa": "野々原茜",
+      "aliases": ["아카네", "ののはらあかね", "Nonohara Akane", "Akane Nonohara"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "mochizuki-anna",
+      "nameKo": "모치즈키 안나",
+      "nameJa": "望月杏奈",
+      "aliases": ["안나", "もちづきあんな", "Mochizuki Anna", "Anna Mochizuki"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "roco",
+      "nameKo": "로코",
+      "nameJa": "ロコ",
+      "aliases": ["ろこ", "Roco"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "nanao-yuriko",
+      "nameKo": "나나오 유리코",
+      "nameJa": "七尾百合子",
+      "aliases": ["유리코", "ななおゆりこ", "Nanao Yuriko", "Yuriko Nanao"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "takayama-sayoko",
+      "nameKo": "타카야마 사요코",
+      "nameJa": "高山紗代子",
+      "aliases": ["사요코", "たかやまさよこ", "Takayama Sayoko", "Sayoko Takayama"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "matsuda-arisa",
+      "nameKo": "마츠다 아리사",
+      "nameJa": "松田亜利沙",
+      "aliases": ["아리사", "まつだありさ", "Matsuda Arisa", "Arisa Matsuda"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "kousaka-umi",
+      "nameKo": "코사카 우미",
+      "nameJa": "高坂海美",
+      "aliases": ["우미", "코우사카 우미", "こうさかうみ", "Kousaka Umi", "Umi Kousaka", "Kosaka Umi", "Umi Kosaka"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "nakatani-iku",
+      "nameKo": "나카타니 이쿠",
+      "nameJa": "中谷育",
+      "aliases": ["이쿠", "なかたにいく", "Nakatani Iku", "Iku Nakatani"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "tenkubashi-tomoka",
+      "nameKo": "텐쿠바시 토모카",
+      "nameJa": "天空橋朋花",
+      "aliases": ["토모카", "텐쿠우바시 토모카", "てんくうばしともか", "Tenkubashi Tomoka", "Tomoka Tenkubashi", "Tenkuubashi Tomoka", "Tomoka Tenkuubashi"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "emily-stewart",
+      "nameKo": "에밀리 스튜어트",
+      "nameJa": "エミリースチュアート",
+      "aliases": ["에밀리", "えみりーすちゅあーと", "Emily Stewart"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "kitazawa-shiho",
+      "nameKo": "키타자와 시호",
+      "nameJa": "北沢志保",
+      "aliases": ["시호", "きたざわしほ", "Kitazawa Shiho", "Shiho Kitazawa"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "maihama-ayumu",
+      "nameKo": "마이하마 아유무",
+      "nameJa": "舞浜歩",
+      "aliases": ["아유무", "まいはまあゆむ", "Maihama Ayumu", "Ayumu Maihama"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "kinoshita-hinata",
+      "nameKo": "키노시타 히나타",
+      "nameJa": "木下ひなた",
+      "aliases": ["히나타", "きのしたひなた", "Kinoshita Hinata", "Hinata Kinoshita"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "yabuki-kana",
+      "nameKo": "야부키 카나",
+      "nameJa": "矢吹可奈",
+      "aliases": ["카나", "やぶきかな", "Yabuki Kana", "Kana Yabuki"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "yokoyama-nao",
+      "nameKo": "요코야마 나오",
+      "nameJa": "横山奈緒",
+      "aliases": ["나오", "よこやまなお", "Yokoyama Nao", "Nao Yokoyama"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "nikaido-chizuru",
+      "nameKo": "니카이도 치즈루",
+      "nameJa": "二階堂千鶴",
+      "aliases": ["치즈루", "니카이도우 치즈루", "にかいどうちづる", "Nikaido Chizuru", "Chizuru Nikaido", "Nikaidou Chizuru", "Chizuru Nikaidou"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "baba-konomi",
+      "nameKo": "바바 코노미",
+      "nameJa": "馬場このみ",
+      "aliases": ["코노미", "ばばこのみ", "Baba Konomi", "Konomi Baba"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "ogami-tamaki",
+      "nameKo": "오오가미 타마키",
+      "nameJa": "大神環",
+      "aliases": ["타마키", "오가미 타마키", "おおがみたまき", "Ogami Tamaki", "Tamaki Ogami", "Oogami Tamaki", "Tamaki Oogami"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "toyokawa-fuka",
+      "nameKo": "토요카와 후카",
+      "nameJa": "豊川風花",
+      "aliases": ["후카", "후우카", "とよかわふうか", "Toyokawa Fuka", "Fuka Toyokawa", "Toyokawa Fuuka", "Fuuka Toyokawa"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "miyao-miya",
+      "nameKo": "미야오 미야",
+      "nameJa": "宮尾美也",
+      "aliases": ["미야", "みやおみや", "Miyao Miya", "Miya Miyao"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "fukuda-noriko",
+      "nameKo": "후쿠다 노리코",
+      "nameJa": "福田のり子",
+      "aliases": ["노리코", "ふくだのりこ", "Fukuda Noriko", "Noriko Fukuda"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "makabe-mizuki",
+      "nameKo": "마카베 미즈키",
+      "nameJa": "真壁瑞希",
+      "aliases": ["미즈키", "まかべみずき", "Makabe Mizuki", "Mizuki Makabe"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "shinomiya-karen",
+      "nameKo": "시노미야 카렌",
+      "nameJa": "篠宮可憐",
+      "aliases": ["카렌", "しのみやかれん", "Shinomiya Karen", "Karen Shinomiya"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "momose-rio",
+      "nameKo": "모모세 리오",
+      "nameJa": "百瀬莉緒",
+      "aliases": ["리오", "ももせりお", "Momose Rio", "Rio Momose"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "nagayoshi-subaru",
+      "nameKo": "나가요시 스바루",
+      "nameJa": "永吉昴",
+      "aliases": ["스바루", "ながよしすばる", "Nagayoshi Subaru", "Subaru Nagayoshi"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "kitakami-reika",
+      "nameKo": "키타카미 레이카",
+      "nameJa": "北上麗花",
+      "aliases": ["레이카", "きたかみれいか", "Kitakami Reika", "Reika Kitakami"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "suou-momoko",
+      "nameKo": "스오 모모코",
+      "nameJa": "周防桃子",
+      "aliases": ["모모코", "스오우 모모코", "すおうももこ", "Suou Momoko", "Momoko Suou", "Suo Momoko", "Momoko Suo"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "julia",
+      "nameKo": "줄리아",
+      "nameJa": "ジュリア",
+      "aliases": ["쥴리아", "じゅりあ", "Julia"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "shiraishi-tsumugi",
+      "nameKo": "시라이시 츠무기",
+      "nameJa": "白石紬",
+      "aliases": ["츠무기", "しらいしつむぎ", "Shiraishi Tsumugi", "Tsumugi Shiraishi"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "sakuramori-kaori",
+      "nameKo": "사쿠라모리 카오리",
+      "nameJa": "桜守歌織",
+      "aliases": ["카오리", "さくらもりかおり", "Sakuramori Kaori", "Kaori Sakuramori"],
+      "series": "아이돌마스터 밀리언라이브"
+    },
+    {
+      "id": "tendo-teru",
+      "nameKo": "텐도 테루",
+      "nameJa": "天道輝",
+      "aliases": ["테루", "텐도우 테루", "てんどうてる", "Teru Tendo", "Tendo Teru", "Teru Tendou", "Tendou Teru"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "DRAMATIC STARS"
+    },
+    {
+      "id": "sakuraba-kaoru",
+      "nameKo": "사쿠라바 카오루",
+      "nameJa": "桜庭薫",
+      "aliases": ["카오루", "さくらばかおる", "Kaoru Sakuraba", "Sakuraba Kaoru"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "DRAMATIC STARS"
+    },
+    {
+      "id": "kashiwagi-tsubasa",
+      "nameKo": "카시와기 츠바사",
+      "nameJa": "柏木翼",
+      "aliases": ["츠바사", "かしわぎつばさ", "Tsubasa Kashiwagi", "Kashiwagi Tsubasa"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "DRAMATIC STARS"
+    },
+    {
+      "id": "amagase-toma",
+      "nameKo": "아마가세 토마",
+      "nameJa": "天ヶ瀬冬馬",
+      "aliases": ["토마", "토우마", "아마가세 토우마", "あまがせとうま", "Toma Amagase", "Amagase Toma", "Touma Amagase", "Amagase Touma"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Jupiter"
+    },
+    {
+      "id": "mitarai-shota",
+      "nameKo": "미타라이 쇼타",
+      "nameJa": "御手洗翔太",
+      "aliases": ["쇼타", "쇼우타", "미타라이 쇼우타", "みたらいしょうた", "Shota Mitarai", "Mitarai Shota", "Shouta Mitarai", "Mitarai Shouta"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Jupiter"
+    },
+    {
+      "id": "ijuin-hokuto",
+      "nameKo": "이쥬인 호쿠토",
+      "nameJa": "伊集院北斗",
+      "aliases": ["호쿠토", "이주인 호쿠토", "いじゅういんほくと", "Hokuto Ijuin", "Ijuin Hokuto", "Hokuto Ijuuin", "Ijuuin Hokuto"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Jupiter"
+    },
+    {
+      "id": "tsuzuki-kei",
+      "nameKo": "츠즈키 케이",
+      "nameJa": "都築圭",
+      "aliases": ["케이", "つづきけい", "Kei Tsuzuki", "Tsuzuki Kei"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Altessimo"
+    },
+    {
+      "id": "kagura-rei",
+      "nameKo": "카구라 레이",
+      "nameJa": "神楽麗",
+      "aliases": ["레이", "かぐられい", "Rei Kagura", "Kagura Rei"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Altessimo"
+    },
+    {
+      "id": "takajo-kyoji",
+      "nameKo": "타카죠 쿄지",
+      "nameJa": "鷹城恭二",
+      "aliases": ["쿄지", "타카조 쿄지", "쿄우지", "타카죠 쿄우지", "たかじょうきょうじ", "Kyoji Takajo", "Takajo Kyoji", "Kyouji Takajou", "Takajou Kyouji"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Beit"
+    },
+    {
+      "id": "pierre",
+      "nameKo": "피에르",
+      "nameJa": "ピエール",
+      "aliases": ["ぴえーる", "Pierre"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Beit"
+    },
+    {
+      "id": "watanabe-minori",
+      "nameKo": "와타나베 미노리",
+      "nameJa": "渡辺みのり",
+      "aliases": ["미노리", "わたなべみのり", "Minori Watanabe", "Watanabe Minori"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Beit"
+    },
+    {
+      "id": "aoi-yusuke",
+      "nameKo": "아오이 유스케",
+      "nameJa": "蒼井悠介",
+      "aliases": ["유스케", "유우스케", "아오이 유우스케", "あおいゆうすけ", "Yusuke Aoi", "Aoi Yusuke", "Yuusuke Aoi", "Aoi Yuusuke"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "W"
+    },
+    {
+      "id": "aoi-kyosuke",
+      "nameKo": "아오이 쿄스케",
+      "nameJa": "蒼井享介",
+      "aliases": ["쿄스케", "쿄우스케", "아오이 쿄우스케", "あおいきょうすけ", "Kyosuke Aoi", "Aoi Kyosuke", "Kyousuke Aoi", "Aoi Kyousuke"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "W"
+    },
+    {
+      "id": "akuno-hideo",
+      "nameKo": "아쿠노 히데오",
+      "nameJa": "握野英雄",
+      "aliases": ["히데오", "あくのひでお", "Hideo Akuno", "Akuno Hideo"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "FRAME"
+    },
+    {
+      "id": "kimura-ryu",
+      "nameKo": "키무라 류",
+      "nameJa": "木村龍",
+      "aliases": ["류", "류우", "키무라 류우", "きむらりゅう", "Ryu Kimura", "Kimura Ryu", "Ryuu Kimura", "Kimura Ryuu"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "FRAME"
+    },
+    {
+      "id": "shingen-seiji",
+      "nameKo": "신겐 세이지",
+      "nameJa": "信玄誠司",
+      "aliases": ["세이지", "しんげんせいじ", "Seiji Shingen", "Shingen Seiji"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "FRAME"
+    },
+    {
+      "id": "nekoyanagi-kirio",
+      "nameKo": "네코야나기 키리오",
+      "nameJa": "猫柳キリオ",
+      "aliases": ["키리오", "ねこやなぎきりお", "Kirio Nekoyanagi", "Nekoyanagi Kirio"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "彩"
+    },
+    {
+      "id": "hanamura-shoma",
+      "nameKo": "하나무라 쇼마",
+      "nameJa": "華村翔真",
+      "aliases": ["쇼마", "쇼우마", "하나무라 쇼우마", "はなむらしょうま", "Shoma Hanamura", "Hanamura Shoma", "Shouma Hanamura", "Hanamura Shouma"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "彩"
+    },
+    {
+      "id": "kiyosumi-kuro",
+      "nameKo": "키요스미 쿠로",
+      "nameJa": "清澄九郎",
+      "aliases": ["쿠로", "쿠로우", "키요스미 쿠로우", "きよすみくろう", "Kuro Kiyosumi", "Kiyosumi Kuro", "Kurou Kiyosumi", "Kiyosumi Kurou"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "彩"
+    },
+    {
+      "id": "akiyama-hayato",
+      "nameKo": "아키야마 하야토",
+      "nameJa": "秋山隼人",
+      "aliases": ["하야토", "あきやまはやと", "Hayato Akiyama", "Akiyama Hayato"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "High×Joker"
+    },
+    {
+      "id": "fuyumi-jun",
+      "nameKo": "후유미 쥰",
+      "nameJa": "冬美旬",
+      "aliases": ["쥰", "준", "후유미 준", "ふゆみじゅん", "Jun Fuyumi", "Fuyumi Jun"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "High×Joker"
+    },
+    {
+      "id": "sakaki-natsuki",
+      "nameKo": "사카키 나츠키",
+      "nameJa": "榊夏来",
+      "aliases": ["나츠키", "さかきなつき", "Natsuki Sakaki", "Sakaki Natsuki"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "High×Joker"
+    },
+    {
+      "id": "wakazato-haruna",
+      "nameKo": "와카자토 하루나",
+      "nameJa": "若里春名",
+      "aliases": ["하루나", "わかざとはるな", "Haruna Wakazato", "Wakazato Haruna"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "High×Joker"
+    },
+    {
+      "id": "iseya-shiki",
+      "nameKo": "이세야 시키",
+      "nameJa": "伊瀬谷四季",
+      "aliases": ["시키", "いせやしき", "Shiki Iseya", "Iseya Shiki"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "High×Joker"
+    },
+    {
+      "id": "akai-suzaku",
+      "nameKo": "아카이 스자쿠",
+      "nameJa": "紅井朱雀",
+      "aliases": ["스자쿠", "あかいすざく", "Suzaku Akai", "Akai Suzaku"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "神速一魂"
+    },
+    {
+      "id": "kurono-genbu",
+      "nameKo": "쿠로노 겐부",
+      "nameJa": "黒野玄武",
+      "aliases": ["겐부", "くろのげんぶ", "Genbu Kurono", "Kurono Genbu"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "神速一魂"
+    },
+    {
+      "id": "kamiya-yukihiro",
+      "nameKo": "카미야 유키히로",
+      "nameJa": "神谷幸広",
+      "aliases": ["유키히로", "かみやゆきひろ", "Yukihiro Kamiya", "Kamiya Yukihiro"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Café Parade"
+    },
+    {
+      "id": "shinonome-soichiro",
+      "nameKo": "시노노메 소이치로",
+      "nameJa": "東雲荘一郎",
+      "aliases": ["소이치로", "소우이치로", "시노노메 소우이치로", "しののめそういちろう", "Soichiro Shinonome", "Shinonome Soichiro", "Souichirou Shinonome", "Shinonome Souichirou"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Café Parade"
+    },
+    {
+      "id": "asselin-beelzebuth-ii",
+      "nameKo": "아스란 벨제뷔트 2세",
+      "nameJa": "アスラン＝ベルゼビュートⅡ世",
+      "aliases": ["아스란", "아스란 BB 2세", "아스란 벨제뷔트 Ⅱ세", "アスラン＝BBⅡ世", "アスラン=BBII世", "Asselin BB II", "あすらんべるぜびゅーとにせい", "Asselin", "Asselin Beelzebuth II", "Asselin Beelzebuth the Second"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Café Parade"
+    },
+    {
+      "id": "uzuki-makio",
+      "nameKo": "우즈키 마키오",
+      "nameJa": "卯月巻緒",
+      "aliases": ["마키오", "うづきまきお", "Makio Uzuki", "Uzuki Makio"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Café Parade"
+    },
+    {
+      "id": "mizushima-saki",
+      "nameKo": "미즈시마 사키",
+      "nameJa": "水嶋咲",
+      "aliases": ["사키", "みずしまさき", "Saki Mizushima", "Mizushima Saki"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Café Parade"
+    },
+    {
+      "id": "okamura-nao",
+      "nameKo": "오카무라 나오",
+      "nameJa": "岡村直央",
+      "aliases": ["나오", "おかむらなお", "Nao Okamura", "Okamura Nao"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "もふもふえん"
+    },
+    {
+      "id": "tachibana-shiro",
+      "nameKo": "타치바나 시로",
+      "nameJa": "橘志狼",
+      "aliases": ["시로", "시로우", "타치바나 시로우", "たちばなしろう", "Shiro Tachibana", "Tachibana Shiro", "Shirou Tachibana", "Tachibana Shirou"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "もふもふえん"
+    },
+    {
+      "id": "himeno-kanon",
+      "nameKo": "히메노 카논",
+      "nameJa": "姫野かのん",
+      "aliases": ["카논", "ひめのかのん", "Kanon Himeno", "Himeno Kanon"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "もふもふえん"
+    },
+    {
+      "id": "hazama-michio",
+      "nameKo": "하자마 미치오",
+      "nameJa": "硲道夫",
+      "aliases": ["미치오", "はざまみちお", "Michio Hazama", "Hazama Michio"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "S.E.M"
+    },
+    {
+      "id": "maita-rui",
+      "nameKo": "마이타 루이",
+      "nameJa": "舞田類",
+      "aliases": ["루이", "まいたるい", "Rui Maita", "Maita Rui"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "S.E.M"
+    },
+    {
+      "id": "yamashita-jiro",
+      "nameKo": "야마시타 지로",
+      "nameJa": "山下次郎",
+      "aliases": ["지로", "지로우", "야마시타 지로우", "やましたじろう", "Jiro Yamashita", "Yamashita Jiro", "Jirou Yamashita", "Yamashita Jirou"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "S.E.M"
+    },
+    {
+      "id": "taiga-takeru",
+      "nameKo": "타이가 타케루",
+      "nameJa": "大河タケル",
+      "aliases": ["타케루", "たいがたける", "Takeru Taiga", "Taiga Takeru"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "THE 虎牙道"
+    },
+    {
+      "id": "enjoji-michiru",
+      "nameKo": "엔죠지 미치루",
+      "nameJa": "円城寺道流",
+      "aliases": ["미치루", "엔조지 미치루", "엔죠우지 미치루", "えんじょうじみちる", "Michiru Enjoji", "Enjoji Michiru", "Michiru Enjouji", "Enjouji Michiru"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "THE 虎牙道"
+    },
+    {
+      "id": "kizaki-ren",
+      "nameKo": "키자키 렌",
+      "nameJa": "牙崎漣",
+      "aliases": ["렌", "きざきれん", "Ren Kizaki", "Kizaki Ren"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "THE 虎牙道"
+    },
+    {
+      "id": "akizuki-ryo",
+      "nameKo": "아키즈키 료",
+      "nameJa": "秋月涼",
+      "aliases": ["료", "료우", "아키즈키 료우", "あきづきりょう", "Ryo Akizuki", "Akizuki Ryo", "Ryou Akizuki", "Akizuki Ryou"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "F-LAGS"
+    },
+    {
+      "id": "kabuto-daigo",
+      "nameKo": "카부토 다이고",
+      "nameJa": "兜大吾",
+      "aliases": ["다이고", "かぶとだいご", "Daigo Kabuto", "Kabuto Daigo"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "F-LAGS"
+    },
+    {
+      "id": "tsukumo-kazuki",
+      "nameKo": "츠쿠모 카즈키",
+      "nameJa": "九十九一希",
+      "aliases": ["카즈키", "つくもかずき", "Kazuki Tsukumo", "Tsukumo Kazuki"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "F-LAGS"
+    },
+    {
+      "id": "kuzunoha-amehiko",
+      "nameKo": "쿠즈노하 아메히코",
+      "nameJa": "葛之葉雨彦",
+      "aliases": ["아메히코", "くずのはあめひこ", "Amehiko Kuzunoha", "Kuzunoha Amehiko"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Legenders"
+    },
+    {
+      "id": "kitamura-sora",
+      "nameKo": "키타무라 소라",
+      "nameJa": "北村想楽",
+      "aliases": ["소라", "きたむらそら", "Sora Kitamura", "Kitamura Sora"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Legenders"
+    },
+    {
+      "id": "koron-chris",
+      "nameKo": "코론 크리스",
+      "nameJa": "古論クリス",
+      "aliases": ["크리스", "ころんくりす", "Chris Koron", "Koron Chris"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "Legenders"
+    },
+    {
+      "id": "amamine-shu",
+      "nameKo": "아마미네 슈",
+      "nameJa": "天峰秀",
+      "aliases": ["슈", "슈우", "아마미네 슈우", "あまみねしゅう", "Shu Amamine", "Amamine Shu", "Shuu Amamine", "Amamine Shuu"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "C.FIRST"
+    },
+    {
+      "id": "hanazono-momohito",
+      "nameKo": "하나조노 모모히토",
+      "nameJa": "花園百々人",
+      "aliases": ["모모히토", "はなぞのももひと", "Momohito Hanazono", "Hanazono Momohito"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "C.FIRST"
+    },
+    {
+      "id": "mayumi-eishin",
+      "nameKo": "마유미 에이신",
+      "nameJa": "眉見鋭心",
+      "aliases": ["에이신", "まゆみえいしん", "Eishin Mayumi", "Mayumi Eishin"],
+      "series": "아이돌마스터 SIDE M",
+      "unit": "C.FIRST"
+    },
+    {
+      "id": "sakuragi-mano",
+      "nameKo": "사쿠라기 마노",
+      "nameJa": "櫻木真乃",
+      "aliases": ["마노", "さくらぎまの", "Sakuragi Mano", "Mano Sakuragi"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "일루미네이션 스타즈"
+    },
+    {
+      "id": "kazano-hiori",
+      "nameKo": "카자노 히오리",
+      "nameJa": "風野灯織",
+      "aliases": ["히오리", "かざのひおり", "Kazano Hiori", "Hiori Kazano"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "일루미네이션 스타즈"
+    },
+    {
+      "id": "hachimiya-meguru",
+      "nameKo": "하치미야 메구루",
+      "nameJa": "八宮めぐる",
+      "aliases": ["메구루", "はちみやめぐる", "Hachimiya Meguru", "Meguru Hachimiya"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "일루미네이션 스타즈"
+    },
+    {
+      "id": "tsukioka-kogane",
+      "nameKo": "츠키오카 코가네",
+      "nameJa": "月岡恋鐘",
+      "aliases": ["코가네", "つきおかこがね", "Tsukioka Kogane", "Kogane Tsukioka"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "안티카"
+    },
+    {
+      "id": "tanaka-mamimi",
+      "nameKo": "타나카 마미미",
+      "nameJa": "田中摩美々",
+      "aliases": ["마미미", "たなかまみみ", "Tanaka Mamimi", "Mamimi Tanaka"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "안티카"
+    },
+    {
+      "id": "shirase-sakuya",
+      "nameKo": "시라세 사쿠야",
+      "nameJa": "白瀬咲耶",
+      "aliases": ["사쿠야", "しらせさくや", "Shirase Sakuya", "Sakuya Shirase"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "안티카"
+    },
+    {
+      "id": "mitsumine-yuika",
+      "nameKo": "미츠미네 유이카",
+      "nameJa": "三峰結華",
+      "aliases": ["유이카", "みつみねゆいか", "Mitsumine Yuika", "Yuika Mitsumine"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "안티카"
+    },
+    {
+      "id": "yukoku-kiriko",
+      "nameKo": "유코쿠 키리코",
+      "nameJa": "幽谷霧子",
+      "aliases": ["키리코", "유우코쿠 키리코", "ゆうこくきりこ", "Yukoku Kiriko", "Kiriko Yukoku", "Yuukoku Kiriko", "Kiriko Yuukoku"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "안티카"
+    },
+    {
+      "id": "komiya-kaho",
+      "nameKo": "코미야 카호",
+      "nameJa": "小宮果穂",
+      "aliases": ["카호", "こみやかほ", "Komiya Kaho", "Kaho Komiya"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "방과 후 클라이맥스 걸즈"
+    },
+    {
+      "id": "sonoda-chiyoko",
+      "nameKo": "소노다 치요코",
+      "nameJa": "園田智代子",
+      "aliases": ["치요코", "そのだちよこ", "Sonoda Chiyoko", "Chiyoko Sonoda"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "방과 후 클라이맥스 걸즈"
+    },
+    {
+      "id": "saijo-juri",
+      "nameKo": "사이죠 쥬리",
+      "nameJa": "西城樹里",
+      "aliases": ["쥬리", "주리", "사이조 쥬리", "사이죠 주리", "さいじょうじゅり", "Saijo Juri", "Juri Saijo", "Saijou Juri", "Juri Saijou"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "방과 후 클라이맥스 걸즈"
+    },
+    {
+      "id": "morino-rinze",
+      "nameKo": "모리노 린제",
+      "nameJa": "杜野凛世",
+      "aliases": ["린제", "もりのりんぜ", "Morino Rinze", "Rinze Morino"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "방과 후 클라이맥스 걸즈"
+    },
+    {
+      "id": "arisugawa-natsuha",
+      "nameKo": "아리스가와 나츠하",
+      "nameJa": "有栖川夏葉",
+      "aliases": ["나츠하", "ありすがわなつは", "Arisugawa Natsuha", "Natsuha Arisugawa"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "방과 후 클라이맥스 걸즈"
+    },
+    {
+      "id": "osaki-amana",
+      "nameKo": "오사키 아마나",
+      "nameJa": "大崎甘奈",
+      "aliases": ["아마나", "오오사키 아마나", "おおさきあまな", "Osaki Amana", "Amana Osaki", "Oosaki Amana", "Amana Oosaki"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "알스트로메리아"
+    },
+    {
+      "id": "osaki-tenka",
+      "nameKo": "오사키 텐카",
+      "nameJa": "大崎甜花",
+      "aliases": ["텐카", "오오사키 텐카", "おおさきてんか", "Osaki Tenka", "Tenka Osaki", "Oosaki Tenka", "Tenka Oosaki"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "알스트로메리아"
+    },
+    {
+      "id": "kuwayama-chiyuki",
+      "nameKo": "쿠와야마 치유키",
+      "nameJa": "桑山千雪",
+      "aliases": ["치유키", "くわやまちゆき", "Kuwayama Chiyuki", "Chiyuki Kuwayama"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "알스트로메리아"
+    },
+    {
+      "id": "serizawa-asahi",
+      "nameKo": "세리자와 아사히",
+      "nameJa": "芹沢あさひ",
+      "aliases": ["아사히", "せりざわあさひ", "Serizawa Asahi", "Asahi Serizawa"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "스트레이라이트"
+    },
+    {
+      "id": "mayuzumi-fuyuko",
+      "nameKo": "마유즈미 후유코",
+      "nameJa": "黛冬優子",
+      "aliases": ["후유코", "まゆずみふゆこ", "Mayuzumi Fuyuko", "Fuyuko Mayuzumi"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "스트레이라이트"
+    },
+    {
+      "id": "izumi-mei",
+      "nameKo": "이즈미 메이",
+      "nameJa": "和泉愛依",
+      "aliases": ["메이", "いずみめい", "Izumi Mei", "Mei Izumi"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "스트레이라이트"
+    },
+    {
+      "id": "asakura-toru",
+      "nameKo": "아사쿠라 토오루",
+      "nameJa": "浅倉透",
+      "aliases": ["토오루", "토루", "아사쿠라 토루", "あさくらとおる", "Asakura Toru", "Toru Asakura", "Asakura Tooru", "Tooru Asakura"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "녹칠"
+    },
+    {
+      "id": "higuchi-madoka",
+      "nameKo": "히구치 마도카",
+      "nameJa": "樋口円香",
+      "aliases": ["마도카", "ひぐちまどか", "Higuchi Madoka", "Madoka Higuchi"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "녹칠"
+    },
+    {
+      "id": "fukumaru-koito",
+      "nameKo": "후쿠마루 코이토",
+      "nameJa": "福丸小糸",
+      "aliases": ["코이토", "ふくまるこいと", "Fukumaru Koito", "Koito Fukumaru"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "녹칠"
+    },
+    {
+      "id": "ichikawa-hinana",
+      "nameKo": "이치카와 히나나",
+      "nameJa": "市川雛菜",
+      "aliases": ["히나나", "いちかわひなな", "Ichikawa Hinana", "Hinana Ichikawa"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "녹칠"
+    },
+    {
+      "id": "nanakusa-nichika",
+      "nameKo": "나나쿠사 니치카",
+      "nameJa": "七草にちか",
+      "aliases": ["니치카", "ななくさにちか", "Nanakusa Nichika", "Nichika Nanakusa"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "쉬즈"
+    },
+    {
+      "id": "aketa-mikoto",
+      "nameKo": "아케타 미코토",
+      "nameJa": "緋田美琴",
+      "aliases": ["미코토", "あけたみこと", "Aketa Mikoto", "Mikoto Aketa"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "쉬즈"
+    },
+    {
+      "id": "ikaruga-luca",
+      "nameKo": "이카루가 루카",
+      "nameJa": "斑鳩ルカ",
+      "aliases": ["루카", "いかるがるか", "Ikaruga Luca", "Luca Ikaruga", "Ikaruga Ruka", "Ruka Ikaruga"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "코메틱"
+    },
+    {
+      "id": "suzuki-hana",
+      "nameKo": "스즈키 하나",
+      "nameJa": "鈴木羽那",
+      "aliases": ["하나", "すずきはな", "Suzuki Hana", "Hana Suzuki"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "코메틱"
+    },
+    {
+      "id": "ikuta-haruki",
+      "nameKo": "이쿠타 하루키",
+      "nameJa": "郁田はるき",
+      "aliases": ["하루키", "いくたはるき", "Ikuta Haruki", "Haruki Ikuta"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "unit": "코메틱"
+    },
+    {
+      "id": "hanami-saki",
+      "nameKo": "하나미 사키",
+      "nameJa": "花海咲季",
+      "aliases": ["사키", "はなみさき", "Hanami Saki", "Saki Hanami"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "tsukimura-temari",
+      "nameKo": "츠키무라 테마리",
+      "nameJa": "月村手毬",
+      "aliases": ["테마리", "つきむらてまり", "Tsukimura Temari", "Temari Tsukimura"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "fujita-kotone",
+      "nameKo": "후지타 코토네",
+      "nameJa": "藤田ことね",
+      "aliases": ["코토네", "ふじたことね", "Fujita Kotone", "Kotone Fujita"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "arimura-mao",
+      "nameKo": "아리무라 마오",
+      "nameJa": "有村麻央",
+      "aliases": ["마오", "ありむらまお", "Arimura Mao", "Mao Arimura"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "katsuragi-lilja",
+      "nameKo": "카츠라기 릴리야",
+      "nameJa": "葛城リーリヤ",
+      "aliases": ["릴리야", "리리야", "카츠라기 리리야", "かつらぎりーりや", "Katsuragi Lilja", "Lilja Katsuragi", "Katsuragi Liliya", "Liliya Katsuragi"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "kuramoto-china",
+      "nameKo": "쿠라모토 치나",
+      "nameJa": "倉本千奈",
+      "aliases": ["치나", "くらもとちな", "Kuramoto China", "China Kuramoto"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "shiun-sumika",
+      "nameKo": "시운 스미카",
+      "nameJa": "紫雲清夏",
+      "aliases": ["스미카", "しうんすみか", "Shiun Sumika", "Sumika Shiun"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "shinosawa-hiro",
+      "nameKo": "시노사와 히로",
+      "nameJa": "篠澤広",
+      "aliases": ["히로", "しのさわひろ", "Shinosawa Hiro", "Hiro Shinosawa"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "himesaki-rinami",
+      "nameKo": "히메사키 리나미",
+      "nameJa": "姫崎莉波",
+      "aliases": ["리나미", "ひめさきりなみ", "Himesaki Rinami", "Rinami Himesaki"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "hanami-ume",
+      "nameKo": "하나미 우메",
+      "nameJa": "花海佑芽",
+      "aliases": ["우메", "はなみうめ", "Hanami Ume", "Ume Hanami"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "hataya-misuzu",
+      "nameKo": "하타야 미스즈",
+      "nameJa": "秦谷美鈴",
+      "aliases": ["미스즈", "はたやみすず", "Hataya Misuzu", "Misuzu Hataya"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "juo-sena",
+      "nameKo": "주오 세나",
+      "nameJa": "十王星南",
+      "aliases": ["세나", "쥬오 세나", "쥬오우 세나", "じゅうおうせな", "Juo Sena", "Sena Juo", "Juou Sena", "Sena Juou", "Juuou Sena", "Sena Juuou"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "amaya-tsubame",
+      "nameKo": "아마야 츠바메",
+      "nameJa": "雨夜燕",
+      "aliases": ["츠바메", "あまやつばめ", "Amaya Tsubame", "Tsubame Amaya"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "mashiro-yu",
+      "isStaff": true,
+      "nameKo": "마시로 유우",
+      "nameJa": "真城優",
+      "aliases": ["유우", "마시로 유", "ましろゆう", "Mashiro Yu", "Yu Mashiro", "Mashiro Yuu", "Yuu Mashiro"],
+      "series": "학원 아이돌마스터"
+    },
+    {
+      "id": "tomori-manaka",
+      "nameKo": "토모리 마나카",
+      "nameJa": "灯里愛夏",
+      "aliases": ["마나카", "ともりまなか", "Tomori Manaka", "Manaka Tomori"],
+      "series": "vα-liv",
+      "unit": "vα-liv"
+    },
+    {
+      "id": "kamizuru-cosmo",
+      "nameKo": "카미즈루 코스모",
+      "nameJa": "上水流宇宙",
+      "aliases": ["코스모", "かみずるこすも", "Kamizuru Cosmo", "Cosmo Kamizuru"],
+      "series": "vα-liv",
+      "unit": "vα-liv"
+    },
+    {
+      "id": "letora",
+      "nameKo": "레토라",
+      "nameJa": "レトラ",
+      "aliases": ["れとら", "Letora", "Utagawa Letora", "Sara Letora Oliveira Utagawa", "우타가와 레토라", "사라 레토라 올리베이라 우타가와"],
+      "series": "vα-liv",
+      "unit": "vα-liv"
+    },
+    {
+      "id": "okuzora-kohaku",
+      "nameKo": "오쿠조라 코하쿠",
+      "nameJa": "奥空心白",
+      "aliases": ["코하쿠", "おくぞらこはく", "Okuzora Kohaku", "Kohaku Okuzora"],
+      "series": "아이돌마스터 스탈릿 시즌"
+    },
+    {
+      "id": "aya",
+      "nameKo": "아야",
+      "nameJa": "亜夜",
+      "aliases": ["あや", "Aya"],
+      "series": "아이돌마스터 스탈릿 시즌",
+      "unit": "DIAMANT"
+    },
+    {
+      "id": "leon",
+      "nameKo": "레온",
+      "nameJa": "玲音",
+      "aliases": ["れおん", "Leon", "Reon"],
+      "series": "아이돌마스터 961 프로덕션",
+      "unit": "DIAMANT"
+    },
+    {
+      "id": "shika",
+      "nameKo": "시이카",
+      "nameJa": "詩花",
+      "aliases": ["시카", "しいか", "Shika", "Shiika"],
+      "series": "아이돌마스터 961 프로덕션",
+      "unit": "DIAMANT"
+    },
+    {
+      "id": "hidaka-ai",
+      "nameKo": "히다카 아이",
+      "nameJa": "日高愛",
+      "aliases": ["아이", "ひだかあい", "Hidaka Ai", "Ai Hidaka"],
+      "series": "아이돌마스터 디어리 스타즈"
+    },
+    {
+      "id": "otonashi-kotori",
+      "isStaff": true,
+      "nameKo": "오토나시 코토리",
+      "nameJa": "音無小鳥",
+      "aliases": ["코토리", "おとなしことり", "Otonashi Kotori", "Kotori Otonashi"],
+      "series": "아이돌마스터"
+    },
+    {
+      "id": "senkawa-chihiro",
+      "nameKo": "센카와 치히로",
+      "nameJa": "千川ちひろ",
+      "aliases": ["치히로", "せんかわちひろ", "Senkawa Chihiro", "Chihiro Senkawa"],
+      "series": "아이돌마스터 신데렐라 걸즈",
+      "isStaff": true
+    },
+    {
+      "id": "aoba-misaki",
+      "nameKo": "아오바 미사키",
+      "nameJa": "青羽美咲",
+      "aliases": ["미사키", "あおばみさき", "Aoba Misaki", "Misaki Aoba"],
+      "series": "아이돌마스터 밀리언라이브",
+      "isStaff": true
+    },
+    {
+      "id": "yamamura-ken",
+      "nameKo": "야마무라 켄",
+      "nameJa": "山村賢",
+      "aliases": ["켄", "やまむらけん", "Yamamura Ken", "Ken Yamamura"],
+      "series": "아이돌마스터 SIDE M",
+      "isStaff": true
+    },
+    {
+      "id": "nanakusa-hazuki",
+      "nameKo": "나나쿠사 하즈키",
+      "nameJa": "七草はづき",
+      "aliases": ["하즈키", "ななくさはづき", "Nanakusa Hazuki", "Hazuki Nanakusa"],
+      "series": "아이돌마스터 샤이니 컬러즈",
+      "isStaff": true
+    },
+    {
+      "id": "neo-asari",
+      "nameKo": "네오 아사리",
+      "nameJa": "根緒亜紗里",
+      "aliases": ["아사리", "ねおあさり", "Neo Asari", "Asari Neo"],
+      "series": "학원 아이돌마스터",
+      "isStaff": true
+    }
+  ]
+}

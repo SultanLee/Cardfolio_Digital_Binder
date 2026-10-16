@@ -1,0 +1,30 @@
+{
+  "groups": [
+    {
+      "id": "traffic-lights",
+      "name": "신호등",
+      "aliases": ["信号機"],
+      "description": "6개 브랜드 대표 18명",
+      "idolIds": [
+        "amami-haruka",
+        "kisaragi-chihaya",
+        "hoshii-miki",
+        "shimamura-uzuki",
+        "shibuya-rin",
+        "honda-mio",
+        "kasuga-mirai",
+        "mogami-shizuka",
+        "ibuki-tsubasa",
+        "tendo-teru",
+        "sakuraba-kaoru",
+        "kashiwagi-tsubasa",
+        "sakuragi-mano",
+        "kazano-hiori",
+        "hachimiya-meguru",
+        "hanami-saki",
+        "tsukimura-temari",
+        "fujita-kotone"
+      ]
+    }
+  ]
+}
