@@ -1,216 +1,176 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useRef } from 'react'
 import { CardsData, Card } from '../types/card'
 import { PackSelector } from '../components/PackSelector'
 import { CardGrid } from '../components/CardGrid'
 import { CardModal } from '../components/CardModal'
 import { getSortedPacks, groupPacksByCategory } from '../utils/packCategories'
-import { useCollectionStore } from '../stores/useCollectionStore'
+import { useCollectionStore, SortMode } from '../stores/useCollectionStore'
 import { CollectionFilter, FilterMode } from '../features/collection/CollectionFilter'
 import { RaritySummary } from '../features/collection/RaritySummary'
-import { SortMode } from '../stores/useCollectionStore'
+import { IdolSearch } from '../components/IdolSearch'
+import idolData from '../data/idol.json'
+import { findMatchingIdolIds } from '../utils/idolSearch'
+import { resolveCardScope, filterAndSortPacks, paginatePacks } from '../utils/cardBrowse'
 
 interface CardListPageProps {
   data: CardsData
 }
+
+const PAGE_SIZE = 60
+const formatCount = (count: number) => count.toLocaleString('ko-KR')
 
 export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
   const sortedPacks = useMemo(() => getSortedPacks(data.packs), [data.packs])
   const [selectedCard, setSelectedCard] = useState<Card | null>(null)
   const [filterMode, setFilterMode] = useState<FilterMode>('all')
   const [selectedRarity, setSelectedRarity] = useState<string | null>(null)
-
+  const [searchQuery, setSearchQuery] = useState('')
+  const [includeGroupCards, setIncludeGroupCards] = useState(true)
+  const [page, setPage] = useState(1)
+  const resultsRef = useRef<HTMLDivElement>(null)
+  const isSearching = searchQuery.trim().length > 0
   const quantities = useCollectionStore((state) => state.quantities)
-  const storedPackId = useCollectionStore((state) => state.selectedPackId)
-  const setStoredPackId = useCollectionStore((state) => state.setSelectedPackId)
+  const selectedScope = useCollectionStore((state) => state.selectedCardScope)
+  const setSelectedScope = useCollectionStore((state) => state.setSelectedCardScope)
   const sortMode = useCollectionStore((state) => state.sortMode)
   const setSortMode = useCollectionStore((state) => state.setSortMode)
 
-  // 저장된 packId가 유효한 팩인지 확인하고, 유효하지 않다면 첫 번째 팩 사용
-  const currentPack = useMemo(() => {
-    if (!sortedPacks.length) return null
-    if (storedPackId) {
-      const found = sortedPacks.find((p) => p.id === storedPackId)
-      if (found) return found
-    }
-    return sortedPacks[0]
-  }, [sortedPacks, storedPackId])
+  const scope = useMemo(() => resolveCardScope(sortedPacks, selectedScope), [sortedPacks, selectedScope])
+  const scopeCards = useMemo(() => scope.packs.flatMap((pack) => pack.cards), [scope.packs])
+  const mappedCardCount = useMemo(() => scopeCards.filter((card) => card.idolIds?.length).length, [scopeCards])
+  const hasSearchableCards = useMemo(() => sortedPacks.some((pack) => pack.cards.some((card) => card.idolIds?.length)), [sortedPacks])
+  const matchingIdolIds = useMemo(() => findMatchingIdolIds(idolData.idols, searchQuery), [searchQuery])
 
-  // 팩이 변경되면 레어도 퀵 필터 초기화
-  React.useEffect(() => {
+  const searchedPacks = useMemo(() => {
+    if (!isSearching) return scope.packs
+    return scope.packs.flatMap((pack) => {
+      const cards = pack.cards.filter((card) =>
+        card.idolIds?.some((id) => matchingIdolIds.has(id)) &&
+        (includeGroupCards || card.idolIds.length < 2),
+      )
+      return cards.length ? [{ ...pack, cards }] : []
+    })
+  }, [scope.packs, isSearching, matchingIdolIds, includeGroupCards])
+  const searchedCards = useMemo(() => searchedPacks.flatMap((pack) => pack.cards), [searchedPacks])
+
+  // 검색 중에는 검색된 카드 종류를 기준으로 수집 통계와 필터 개수를 계산한다.
+  const { ownedUniqueCount, totalOwnedCount } = useMemo(() => {
+    let ownedUniqueCount = 0
+    let totalOwnedCount = 0
+    for (const card of searchedCards) {
+      const quantity = quantities[card.id] ?? 0
+      if (quantity > 0) {
+        ownedUniqueCount++
+        totalOwnedCount += quantity
+      }
+    }
+    return { ownedUniqueCount, totalOwnedCount }
+  }, [searchedCards, quantities])
+
+  const filteredPacks = useMemo(() => filterAndSortPacks(searchedPacks, {
+    quantities, filterMode, selectedRarity, sortMode,
+  }), [searchedPacks, quantities, filterMode, selectedRarity, sortMode])
+  const resultCount = filteredPacks.reduce((sum, pack) => sum + pack.cards.length, 0)
+  const pageCount = scope.type === 'pack' ? 1 : Math.max(1, Math.ceil(resultCount / PAGE_SIZE))
+  const currentPage = Math.min(page, pageCount)
+  const visiblePacks = useMemo(() => scope.type === 'pack'
+    ? filteredPacks
+    : paginatePacks(filteredPacks, currentPage, PAGE_SIZE), [scope.type, filteredPacks, currentPage])
+  const categoryNames = useMemo(() => new Map(groupPacksByCategory(sortedPacks)
+    .flatMap((group) => group.packs.map((pack) => [pack.id, group.categoryName] as const))), [sortedPacks])
+  const collectionPercentage = searchedCards.length > 0
+    ? Math.round((ownedUniqueCount / searchedCards.length) * 1000) / 10 : 0
+  const hasFilters = filterMode !== 'all' || selectedRarity !== null || (isSearching && !includeGroupCards)
+
+  React.useEffect(() => { setPage(1) }, [scope.value, searchQuery, filterMode, selectedRarity, sortMode, includeGroupCards])
+
+  const changeScope = (value: string) => {
+    setSelectedScope(value)
     setSelectedRarity(null)
-  }, [currentPack?.id])
-
-  // 현재 팩의 카테고리명 찾기
-  const currentCategoryName = useMemo(() => {
-    if (!currentPack) return ''
-    const groups = groupPacksByCategory(sortedPacks)
-    for (const group of groups) {
-      if (group.packs.some((p) => p.id === currentPack.id)) {
-        return group.categoryName
-      }
-    }
-    return ''
-  }, [sortedPacks, currentPack])
-
-  // 현재 팩의 카드별 보유 현황 계산 (AGENTS.md: 진척도는 카드 '종류' 기준)
-  const { ownedUniqueCount, totalOwnedCount, unownedCount } = useMemo(() => {
-    if (!currentPack) {
-      return { ownedUniqueCount: 0, totalOwnedCount: 0, unownedCount: 0 }
-    }
-    let ownedUnique = 0
-    let totalOwned = 0
-    for (const card of currentPack.cards) {
-      const qty = quantities[card.id] ?? 0
-      if (qty > 0) {
-        ownedUnique += 1
-        totalOwned += qty
-      }
-    }
-    return {
-      ownedUniqueCount: ownedUnique,
-      totalOwnedCount: totalOwned,
-      unownedCount: currentPack.cards.length - ownedUnique,
-    }
-  }, [currentPack, quantities])
-
-  // 필터 및 정렬 적용된 카드 목록
-  const displayedCards = useMemo(() => {
-    if (!currentPack) return []
-    let list = [...currentPack.cards]
-
-    // 1. 보유 / 미보유 필터링
-    if (filterMode === 'owned') {
-      list = list.filter((card) => (quantities[card.id] ?? 0) > 0)
-    } else if (filterMode === 'unowned') {
-      list = list.filter((card) => (quantities[card.id] ?? 0) === 0)
-    }
-
-    // 2. 레어도 퀵 필터링
-    if (selectedRarity) {
-      list = list.filter((card) => card.rarity === selectedRarity)
-    }
-
-    // 3. 카드 등급 정렬
-    if (sortMode === 'rarity-desc') {
-      // 등급 높은 순 (MR/SSR -> N/R)
-      list.sort((a, b) => {
-        const rankDiff = (b.rarityRank ?? 0) - (a.rarityRank ?? 0)
-        if (rankDiff !== 0) return rankDiff
-        return a.sortOrder - b.sortOrder
-      })
-    } else if (sortMode === 'rarity-asc') {
-      // 등급 낮은 순 (N/R -> MR/SSR)
-      list.sort((a, b) => {
-        const rankDiff = (a.rarityRank ?? 0) - (b.rarityRank ?? 0)
-        if (rankDiff !== 0) return rankDiff
-        return a.sortOrder - b.sortOrder
-      })
-    } else {
-      // 기본 순서 (번호순)
-      list.sort((a, b) => a.sortOrder - b.sortOrder)
-    }
-
-    return list
-  }, [currentPack, filterMode, selectedRarity, sortMode, quantities])
+    setPage(1)
+  }
+  const resetFilters = () => {
+    setFilterMode('all')
+    setSelectedRarity(null)
+    setIncludeGroupCards(true)
+  }
+  const searchAll = () => {
+    resetFilters()
+    changeScope('all')
+  }
+  const changePage = (nextPage: number) => {
+    setPage(nextPage)
+    resultsRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' })
+  }
 
   return (
     <div className="card-list-page">
       <header className="page-header sticky-pack-header">
         <div className="header-content">
-          <div className="header-pack-row">
-            {/* 좌측: 부스터팩 선택 & 팩 뱃지 */}
-            <div className="header-pack-selector-group">
-              {sortedPacks.length > 0 && (
-                <PackSelector
-                  packs={sortedPacks}
-                  selectedPackId={currentPack?.id || ''}
-                  onSelectPack={(packId) => {
-                    setStoredPackId(packId)
-                  }}
+          {sortedPacks.length > 0 && (
+            <>
+              <div className="header-pack-row">
+                <PackSelector packs={sortedPacks} selectedScope={scope.value} onSelectScope={changeScope} />
+                <IdolSearch
+                  idols={idolData.idols}
+                  value={searchQuery}
+                  onChange={setSearchQuery}
+                  hasIdolData={mappedCardCount > 0}
+                  scopeName={scope.name}
                 />
-              )}
-              {currentPack && currentCategoryName && (
-                <span className="pack-category-badge header-category-badge">
-                  {currentCategoryName}
-                </span>
-              )}
-            </div>
-
-            {/* 우측: 수집 통계 (N / Total종 (Percent%) + 소장 장수) */}
-            {currentPack && (
-              <div className="header-progress-stats">
-                <span className="header-progress-counts">
-                  <strong>{ownedUniqueCount}</strong> / {currentPack.cards.length}종
-                  <span className="header-progress-percent">
-                    {' '}({currentPack.cards.length > 0 ? Math.round((ownedUniqueCount / currentPack.cards.length) * 1000) / 10 : 0}%)
-                  </span>
-                </span>
-                {totalOwnedCount > 0 && (
-                  <span className="header-progress-total-owned" title="중복 포함 총 보유 카드 수">
-                    총 {totalOwnedCount}장 소장
-                  </span>
-                )}
               </div>
-            )}
-          </div>
-
-          {/* 슬림형 진행률 바 트랙 */}
-          {currentPack && (
-            <div
-              className="header-progress-bar-track"
-              role="progressbar"
-              aria-valuenow={currentPack.cards.length > 0 ? Math.round((ownedUniqueCount / currentPack.cards.length) * 1000) / 10 : 0}
-              aria-valuemin={0}
-              aria-valuemax={100}
-            >
-              <div
-                className="header-progress-bar-fill"
-                style={{
-                  width: `${Math.min(
-                    100,
-                    currentPack.cards.length > 0
-                      ? (ownedUniqueCount / currentPack.cards.length) * 100
-                      : 0
-                  )}%`,
-                }}
-              />
-            </div>
+              <div className="header-summary-row">
+                <span className="pack-category-badge header-category-badge">
+                  {scope.type === 'all' ? '전체 시리즈' : scope.type === 'category' ? '시리즈 전체' : scope.categoryName}
+                </span>
+                <div className="header-progress-stats">
+                  <span className="header-progress-label">{isSearching ? '검색 카드 수집 진척도' : '수집 진척도'}</span>
+                  <span className="header-progress-counts">
+                    <strong>{formatCount(ownedUniqueCount)}</strong> / {formatCount(searchedCards.length)}종
+                    <span className="header-progress-percent"> ({collectionPercentage}%)</span>
+                  </span>
+                  {totalOwnedCount > 0 && <span className="header-progress-total-owned" title="중복 포함 총 보유 카드 수">총 {formatCount(totalOwnedCount)}장 소장</span>}
+                </div>
+              </div>
+              <div className="header-progress-bar-track" role="progressbar"
+                aria-label={isSearching ? '검색 카드 수집 진척도' : '수집 진척도'}
+                aria-valuenow={collectionPercentage} aria-valuemin={0} aria-valuemax={100}>
+                <div className="header-progress-bar-fill" style={{ width: `${Math.min(100, collectionPercentage)}%` }} />
+              </div>
+            </>
           )}
         </div>
       </header>
 
       <main className="page-body">
-        {currentPack ? (
+        {sortedPacks.length > 0 ? (
           <>
             <section className="pack-dashboard">
-              {/* 공식 사이트 스타일: 레어도별 종류수 바 */}
-              <RaritySummary
-                cards={currentPack.cards}
-                selectedRarity={selectedRarity}
-                onSelectRarity={setSelectedRarity}
-              />
+              <div className="pack-header-bar">
+                <div className="pack-info">
+                  <span className="pack-category-badge">
+                    {scope.type === 'all' ? '전체 시리즈' : scope.type === 'category' ? '시리즈 전체' : scope.categoryName}
+                  </span>
+                  <h2 className="current-pack-name">{scope.name}</h2>
+                  <span className="pack-card-count-badge">전체 {formatCount(scopeCards.length)}장</span>
+                  {scope.type !== 'pack' && <span className="scope-pack-count">{scope.packs.length}개 팩</span>}
+                </div>
+              </div>
 
-              {/* 보유/미보유 필터 탭 & 등급 정렬 컨트롤 */}
+              <RaritySummary cards={searchedCards} selectedRarity={selectedRarity} onSelectRarity={setSelectedRarity} />
+
               <div className="collection-controls-bar">
                 <CollectionFilter
                   currentFilter={filterMode}
                   onFilterChange={setFilterMode}
-                  totalCount={currentPack.cards.length}
+                  totalCount={searchedCards.length}
                   ownedCount={ownedUniqueCount}
-                  unownedCount={unownedCount}
+                  unownedCount={searchedCards.length - ownedUniqueCount}
                 />
-
                 <div className="sort-control-group">
-                  <label htmlFor="card-sort-select" className="sort-label">
-                    정렬
-                  </label>
+                  <label htmlFor="card-sort-select" className="sort-label">정렬</label>
                   <div className="sort-select-wrapper">
-                    <select
-                      id="card-sort-select"
-                      className="sort-select"
-                      value={sortMode}
-                      onChange={(e) => setSortMode(e.target.value as SortMode)}
-                    >
+                    <select id="card-sort-select" className="sort-select" value={sortMode} onChange={(event) => setSortMode(event.target.value as SortMode)}>
                       <option value="default">기본 순서 (번호순)</option>
                       <option value="rarity-desc">등급 높은 순</option>
                       <option value="rarity-asc">등급 낮은 순</option>
@@ -220,22 +180,87 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
               </div>
             </section>
 
-            <CardGrid
-              cards={displayedCards}
-              onSelectCard={(card) => setSelectedCard(card)}
-            />
-          </>
-        ) : (
-          <div className="empty-state">
-            <p>등록된 부스터팩이 없습니다.</p>
-          </div>
-        )}
-      </main>
+            <div className="card-results" ref={resultsRef}>
+              <div className="idol-search-results" role="status" aria-live="polite" aria-atomic="true">
+                <span>
+                  {isSearching && <><strong>“{searchQuery.trim()}”</strong>{' '}</>}
+                  {isSearching && mappedCardCount === 0
+                    ? '아이돌 정보 준비 중'
+                    : <>{isSearching ? '검색 결과' : '표시 결과'} <strong>{formatCount(resultCount)}장</strong> · {filteredPacks.length}개 팩</>}
+                  {hasFilters && <span className="idol-search-results-scope"> · 선택한 필터 적용</span>}
+                </span>
+                <div className="result-actions">
+                  {hasFilters && <button type="button" onClick={resetFilters}>필터 초기화</button>}
+                  {isSearching && <button type="button" onClick={() => setSearchQuery('')}>검색 해제</button>}
+                </div>
+              </div>
 
-      <CardModal
-        card={selectedCard}
-        onClose={() => setSelectedCard(null)}
-      />
+              {isSearching && (
+                <div className="idol-search-options">
+                  <label>
+                    <input type="checkbox" checked={includeGroupCards}
+                      onChange={(event) => setIncludeGroupCards(event.target.checked)} />
+                    <span>단체 카드 포함</span>
+                  </label>
+                  <span className="idol-search-options-hint">2명 이상 등장하는 카드</span>
+                </div>
+              )}
+
+              {isSearching && mappedCardCount < scopeCards.length && (
+                <p className="idol-search-coverage">
+                  전체 {formatCount(scopeCards.length)}장 중 아이돌 정보가 등록된 {formatCount(mappedCardCount)}장에서 검색합니다. 정보 준비 중인 카드는 검색 결과에서 제외됩니다.
+                </p>
+              )}
+
+              {isSearching && mappedCardCount === 0 ? (
+                <div className="empty-state idol-search-empty">
+                  <p>선택한 범위에는 아직 아이돌 정보가 등록되지 않았습니다.</p>
+                  {scope.value !== 'all' && hasSearchableCards && (
+                    <button type="button" onClick={searchAll}>전체 카드에서 검색</button>
+                  )}
+                </div>
+              ) : resultCount === 0 ? (
+                <div className="empty-state idol-search-empty">
+                  <p>{isSearching ? '이름과 선택한 필터에 맞는 카드가 없습니다.' : '선택한 필터에 맞는 카드가 없습니다.'}</p>
+                  <p>이름을 확인하거나 검색 범위와 필터를 변경해 보세요.</p>
+                  {isSearching && scope.value !== 'all' && <button type="button" onClick={searchAll}>전체 카드에서 검색</button>}
+                </div>
+              ) : (
+                <>
+                  {visiblePacks.map((pack) => (
+                    <section key={pack.id} className="pack-results-section" aria-label={pack.name}>
+                      {scope.type !== 'pack' && (
+                        <div className="pack-results-heading">
+                          <span className="pack-category-badge">{categoryNames.get(pack.id)}</span>
+                          <h3>{pack.name}</h3>
+                          <span className="pack-card-count-badge">
+                            {pack.cards.length === filteredPacks.find((item) => item.id === pack.id)?.cards.length
+                              ? `${pack.cards.length}장`
+                              : `${pack.cards.length} / ${filteredPacks.find((item) => item.id === pack.id)?.cards.length}장`}
+                          </span>
+                          <button type="button" onClick={() => changeScope(pack.id)}>이 팩만 보기</button>
+                        </div>
+                      )}
+                      <CardGrid cards={pack.cards} onSelectCard={setSelectedCard} />
+                    </section>
+                  ))}
+                  {pageCount > 1 && (
+                    <nav className="card-pagination" aria-label="카드 목록 페이지">
+                      <button type="button" disabled={currentPage === 1} onClick={() => changePage(currentPage - 1)}>이전</button>
+                      <div>
+                        <span aria-live="polite">{currentPage} / {pageCount} 페이지</span>
+                        <small>{formatCount((currentPage - 1) * PAGE_SIZE + 1)}–{formatCount(Math.min(currentPage * PAGE_SIZE, resultCount))} / {formatCount(resultCount)}장</small>
+                      </div>
+                      <button type="button" disabled={currentPage === pageCount} onClick={() => changePage(currentPage + 1)}>다음</button>
+                    </nav>
+                  )}
+                </>
+              )}
+            </div>
+          </>
+        ) : <div className="empty-state"><p>등록된 부스터팩이 없습니다.</p></div>}
+      </main>
+      <CardModal card={selectedCard} onClose={() => setSelectedCard(null)} />
     </div>
   )
 }

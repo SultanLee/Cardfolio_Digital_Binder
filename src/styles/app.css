@@ -105,9 +105,21 @@ body {
 .header-progress-stats {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
   font-size: 0.88rem;
 }
+
+.header-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.header-progress-label { color: var(--text-secondary); font-size: 0.78rem; }
+.header-pack-row > .idol-search { max-width: 520px; }
 
 .header-progress-counts {
   color: var(--text-primary);
@@ -174,7 +186,13 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex: 1 1 360px;
+  max-width: 680px;
+  min-width: 0;
 }
+
+.pack-selector-container .select-wrapper { flex: 1; min-width: 0; }
+.pack-selector-container .pack-select { width: 100%; min-width: 0; }
 
 .pack-select-label {
   font-size: 0.85rem;
@@ -235,6 +253,199 @@ optgroup option {
   background-color: var(--bg-card);
   padding: 6px 10px;
 }
+
+/* 선택 범위 아이돌 검색 */
+.idol-search {
+  flex: 1 1 320px;
+  max-width: 520px;
+  min-width: 0;
+}
+
+.idol-search-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.idol-search-dropdown {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.idol-search-suggestions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-height: min(320px, 40dvh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4px;
+  list-style: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-hover);
+}
+
+.idol-search-option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.88rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.idol-search-option > span { font-weight: 600; }
+.idol-search-option small {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.idol-search-option.active,
+.idol-search-option:hover { background: var(--bg-hover); }
+.idol-search-option:focus-visible { outline: 2px solid var(--accent-color); outline-offset: -2px; }
+.idol-search-no-suggestions { padding: 12px 10px; color: var(--text-secondary); font-size: 0.85rem; }
+
+.idol-search-field {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  min-height: 42px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.idol-search-field:focus-within {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+.idol-search-field > svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-left: 12px;
+  color: var(--text-secondary);
+}
+
+.idol-search-field input {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 10px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.idol-search-field input::placeholder { color: var(--text-secondary); }
+.idol-search-field input::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+.idol-search-clear {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.idol-search-clear:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+.idol-search-hint {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.idol-search-results {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: -8px 0 18px;
+  font-size: 0.88rem;
+  overflow-wrap: anywhere;
+}
+
+.idol-search-results strong { color: #c7d2fe; }
+.idol-search-results-scope, .idol-search-coverage { color: var(--text-secondary); font-size: 0.8rem; }
+.idol-search-coverage { margin-bottom: 12px; }
+
+.idol-search-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin: -6px 0 18px;
+  font-size: 0.85rem;
+}
+.idol-search-options label { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.idol-search-options input { width: 16px; height: 16px; accent-color: var(--accent-color); cursor: pointer; }
+.idol-search-options-hint { color: var(--text-secondary); font-size: 0.78rem; }
+
+.idol-search-results button,
+.idol-search-empty button {
+  padding: 8px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: #c7d2fe;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.idol-search-results button:hover,
+.idol-search-empty button:hover { background: var(--bg-hover); border-color: var(--accent-color); }
+.idol-search-empty p + p { margin-top: 8px; font-size: 0.85rem; }
+.idol-search-empty button { margin-top: 18px; }
+
+.scope-pack-count { font-size: 0.85rem; color: var(--text-secondary); }
+.result-actions { display: flex; flex-wrap: wrap; gap: 8px; flex-shrink: 0; }
+.card-results { scroll-margin-top: 240px; }
+.pack-results-section + .pack-results-section { margin-top: 32px; }
+.pack-results-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; }
+.pack-results-heading h3 { font-size: 1.05rem; overflow-wrap: anywhere; }
+.pack-results-heading button,
+.card-pagination button {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  color: #c7d2fe;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.pack-results-heading button { margin-left: auto; }
+.pack-results-heading button:hover,
+.card-pagination button:not(:disabled):hover { background: var(--bg-hover); border-color: var(--accent-color); }
+.card-pagination { display: flex; justify-content: center; align-items: center; gap: 20px; padding: 28px 0 8px; }
+.card-pagination > div { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 0.9rem; }
+.card-pagination small { color: var(--text-secondary); font-size: 0.75rem; }
+.card-pagination button:disabled { opacity: 0.4; cursor: default; }
 
 /* 본문 영역 */
 .page-body {
@@ -808,6 +1019,13 @@ optgroup option {
   display: flex;
   align-items: baseline;
   gap: 8px;
+  text-decoration: none;
+}
+
+.nav-brand:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 6px;
+  border-radius: var(--radius-sm);
 }
 
 .nav-logo-text {
@@ -1559,7 +1777,21 @@ optgroup option {
 
   .pack-selector-container {
     width: 100%;
+    flex-basis: 100%;
+    max-width: none;
   }
+
+  .idol-search {
+    flex-basis: 100%;
+    max-width: none;
+  }
+
+  .idol-search-field input { font-size: 1rem; }
+
+  .idol-search-results { flex-direction: column; align-items: flex-start; }
+  .idol-search-results-scope { display: block; }
+  .card-results { scroll-margin-top: 300px; }
+  .card-pagination { gap: 12px; }
 
   .select-wrapper {
     width: 100%;
@@ -1587,9 +1819,13 @@ optgroup option {
 
   .filter-tab-btn {
     flex: 1;
+    flex-direction: column;
     justify-content: center;
-    padding: 6px 8px;
+    gap: 4px;
+    min-width: 0;
+    padding: 6px 4px;
     font-size: 0.8rem;
+    white-space: nowrap;
   }
 
   .sort-control-group {
@@ -1686,6 +1922,16 @@ optgroup option {
   border-color: #cbd5e1;
 }
 
+[data-theme='light'] .idol-search-results strong,
+[data-theme='light'] .idol-search-results button,
+[data-theme='light'] .idol-search-empty button,
+[data-theme='light'] .pack-results-heading button,
+[data-theme='light'] .card-pagination button,
+[data-theme='light'] .pack-category-badge,
+[data-theme='light'] .pack-card-count-badge,
+[data-theme='light'] .header-progress-counts strong,
+[data-theme='light'] .header-progress-percent { color: var(--accent-color); }
+
 [data-theme='light'] .header-progress-total-owned {
   background: rgba(0, 0, 0, 0.05);
   color: #64748b;
@@ -1694,6 +1940,15 @@ optgroup option {
 [data-theme='light'] .rarity-summary-container {
   background: rgba(241, 245, 249, 0.8);
   border-color: #e2e8f0;
+}
+
+[data-theme='light'] .rarity-count {
+  color: #475569;
+}
+
+[data-theme='light'] .rarity-badge-item.active .rarity-count {
+  color: var(--accent-hover);
+  font-weight: 700;
 }
 
 [data-theme='light'] optgroup {

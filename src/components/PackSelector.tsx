@@ -4,31 +4,35 @@ import { groupPacksByCategory } from '../utils/packCategories'
 
 interface PackSelectorProps {
   packs: Pack[]
-  selectedPackId: string
-  onSelectPack: (packId: string) => void
+  selectedScope: string
+  onSelectScope: (value: string) => void
 }
 
 export const PackSelector: React.FC<PackSelectorProps> = ({
   packs,
-  selectedPackId,
-  onSelectPack,
+  selectedScope,
+  onSelectScope,
 }) => {
   const categoryGroups = useMemo(() => groupPacksByCategory(packs), [packs])
 
   return (
     <div className="pack-selector-container">
-      <label htmlFor="pack-select" className="pack-select-label">
-        부스터팩 선택
+      <label htmlFor="card-scope-select" className="pack-select-label">
+        카드 범위
       </label>
       <div className="select-wrapper">
         <select
-          id="pack-select"
+          id="card-scope-select"
           className="pack-select"
-          value={selectedPackId}
-          onChange={(e) => onSelectPack(e.target.value)}
+          value={selectedScope}
+          onChange={(e) => onSelectScope(e.target.value)}
         >
+          <option value="all">전체 카드 ({packs.reduce((sum, pack) => sum + pack.cards.length, 0).toLocaleString('ko-KR')}장)</option>
           {categoryGroups.map((group) => (
             <optgroup key={group.id} label={group.categoryName}>
+              <option value={`category:${group.id}`}>
+                {group.categoryName} 전체 ({group.packs.reduce((sum, pack) => sum + pack.cards.length, 0).toLocaleString('ko-KR')}장)
+              </option>
               {group.packs.map((pack) => (
                 <option key={pack.id} value={pack.id}>
                   {pack.name} ({pack.cards.length}장)

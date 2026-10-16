@@ -1,0 +1,39 @@
+{
+  "groups": [
+    {
+      "id": "im-a-cutie-finder",
+      "name": "I'm a Cutie Finder",
+      "idolIds": ["mayuzumi-fuyuko", "sonoda-chiyoko", "suzuki-hana", "nanakusa-nichika", "osaki-tenka"]
+    },
+    {
+      "id": "fumage",
+      "name": "Fumage",
+      "idolIds": ["asakura-toru", "yukoku-kiriko"]
+    },
+    {
+      "id": "sonic-heart-and-signal",
+      "name": "Sonic Heart (and Signal)",
+      "idolIds": ["hachimiya-meguru", "ichikawa-hinana", "tsukioka-kogane", "komiya-kaho"]
+    },
+    {
+      "id": "sigma-desire",
+      "name": "∑ Desire",
+      "idolIds": ["serizawa-asahi", "higuchi-madoka", "aketa-mikoto", "ikaruga-luca", "saijo-juri", "tanaka-mamimi"]
+    },
+    {
+      "id": "the-futari-traveler",
+      "name": "ザ・ふたりトラベラー",
+      "idolIds": ["ikuta-haruki", "sakuragi-mano"]
+    },
+    {
+      "id": "higanryu",
+      "name": "彼岸流",
+      "idolIds": ["arisugawa-natsuha", "izumi-mei", "kuwayama-chiyuki", "kazano-hiori", "shirase-sakuya"]
+    },
+    {
+      "id": "no-1-feel-alone",
+      "name": "No 1 feel alone",
+      "idolIds": ["morino-rinze", "osaki-amana", "fukumaru-koito", "mitsumine-yuika"]
+    }
+  ]
+}

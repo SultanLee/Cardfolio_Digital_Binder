@@ -43,7 +43,7 @@ export const RaritySummary: React.FC<RaritySummaryProps> = ({
     return Array.from(map.values()).sort((a, b) => a.rank - b.rank)
   }, [cards])
 
-  if (rarityGroups.length <= 1) {
+  if (rarityGroups.length <= 1 && !selectedRarity) {
     return null
   }
 
