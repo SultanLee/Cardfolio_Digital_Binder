@@ -6,9 +6,12 @@ import { useCollectionStore } from '../stores/useCollectionStore'
 interface CardGridProps {
   cards: Card[]
   onSelectCard?: (card: Card) => void
+  selectionMode?: boolean
+  selectedIds?: Set<string>
+  onToggleSelection?: (card: Card) => void
 }
 
-export const CardGrid: React.FC<CardGridProps> = ({ cards, onSelectCard }) => {
+export const CardGrid: React.FC<CardGridProps> = ({ cards, onSelectCard, selectionMode, selectedIds, onToggleSelection }) => {
   const quantities = useCollectionStore((state) => state.quantities)
   const increment = useCollectionStore((state) => state.increment)
   const decrement = useCollectionStore((state) => state.decrement)
@@ -32,6 +35,9 @@ export const CardGrid: React.FC<CardGridProps> = ({ cards, onSelectCard }) => {
             card={card}
             quantity={qty}
             onSelect={onSelectCard}
+            selectionMode={selectionMode}
+            isSelected={selectedIds?.has(card.id)}
+            onToggleSelection={onToggleSelection}
             onIncrement={() => increment(card.id)}
             onDecrement={() => decrement(card.id)}
             onSetQuantity={(q) => setQuantity(card.id, q)}

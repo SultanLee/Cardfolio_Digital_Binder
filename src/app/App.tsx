@@ -7,6 +7,7 @@ import { WishlistPage } from '../pages/WishlistPage'
 import { useWishlistStore } from '../stores/useWishlistStore'
 import { useThemeStore } from '../stores/useThemeStore'
 import { useCollectionStore } from '../stores/useCollectionStore'
+import { useCardBrowseStore } from '../stores/useCardBrowseStore'
 
 const data = cardsData as unknown as CardsData
 
@@ -17,12 +18,14 @@ const AppLayout: React.FC = () => {
   const toggleTheme = useThemeStore((state) => state.toggleTheme)
   const setSelectedCardScope = useCollectionStore((state) => state.setSelectedCardScope)
   const setSortMode = useCollectionStore((state) => state.setSortMode)
+  const resetBrowse = useCardBrowseStore((state) => state.resetBrowse)
 
   const returnHome = (event: React.MouseEvent<HTMLAnchorElement>) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
 
     setSelectedCardScope('all')
     setSortMode('default')
+    resetBrowse()
     // 같은 카드 목록 화면에서도 검색·필터·페이지 등 임시 상태를 초기화한다.
     setHomeResetKey((key) => key + 1)
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })

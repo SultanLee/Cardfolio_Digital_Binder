@@ -11,11 +11,13 @@
 - **카드 확대 뷰어 (라이트박스)**: 카드를 클릭하여 고화질 원본 비율 이미지를 크게 확대 조회
 - 전체 카드와 보유 카드만 보는 토글
 - 보유 수량의 직접 입력 및 `+` / `-` 조절
+- **보유 수량 일괄 추가**: 여러 카드·현재 페이지 전체를 선택해 각 1장씩 추가하고, 최근 일괄 추가 1회를 되돌리기
+- **위시 리스트 일괄 추가**: 선택한 카드를 목표 1장으로 추가·되돌리기, 기존 목표 수량 유지 및 전체 삭제 확인 모달 제공
 - 미보유 카드의 흑백·반투명 표시
 - 팩별 수집 진척도 표시
 - 원하는 카드를 추가하고 목표 수량을 설정하는 위시 리스트
 - 위시 리스트를 카드 이미지와 수량이 담긴 PNG로 내보내기
-- **아이돌 검색**: 전체·시리즈·팩별로 한국어·일본어·영문 이름과 별칭 검색 지원
+- **아이돌 검색**: 전체·시리즈·팩별 이름·별칭과 샤니마스(REFRAC7IONS 포함)·SideM 유닛 검색, 쉼표로 여러 이름 검색 지원
 - **검색 편의 기능**: 자동완성 목록, 단체 카드 포함·제외 옵션, 로고 클릭 시 전체 카드 화면으로 복귀
 
 ## 기술 구성
@@ -82,20 +84,23 @@ Cardfolio/
 ├── src/
 │   ├── app/                   # App 진입점
 │   ├── components/            # 공용 UI (CardGrid, CardTile, CardModal, PackSelector, QuantityControl)
-│   │   └── IdolSearch.tsx     # 아이돌 검색 및 추천 목록
+│   │   ├── IdolSearch.tsx     # 아이돌 검색 및 추천 목록
+│   │   └── ConfirmDialog.tsx  # 전체 삭제 확인 모달
 │   ├── data/
 │   │   ├── cards.json         # 생성된 카드 메타데이터 (2,814장)
 │   │   ├── idol.json          # 인물 명부 및 검색 별칭
+│   │   ├── idol-units.json    # 샤니마스·SideM 유닛 이름 및 별칭
 │   │   ├── idol-search-groups.json      # 신호등 등 검색 그룹
 │   │   ├── cinderella-pack-orders.json # 신데렐라 걸즈 팩별 순서
 │   │   ├── moiw-pack-orders.json        # MOIW 팩별 순서
 │   │   ├── iwsf-pack-order.json         # IWSF 카드 순서
-│   │   └── shiny-refractions.json      # REFRAC7IONS 그룹 구성
+│   │   └── shiny-refractions.json      # REFRAC7IONS 그룹 구성·검색 별칭
 │   ├── features/
-│   │   ├── collection/        # 수집 진척도 및 필터 컴포넌트
+│   │   ├── collection/        # 수집 진척도·필터·일괄 수량 수정
 │   │   └── wishlist/          # 위시 리스트·PNG 내보내기 도메인
 │   ├── pages/                 # 카드 목록·위시 리스트 화면
 │   ├── stores/                # 보유 수량·위시 리스트·테마 저장소
+│   │   └── useCardBrowseStore.ts # 화면 이동 시 검색·필터·페이지 유지
 │   ├── styles/                # UI 스타일시트 (app.css)
 │   ├── types/                 # 카드 및 인물 타입 정의 (card.ts, idol.ts)
 │   └── utils/

@@ -5,11 +5,13 @@ import { CardGrid } from '../components/CardGrid'
 import { CardModal } from '../components/CardModal'
 import { getSortedPacks, groupPacksByCategory } from '../utils/packCategories'
 import { useCollectionStore, SortMode } from '../stores/useCollectionStore'
-import { CollectionFilter, FilterMode } from '../features/collection/CollectionFilter'
+import { CollectionFilter } from '../features/collection/CollectionFilter'
+import { useCardBrowseStore } from '../stores/useCardBrowseStore'
 import { RaritySummary } from '../features/collection/RaritySummary'
+import { BulkCollectionControls } from '../features/collection/BulkCollectionControls'
 import { IdolSearch } from '../components/IdolSearch'
 import idolData from '../data/idol.json'
-import { findMatchingIdolIds } from '../utils/idolSearch'
+import { findMatchingIdolIds, splitIdolSearchQuery } from '../utils/idolSearch'
 import { resolveCardScope, filterAndSortPacks, paginatePacks } from '../utils/cardBrowse'
 
 interface CardListPageProps {
@@ -22,13 +24,13 @@ const formatCount = (count: number) => count.toLocaleString('ko-KR')
 export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
   const sortedPacks = useMemo(() => getSortedPacks(data.packs), [data.packs])
   const [selectedCard, setSelectedCard] = useState<Card | null>(null)
-  const [filterMode, setFilterMode] = useState<FilterMode>('all')
-  const [selectedRarity, setSelectedRarity] = useState<string | null>(null)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [includeGroupCards, setIncludeGroupCards] = useState(true)
-  const [page, setPage] = useState(1)
+  const {
+    filterMode, setFilterMode, selectedRarity, setSelectedRarity,
+    searchQuery, setSearchQuery, includeGroupCards, setIncludeGroupCards,
+    page, setPage, resetFilters,
+  } = useCardBrowseStore()
   const resultsRef = useRef<HTMLDivElement>(null)
-  const isSearching = searchQuery.trim().length > 0
+  const isSearching = splitIdolSearchQuery(searchQuery).length > 0
   const quantities = useCollectionStore((state) => state.quantities)
   const selectedScope = useCollectionStore((state) => state.selectedCardScope)
   const setSelectedScope = useCollectionStore((state) => state.setSelectedCardScope)
@@ -82,17 +84,10 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
     ? Math.round((ownedUniqueCount / searchedCards.length) * 1000) / 10 : 0
   const hasFilters = filterMode !== 'all' || selectedRarity !== null || (isSearching && !includeGroupCards)
 
-  React.useEffect(() => { setPage(1) }, [scope.value, searchQuery, filterMode, selectedRarity, sortMode, includeGroupCards])
-
   const changeScope = (value: string) => {
     setSelectedScope(value)
     setSelectedRarity(null)
     setPage(1)
-  }
-  const resetFilters = () => {
-    setFilterMode('all')
-    setSelectedRarity(null)
-    setIncludeGroupCards(true)
   }
   const searchAll = () => {
     resetFilters()
@@ -170,7 +165,10 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
                 <div className="sort-control-group">
                   <label htmlFor="card-sort-select" className="sort-label">정렬</label>
                   <div className="sort-select-wrapper">
-                    <select id="card-sort-select" className="sort-select" value={sortMode} onChange={(event) => setSortMode(event.target.value as SortMode)}>
+                    <select id="card-sort-select" className="sort-select" value={sortMode} onChange={(event) => {
+                      setSortMode(event.target.value as SortMode)
+                      setPage(1)
+                    }}>
                       <option value="default">기본 순서 (번호순)</option>
                       <option value="rarity-desc">등급 높은 순</option>
                       <option value="rarity-asc">등급 낮은 순</option>
@@ -212,50 +210,57 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
                 </p>
               )}
 
-              {isSearching && mappedCardCount === 0 ? (
-                <div className="empty-state idol-search-empty">
-                  <p>선택한 범위에는 아직 아이돌 정보가 등록되지 않았습니다.</p>
-                  {scope.value !== 'all' && hasSearchableCards && (
-                    <button type="button" onClick={searchAll}>전체 카드에서 검색</button>
-                  )}
-                </div>
-              ) : resultCount === 0 ? (
-                <div className="empty-state idol-search-empty">
-                  <p>{isSearching ? '이름과 선택한 필터에 맞는 카드가 없습니다.' : '선택한 필터에 맞는 카드가 없습니다.'}</p>
-                  <p>이름을 확인하거나 검색 범위와 필터를 변경해 보세요.</p>
-                  {isSearching && scope.value !== 'all' && <button type="button" onClick={searchAll}>전체 카드에서 검색</button>}
-                </div>
-              ) : (
-                <>
-                  {visiblePacks.map((pack) => (
-                    <section key={pack.id} className="pack-results-section" aria-label={pack.name}>
-                      {scope.type !== 'pack' && (
-                        <div className="pack-results-heading">
-                          <span className="pack-category-badge">{categoryNames.get(pack.id)}</span>
-                          <h3>{pack.name}</h3>
-                          <span className="pack-card-count-badge">
-                            {pack.cards.length === filteredPacks.find((item) => item.id === pack.id)?.cards.length
-                              ? `${pack.cards.length}장`
-                              : `${pack.cards.length} / ${filteredPacks.find((item) => item.id === pack.id)?.cards.length}장`}
-                          </span>
-                          <button type="button" onClick={() => changeScope(pack.id)}>이 팩만 보기</button>
-                        </div>
+              <BulkCollectionControls
+                key={JSON.stringify([scope.value, searchQuery, filterMode, selectedRarity, sortMode, includeGroupCards])}
+                visibleCards={visiblePacks.flatMap((pack) => pack.cards)}>
+                {({ selectionMode, selectedIds, onToggleSelection }) => <>
+                  {isSearching && mappedCardCount === 0 ? (
+                    <div className="empty-state idol-search-empty">
+                      <p>선택한 범위에는 아직 아이돌 정보가 등록되지 않았습니다.</p>
+                      {scope.value !== 'all' && hasSearchableCards && (
+                        <button type="button" onClick={searchAll}>전체 카드에서 검색</button>
                       )}
-                      <CardGrid cards={pack.cards} onSelectCard={setSelectedCard} />
-                    </section>
-                  ))}
-                  {pageCount > 1 && (
-                    <nav className="card-pagination" aria-label="카드 목록 페이지">
-                      <button type="button" disabled={currentPage === 1} onClick={() => changePage(currentPage - 1)}>이전</button>
-                      <div>
-                        <span aria-live="polite">{currentPage} / {pageCount} 페이지</span>
-                        <small>{formatCount((currentPage - 1) * PAGE_SIZE + 1)}–{formatCount(Math.min(currentPage * PAGE_SIZE, resultCount))} / {formatCount(resultCount)}장</small>
-                      </div>
-                      <button type="button" disabled={currentPage === pageCount} onClick={() => changePage(currentPage + 1)}>다음</button>
-                    </nav>
+                    </div>
+                  ) : resultCount === 0 ? (
+                    <div className="empty-state idol-search-empty">
+                      <p>{isSearching ? '이름과 선택한 필터에 맞는 카드가 없습니다.' : '선택한 필터에 맞는 카드가 없습니다.'}</p>
+                      <p>이름을 확인하거나 검색 범위와 필터를 변경해 보세요.</p>
+                      {isSearching && scope.value !== 'all' && <button type="button" onClick={searchAll}>전체 카드에서 검색</button>}
+                    </div>
+                  ) : (
+                    <>
+                      {visiblePacks.map((pack) => (
+                        <section key={pack.id} className="pack-results-section" aria-label={pack.name}>
+                          {scope.type !== 'pack' && (
+                            <div className="pack-results-heading">
+                              <span className="pack-category-badge">{categoryNames.get(pack.id)}</span>
+                              <h3>{pack.name}</h3>
+                              <span className="pack-card-count-badge">
+                                {pack.cards.length === filteredPacks.find((item) => item.id === pack.id)?.cards.length
+                                  ? `${pack.cards.length}장`
+                                  : `${pack.cards.length} / ${filteredPacks.find((item) => item.id === pack.id)?.cards.length}장`}
+                              </span>
+                              <button type="button" onClick={() => changeScope(pack.id)}>이 팩만 보기</button>
+                            </div>
+                          )}
+                          <CardGrid cards={pack.cards} onSelectCard={setSelectedCard}
+                            selectionMode={selectionMode} selectedIds={selectedIds} onToggleSelection={onToggleSelection} />
+                        </section>
+                      ))}
+                      {pageCount > 1 && (
+                        <nav className="card-pagination" aria-label="카드 목록 페이지">
+                          <button type="button" disabled={currentPage === 1} onClick={() => changePage(currentPage - 1)}>이전</button>
+                          <div>
+                            <span aria-live="polite">{currentPage} / {pageCount} 페이지</span>
+                            <small>{formatCount((currentPage - 1) * PAGE_SIZE + 1)}–{formatCount(Math.min(currentPage * PAGE_SIZE, resultCount))} / {formatCount(resultCount)}장</small>
+                          </div>
+                          <button type="button" disabled={currentPage === pageCount} onClick={() => changePage(currentPage + 1)}>다음</button>
+                        </nav>
+                      )}
+                    </>
                   )}
-                </>
-              )}
+                </>}
+              </BulkCollectionControls>
             </div>
           </>
         ) : <div className="empty-state"><p>등록된 부스터팩이 없습니다.</p></div>}

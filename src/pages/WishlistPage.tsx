@@ -1,8 +1,9 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import React, { useState, useMemo, useCallback, useRef } from 'react'
 import ReactDOM from 'react-dom/client'
 import { toPng } from 'html-to-image'
 import { CardsData, Card } from '../types/card'
 import { CardModal } from '../components/CardModal'
+import { ConfirmDialog } from '../components/ConfirmDialog'
 import { useWishlistStore } from '../stores/useWishlistStore'
 import { WishlistGrid } from '../features/wishlist/WishlistGrid'
 import { ExportViewForCapture } from '../features/wishlist/WishlistExportView'
@@ -30,6 +31,9 @@ async function waitForImages(el: HTMLElement): Promise<void> {
 export const WishlistPage: React.FC<WishlistPageProps> = ({ data }) => {
   const [selectedCard, setSelectedCard] = useState<Card | null>(null)
   const [isExporting, setIsExporting] = useState(false)
+  const [isClearDialogOpen, setIsClearDialogOpen] = useState(false)
+  const titleRef = useRef<HTMLHeadingElement>(null)
+  const clearButtonRef = useRef<HTMLButtonElement>(null)
   const wishes = useWishlistStore((state) => state.wishes)
   const clearWishlist = useWishlistStore((state) => state.clearWishlist)
 
@@ -110,7 +114,7 @@ export const WishlistPage: React.FC<WishlistPageProps> = ({ data }) => {
       <section className="wishlist-dashboard">
         <div className="wishlist-header-bar">
           <div className="wishlist-title-area">
-            <h2 className="wishlist-title">위시 리스트</h2>
+            <h2 ref={titleRef} tabIndex={-1} className="wishlist-title">위시 리스트</h2>
             <span className="wishlist-count-badge">{wishCount}장</span>
           </div>
           <div className="wishlist-header-actions">
@@ -125,12 +129,9 @@ export const WishlistPage: React.FC<WishlistPageProps> = ({ data }) => {
                   {isExporting ? '저장 중…' : '🖼 이미지로 저장'}
                 </button>
                 <button
+                  ref={clearButtonRef}
                   className="wishlist-clear-btn"
-                  onClick={() => {
-                    if (window.confirm('위시 리스트를 전부 비우시겠어요?')) {
-                      clearWishlist()
-                    }
-                  }}
+                  onClick={() => setIsClearDialogOpen(true)}
                 >
                   전체 삭제
                 </button>
@@ -156,6 +157,20 @@ export const WishlistPage: React.FC<WishlistPageProps> = ({ data }) => {
       )}
 
       <CardModal card={selectedCard} onClose={() => setSelectedCard(null)} />
+      {isClearDialogOpen && <ConfirmDialog
+        title="위시 리스트를 모두 비울까요?"
+        description={`등록된 ${Object.keys(wishes).length.toLocaleString('ko-KR')}종의 카드와 목표 수량이 삭제됩니다. 삭제한 위시 리스트는 복구할 수 없습니다.`}
+        confirmLabel="전체 삭제"
+        onCancel={() => {
+          setIsClearDialogOpen(false)
+          requestAnimationFrame(() => clearButtonRef.current?.focus({ preventScroll: true }))
+        }}
+        onConfirm={() => {
+          clearWishlist()
+          setIsClearDialogOpen(false)
+          requestAnimationFrame(() => titleRef.current?.focus({ preventScroll: true }))
+        }}
+      />}
     </div>
   )
 }

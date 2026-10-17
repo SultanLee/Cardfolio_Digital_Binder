@@ -1,0 +1,28 @@
+{
+  "units": [
+    { "id": "illumination-stars", "nameKo": "일루미네이션 스타즈", "nameJa": "イルミネーションスターズ", "aliases": ["일루미네", "イルミネ", "illumination STARS"], "series": "아이돌마스터 샤이니 컬러즈", "unit": "일루미네이션 스타즈" },
+    { "id": "lantica", "nameKo": "안티카", "nameJa": "アンティーカ", "aliases": ["L’Antica", "L'Antica", "LAntica"], "series": "아이돌마스터 샤이니 컬러즈", "unit": "안티카" },
+    { "id": "houkago-climax-girls", "nameKo": "방과 후 클라이맥스 걸즈", "nameJa": "放課後クライマックスガールズ", "aliases": ["방클걸", "放クラ", "Houkago Climax Girls", "Hokago Climax Girls"], "series": "아이돌마스터 샤이니 컬러즈", "unit": "방과 후 클라이맥스 걸즈" },
+    { "id": "alstroemeria", "nameKo": "알스트로메리아", "nameJa": "アルストロメリア", "aliases": ["알스메", "アルスト", "ALSTROEMERIA"], "series": "아이돌마스터 샤이니 컬러즈", "unit": "알스트로메리아" },
+    { "id": "straylight", "nameKo": "스트레이라이트", "nameJa": "ストレイライト", "aliases": ["스트레이", "Straylight"], "series": "아이돌마스터 샤이니 컬러즈", "unit": "스트레이라이트" },
+    { "id": "noctchill", "nameKo": "녹칠", "nameJa": "ノクチル", "aliases": ["노크칠", "noctchill"], "series": "아이돌마스터 샤이니 컬러즈", "unit": "녹칠" },
+    { "id": "shhis", "nameKo": "쉬즈", "nameJa": "シーズ", "aliases": ["시즈", "SHHis"], "series": "아이돌마스터 샤이니 컬러즈", "unit": "쉬즈" },
+    { "id": "cometik", "nameKo": "코메틱", "nameJa": "コメティック", "aliases": ["코메티크", "CoMETIK"], "series": "아이돌마스터 샤이니 컬러즈", "unit": "코메틱" },
+    { "id": "dramatic-stars", "nameKo": "드라마틱 스타즈", "nameJa": "DRAMATIC STARS", "aliases": ["드라스타", "ドラマチックスターズ"], "series": "아이돌마스터 SIDE M", "unit": "DRAMATIC STARS" },
+    { "id": "jupiter", "nameKo": "쥬피터", "nameJa": "Jupiter", "aliases": ["주피터", "ジュピター"], "series": "아이돌마스터 SIDE M", "unit": "Jupiter" },
+    { "id": "altessimo", "nameKo": "알테시모", "nameJa": "Altessimo", "aliases": ["アルテッシモ"], "series": "아이돌마스터 SIDE M", "unit": "Altessimo" },
+    { "id": "beit", "nameKo": "바이트", "nameJa": "Beit", "aliases": ["バイト"], "series": "아이돌마스터 SIDE M", "unit": "Beit" },
+    { "id": "w", "nameKo": "더블유", "nameJa": "W", "aliases": ["ダブル"], "series": "아이돌마스터 SIDE M", "unit": "W" },
+    { "id": "frame", "nameKo": "프레임", "nameJa": "FRAME", "aliases": ["フレーム"], "series": "아이돌마스터 SIDE M", "unit": "FRAME" },
+    { "id": "sai", "nameKo": "사이", "nameJa": "彩", "aliases": ["さい", "サイ", "Sai"], "series": "아이돌마스터 SIDE M", "unit": "彩" },
+    { "id": "high-joker", "nameKo": "하이 조커", "nameJa": "High×Joker", "aliases": ["ハイジョーカー", "High Joker", "HighxJoker"], "series": "아이돌마스터 SIDE M", "unit": "High×Joker" },
+    { "id": "shinsoku-ikkon", "nameKo": "신속일혼", "nameJa": "神速一魂", "aliases": ["신소쿠 잇콘", "しんそくいっこん", "Shinsoku Ikkon"], "series": "아이돌마스터 SIDE M", "unit": "神速一魂" },
+    { "id": "cafe-parade", "nameKo": "카페 퍼레이드", "nameJa": "Café Parade", "aliases": ["카페파레", "カフェパレード", "Cafe Parade"], "series": "아이돌마스터 SIDE M", "unit": "Café Parade" },
+    { "id": "mofumofuen", "nameKo": "모후모후엔", "nameJa": "もふもふえん", "aliases": ["모후모후", "モフモフエン", "Mofumofuen"], "series": "아이돌마스터 SIDE M", "unit": "もふもふえん" },
+    { "id": "sem", "nameKo": "세무", "nameJa": "S.E.M", "aliases": ["에스이엠", "セム", "SEM"], "series": "아이돌마스터 SIDE M", "unit": "S.E.M" },
+    { "id": "the-kogado", "nameKo": "더 코가도", "nameJa": "THE 虎牙道", "aliases": ["더 코가도우", "虎牙道", "ザこがどう", "THE Kogado", "THE Kogadou"], "series": "아이돌마스터 SIDE M", "unit": "THE 虎牙道" },
+    { "id": "f-lags", "nameKo": "플래그스", "nameJa": "F-LAGS", "aliases": ["플래그즈", "フラッグス", "FLAGS"], "series": "아이돌마스터 SIDE M", "unit": "F-LAGS" },
+    { "id": "legenders", "nameKo": "레젠더스", "nameJa": "Legenders", "aliases": ["레전더스", "レジェンダーズ"], "series": "아이돌마스터 SIDE M", "unit": "Legenders" },
+    { "id": "c-first", "nameKo": "클래스 퍼스트", "nameJa": "C.FIRST", "aliases": ["클라퍼", "クラスファースト", "クラファ", "CFIRST", "C FIRST"], "series": "아이돌마스터 SIDE M", "unit": "C.FIRST" }
+  ]
+}
