@@ -15,7 +15,7 @@
 - 팩별 수집 진척도 표시
 - 원하는 카드를 추가하고 목표 수량을 설정하는 위시 리스트
 - 위시 리스트를 카드 이미지와 수량이 담긴 PNG로 내보내기
-- **아이돌 검색**: 전체·시리즈·팩별로 한국어·일본어·영문 이름과 별칭 검색 지원
+- **아이돌 검색**: 전체·시리즈·팩별 이름·별칭과 샤니마스(REFRAC7IONS 포함)·SideM 유닛 검색, 쉼표로 여러 이름 검색 지원
 - **검색 편의 기능**: 자동완성 목록, 단체 카드 포함·제외 옵션, 로고 클릭 시 전체 카드 화면으로 복귀
 
 ## 기술 구성
@@ -86,16 +86,18 @@ Cardfolio/
 │   ├── data/
 │   │   ├── cards.json         # 생성된 카드 메타데이터 (2,814장)
 │   │   ├── idol.json          # 인물 명부 및 검색 별칭
+│   │   ├── idol-units.json    # 샤니마스·SideM 유닛 이름 및 별칭
 │   │   ├── idol-search-groups.json      # 신호등 등 검색 그룹
 │   │   ├── cinderella-pack-orders.json # 신데렐라 걸즈 팩별 순서
 │   │   ├── moiw-pack-orders.json        # MOIW 팩별 순서
 │   │   ├── iwsf-pack-order.json         # IWSF 카드 순서
-│   │   └── shiny-refractions.json      # REFRAC7IONS 그룹 구성
+│   │   └── shiny-refractions.json      # REFRAC7IONS 그룹 구성·검색 별칭
 │   ├── features/
 │   │   ├── collection/        # 수집 진척도 및 필터 컴포넌트
 │   │   └── wishlist/          # 위시 리스트·PNG 내보내기 도메인
 │   ├── pages/                 # 카드 목록·위시 리스트 화면
 │   ├── stores/                # 보유 수량·위시 리스트·테마 저장소
+│   │   └── useCardBrowseStore.ts # 화면 이동 시 검색·필터·페이지 유지
 │   ├── styles/                # UI 스타일시트 (app.css)
 │   ├── types/                 # 카드 및 인물 타입 정의 (card.ts, idol.ts)
 │   └── utils/

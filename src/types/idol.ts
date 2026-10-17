@@ -11,5 +11,8 @@ export interface Idol {
 export interface IdolGroup {
   id: string
   name: string
+  nameKo?: string
+  nameJa?: string
+  aliases?: string[]
   idolIds: string[]
 }

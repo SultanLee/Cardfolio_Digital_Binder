@@ -1,38 +1,64 @@
 {
+  "project": {
+    "nameKo": "리프랙션즈",
+    "nameJa": "PJ: REFRAC7IONS",
+    "aliases": ["리프랙션스", "리프랙션", "리프락션즈", "REFRAC7IONS", "REFRACTIONS", "PJ: REFRACTIONS", "リフラクションズ"]
+  },
   "groups": [
     {
       "id": "im-a-cutie-finder",
       "name": "I'm a Cutie Finder",
+      "nameKo": "아임 어 큐티 파인더",
+      "nameJa": "I'm a Cutie Finder",
+      "aliases": ["아이큐", "アイキュー", "アイムアキューティーファインダー", "Im a Cutie Finder", "I’m a Cutie Finder"],
       "idolIds": ["mayuzumi-fuyuko", "sonoda-chiyoko", "suzuki-hana", "nanakusa-nichika", "osaki-tenka"]
     },
     {
       "id": "fumage",
       "name": "Fumage",
+      "nameKo": "퓨마주",
+      "nameJa": "Fumage",
+      "aliases": ["퓨마쥬", "フュマージュ"],
       "idolIds": ["asakura-toru", "yukoku-kiriko"]
     },
     {
       "id": "sonic-heart-and-signal",
       "name": "Sonic Heart (and Signal)",
+      "nameKo": "소닉 하트 앤드 시그널",
+      "nameJa": "Sonic Heart (and Signal)",
+      "aliases": ["소닉하트", "소니하", "ソニハ", "ソニックハートアンドシグナル", "Sonic Heart and Signal", "Sonic Heart"],
       "idolIds": ["hachimiya-meguru", "ichikawa-hinana", "tsukioka-kogane", "komiya-kaho"]
     },
     {
       "id": "sigma-desire",
       "name": "∑ Desire",
+      "nameKo": "시그마 디자이어",
+      "nameJa": "∑ Desire",
+      "aliases": ["시그마", "シグマディザイア", "Sigma Desire", "Σ Desire"],
       "idolIds": ["serizawa-asahi", "higuchi-madoka", "aketa-mikoto", "ikaruga-luca", "saijo-juri", "tanaka-mamimi"]
     },
     {
       "id": "the-futari-traveler",
       "name": "ザ・ふたりトラベラー",
+      "nameKo": "더 후타리 트래블러",
+      "nameJa": "ザ・ふたりトラベラー",
+      "aliases": ["후타리 트래블러", "ザふたりトラベラー", "The Futari Traveler"],
       "idolIds": ["ikuta-haruki", "sakuragi-mano"]
     },
     {
       "id": "higanryu",
       "name": "彼岸流",
+      "nameKo": "피안류",
+      "nameJa": "彼岸流",
+      "aliases": ["히간류", "히간류우", "ヒガンリュウ", "ひがんりゅう", "Higanryu", "Higanryuu"],
       "idolIds": ["arisugawa-natsuha", "izumi-mei", "kuwayama-chiyuki", "kazano-hiori", "shirase-sakuya"]
     },
     {
       "id": "no-1-feel-alone",
       "name": "No 1 feel alone",
+      "nameKo": "노 원 필 얼론",
+      "nameJa": "No 1 feel alone",
+      "aliases": ["ノーワンフィールアローン", "No one feel alone"],
       "idolIds": ["morino-rinze", "osaki-amana", "fukumaru-koito", "mitsumine-yuika"]
     }
   ]

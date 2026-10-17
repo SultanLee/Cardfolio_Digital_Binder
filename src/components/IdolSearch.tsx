@@ -1,6 +1,6 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { Idol } from '../types/idol'
-import { getIdolSearchSuggestions } from '../utils/idolSearch'
+import { getIdolSearchSuggestions, replaceLastSearchTerm } from '../utils/idolSearch'
 
 interface IdolSearchProps {
   idols: readonly Idol[]
@@ -40,7 +40,7 @@ export const IdolSearch: React.FC<IdolSearchProps> = ({ idols, value, onChange, 
   }, [id, activeSuggestion])
 
   const selectSuggestion = (nextValue: string) => {
-    onChange(nextValue)
+    onChange(replaceLastSearchTerm(value, nextValue))
     inputRef.current?.focus()
     setIsOpen(false)
     setActiveIndex(-1)
@@ -70,7 +70,7 @@ export const IdolSearch: React.FC<IdolSearchProps> = ({ idols, value, onChange, 
                 setActiveIndex(-1)
                 setIsOpen(true)
               }}
-              placeholder="이름 검색"
+              placeholder="이름·유닛 검색"
               autoComplete="off"
               role="combobox"
               aria-autocomplete="list"
@@ -141,6 +141,7 @@ export const IdolSearch: React.FC<IdolSearchProps> = ({ idols, value, onChange, 
         {hasIdolData
           ? `${scopeName}에서 검색 · 한국어 / 日本語 / English`
           : '선택한 범위의 아이돌 정보는 준비 중입니다.'}
+        <span className="idol-search-multi-hint">여러 명은 쉼표로 구분 · 예: 하루카, 치하야</span>
       </p>
     </div>
   )

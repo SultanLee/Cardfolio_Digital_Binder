@@ -5,11 +5,12 @@ import { CardGrid } from '../components/CardGrid'
 import { CardModal } from '../components/CardModal'
 import { getSortedPacks, groupPacksByCategory } from '../utils/packCategories'
 import { useCollectionStore, SortMode } from '../stores/useCollectionStore'
-import { CollectionFilter, FilterMode } from '../features/collection/CollectionFilter'
+import { CollectionFilter } from '../features/collection/CollectionFilter'
+import { useCardBrowseStore } from '../stores/useCardBrowseStore'
 import { RaritySummary } from '../features/collection/RaritySummary'
 import { IdolSearch } from '../components/IdolSearch'
 import idolData from '../data/idol.json'
-import { findMatchingIdolIds } from '../utils/idolSearch'
+import { findMatchingIdolIds, splitIdolSearchQuery } from '../utils/idolSearch'
 import { resolveCardScope, filterAndSortPacks, paginatePacks } from '../utils/cardBrowse'
 
 interface CardListPageProps {
@@ -22,13 +23,13 @@ const formatCount = (count: number) => count.toLocaleString('ko-KR')
 export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
   const sortedPacks = useMemo(() => getSortedPacks(data.packs), [data.packs])
   const [selectedCard, setSelectedCard] = useState<Card | null>(null)
-  const [filterMode, setFilterMode] = useState<FilterMode>('all')
-  const [selectedRarity, setSelectedRarity] = useState<string | null>(null)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [includeGroupCards, setIncludeGroupCards] = useState(true)
-  const [page, setPage] = useState(1)
+  const {
+    filterMode, setFilterMode, selectedRarity, setSelectedRarity,
+    searchQuery, setSearchQuery, includeGroupCards, setIncludeGroupCards,
+    page, setPage, resetFilters,
+  } = useCardBrowseStore()
   const resultsRef = useRef<HTMLDivElement>(null)
-  const isSearching = searchQuery.trim().length > 0
+  const isSearching = splitIdolSearchQuery(searchQuery).length > 0
   const quantities = useCollectionStore((state) => state.quantities)
   const selectedScope = useCollectionStore((state) => state.selectedCardScope)
   const setSelectedScope = useCollectionStore((state) => state.setSelectedCardScope)
@@ -82,17 +83,10 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
     ? Math.round((ownedUniqueCount / searchedCards.length) * 1000) / 10 : 0
   const hasFilters = filterMode !== 'all' || selectedRarity !== null || (isSearching && !includeGroupCards)
 
-  React.useEffect(() => { setPage(1) }, [scope.value, searchQuery, filterMode, selectedRarity, sortMode, includeGroupCards])
-
   const changeScope = (value: string) => {
     setSelectedScope(value)
     setSelectedRarity(null)
     setPage(1)
-  }
-  const resetFilters = () => {
-    setFilterMode('all')
-    setSelectedRarity(null)
-    setIncludeGroupCards(true)
   }
   const searchAll = () => {
     resetFilters()
@@ -170,7 +164,10 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
                 <div className="sort-control-group">
                   <label htmlFor="card-sort-select" className="sort-label">정렬</label>
                   <div className="sort-select-wrapper">
-                    <select id="card-sort-select" className="sort-select" value={sortMode} onChange={(event) => setSortMode(event.target.value as SortMode)}>
+                    <select id="card-sort-select" className="sort-select" value={sortMode} onChange={(event) => {
+                      setSortMode(event.target.value as SortMode)
+                      setPage(1)
+                    }}>
                       <option value="default">기본 순서 (번호순)</option>
                       <option value="rarity-desc">등급 높은 순</option>
                       <option value="rarity-asc">등급 낮은 순</option>

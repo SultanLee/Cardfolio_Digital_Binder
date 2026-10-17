@@ -379,6 +379,8 @@ optgroup option {
   color: var(--text-secondary);
 }
 
+.idol-search-multi-hint { display: block; }
+
 .idol-search-results {
   display: flex;
   align-items: center;
