@@ -8,6 +8,7 @@ import { useCollectionStore, SortMode } from '../stores/useCollectionStore'
 import { CollectionFilter } from '../features/collection/CollectionFilter'
 import { useCardBrowseStore } from '../stores/useCardBrowseStore'
 import { RaritySummary } from '../features/collection/RaritySummary'
+import { BulkCollectionControls } from '../features/collection/BulkCollectionControls'
 import { IdolSearch } from '../components/IdolSearch'
 import idolData from '../data/idol.json'
 import { findMatchingIdolIds, splitIdolSearchQuery } from '../utils/idolSearch'
@@ -209,50 +210,57 @@ export const CardListPage: React.FC<CardListPageProps> = ({ data }) => {
                 </p>
               )}
 
-              {isSearching && mappedCardCount === 0 ? (
-                <div className="empty-state idol-search-empty">
-                  <p>선택한 범위에는 아직 아이돌 정보가 등록되지 않았습니다.</p>
-                  {scope.value !== 'all' && hasSearchableCards && (
-                    <button type="button" onClick={searchAll}>전체 카드에서 검색</button>
-                  )}
-                </div>
-              ) : resultCount === 0 ? (
-                <div className="empty-state idol-search-empty">
-                  <p>{isSearching ? '이름과 선택한 필터에 맞는 카드가 없습니다.' : '선택한 필터에 맞는 카드가 없습니다.'}</p>
-                  <p>이름을 확인하거나 검색 범위와 필터를 변경해 보세요.</p>
-                  {isSearching && scope.value !== 'all' && <button type="button" onClick={searchAll}>전체 카드에서 검색</button>}
-                </div>
-              ) : (
-                <>
-                  {visiblePacks.map((pack) => (
-                    <section key={pack.id} className="pack-results-section" aria-label={pack.name}>
-                      {scope.type !== 'pack' && (
-                        <div className="pack-results-heading">
-                          <span className="pack-category-badge">{categoryNames.get(pack.id)}</span>
-                          <h3>{pack.name}</h3>
-                          <span className="pack-card-count-badge">
-                            {pack.cards.length === filteredPacks.find((item) => item.id === pack.id)?.cards.length
-                              ? `${pack.cards.length}장`
-                              : `${pack.cards.length} / ${filteredPacks.find((item) => item.id === pack.id)?.cards.length}장`}
-                          </span>
-                          <button type="button" onClick={() => changeScope(pack.id)}>이 팩만 보기</button>
-                        </div>
+              <BulkCollectionControls
+                key={JSON.stringify([scope.value, searchQuery, filterMode, selectedRarity, sortMode, includeGroupCards])}
+                visibleCards={visiblePacks.flatMap((pack) => pack.cards)}>
+                {({ selectionMode, selectedIds, onToggleSelection }) => <>
+                  {isSearching && mappedCardCount === 0 ? (
+                    <div className="empty-state idol-search-empty">
+                      <p>선택한 범위에는 아직 아이돌 정보가 등록되지 않았습니다.</p>
+                      {scope.value !== 'all' && hasSearchableCards && (
+                        <button type="button" onClick={searchAll}>전체 카드에서 검색</button>
                       )}
-                      <CardGrid cards={pack.cards} onSelectCard={setSelectedCard} />
-                    </section>
-                  ))}
-                  {pageCount > 1 && (
-                    <nav className="card-pagination" aria-label="카드 목록 페이지">
-                      <button type="button" disabled={currentPage === 1} onClick={() => changePage(currentPage - 1)}>이전</button>
-                      <div>
-                        <span aria-live="polite">{currentPage} / {pageCount} 페이지</span>
-                        <small>{formatCount((currentPage - 1) * PAGE_SIZE + 1)}–{formatCount(Math.min(currentPage * PAGE_SIZE, resultCount))} / {formatCount(resultCount)}장</small>
-                      </div>
-                      <button type="button" disabled={currentPage === pageCount} onClick={() => changePage(currentPage + 1)}>다음</button>
-                    </nav>
+                    </div>
+                  ) : resultCount === 0 ? (
+                    <div className="empty-state idol-search-empty">
+                      <p>{isSearching ? '이름과 선택한 필터에 맞는 카드가 없습니다.' : '선택한 필터에 맞는 카드가 없습니다.'}</p>
+                      <p>이름을 확인하거나 검색 범위와 필터를 변경해 보세요.</p>
+                      {isSearching && scope.value !== 'all' && <button type="button" onClick={searchAll}>전체 카드에서 검색</button>}
+                    </div>
+                  ) : (
+                    <>
+                      {visiblePacks.map((pack) => (
+                        <section key={pack.id} className="pack-results-section" aria-label={pack.name}>
+                          {scope.type !== 'pack' && (
+                            <div className="pack-results-heading">
+                              <span className="pack-category-badge">{categoryNames.get(pack.id)}</span>
+                              <h3>{pack.name}</h3>
+                              <span className="pack-card-count-badge">
+                                {pack.cards.length === filteredPacks.find((item) => item.id === pack.id)?.cards.length
+                                  ? `${pack.cards.length}장`
+                                  : `${pack.cards.length} / ${filteredPacks.find((item) => item.id === pack.id)?.cards.length}장`}
+                              </span>
+                              <button type="button" onClick={() => changeScope(pack.id)}>이 팩만 보기</button>
+                            </div>
+                          )}
+                          <CardGrid cards={pack.cards} onSelectCard={setSelectedCard}
+                            selectionMode={selectionMode} selectedIds={selectedIds} onToggleSelection={onToggleSelection} />
+                        </section>
+                      ))}
+                      {pageCount > 1 && (
+                        <nav className="card-pagination" aria-label="카드 목록 페이지">
+                          <button type="button" disabled={currentPage === 1} onClick={() => changePage(currentPage - 1)}>이전</button>
+                          <div>
+                            <span aria-live="polite">{currentPage} / {pageCount} 페이지</span>
+                            <small>{formatCount((currentPage - 1) * PAGE_SIZE + 1)}–{formatCount(Math.min(currentPage * PAGE_SIZE, resultCount))} / {formatCount(resultCount)}장</small>
+                          </div>
+                          <button type="button" disabled={currentPage === pageCount} onClick={() => changePage(currentPage + 1)}>다음</button>
+                        </nav>
+                      )}
+                    </>
                   )}
-                </>
-              )}
+                </>}
+              </BulkCollectionControls>
             </div>
           </>
         ) : <div className="empty-state"><p>등록된 부스터팩이 없습니다.</p></div>}

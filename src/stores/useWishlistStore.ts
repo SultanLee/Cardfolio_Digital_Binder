@@ -12,12 +12,16 @@ export interface WishlistState {
   toggleWishlist: (cardId: string) => void
   setWishQuantity: (cardId: string, qty: number) => void
   clearWishlist: () => void
+  lastBulkAddition: string[] | null
+  addManyToWishlist: (cardIds: string[]) => number
+  undoBulkAddition: () => void
 }
 
 export const useWishlistStore = create<WishlistState>()(
   persist(
     (set, get) => ({
       wishes: {},
+      lastBulkAddition: null,
 
       isWished: (cardId: string) => {
         return cardId in get().wishes
@@ -29,16 +33,23 @@ export const useWishlistStore = create<WishlistState>()(
 
       addToWishlist: (cardId: string, targetQty = 1) => {
         const safeQty = Math.max(1, Math.floor(isNaN(targetQty) ? 1 : targetQty))
-        set((state) => ({
-          wishes: { ...state.wishes, [cardId]: safeQty },
-        }))
+        set((state) => {
+          if (state.wishes[cardId] === safeQty) return state
+          return {
+            wishes: { ...state.wishes, [cardId]: safeQty },
+            lastBulkAddition: state.lastBulkAddition?.includes(cardId) ? null : state.lastBulkAddition,
+          }
+        })
       },
 
       removeFromWishlist: (cardId: string) => {
         set((state) => {
           const next = { ...state.wishes }
           delete next[cardId]
-          return { wishes: next }
+          return {
+            wishes: next,
+            lastBulkAddition: state.lastBulkAddition?.includes(cardId) ? null : state.lastBulkAddition,
+          }
         })
       },
 
@@ -53,18 +64,37 @@ export const useWishlistStore = create<WishlistState>()(
       setWishQuantity: (cardId: string, qty: number) => {
         const safeQty = Math.max(1, Math.floor(isNaN(qty) ? 1 : qty))
         if (!get().isWished(cardId)) return
-        set((state) => ({
-          wishes: { ...state.wishes, [cardId]: safeQty },
-        }))
+        get().addToWishlist(cardId, safeQty)
       },
 
       clearWishlist: () => {
-        set({ wishes: {} })
+        set({ wishes: {}, lastBulkAddition: null })
+      },
+
+      addManyToWishlist: (cardIds: string[]) => {
+        const addedIds = [...new Set(cardIds)].filter((id) => !(id in get().wishes))
+        if (addedIds.length === 0) return 0
+        set((state) => {
+          const wishes = { ...state.wishes }
+          for (const id of addedIds) wishes[id] = 1
+          return { wishes, lastBulkAddition: addedIds }
+        })
+        return addedIds.length
+      },
+
+      undoBulkAddition: () => {
+        set((state) => {
+          if (!state.lastBulkAddition) return state
+          const wishes = { ...state.wishes }
+          for (const id of state.lastBulkAddition) delete wishes[id]
+          return { wishes, lastBulkAddition: null }
+        })
       },
     }),
     {
       name: 'cardfolio-wishlist-storage',
       storage: createJSONStorage(() => localStorage),
+      partialize: ({ wishes }) => ({ wishes }),
     }
   )
 )
